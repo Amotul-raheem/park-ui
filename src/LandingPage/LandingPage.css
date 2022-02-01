@@ -1,0 +1,28 @@
+.block-left {
+    width: 50%;
+    height: 100vh;
+    background-color: #FFFFFF;
+    float: left;
+}
+
+.block-right {
+    width: 50%;
+    height: 100vh;
+    background: #01194A;
+    float: left;
+    transform: rotate(-10deg);
+}
+
+/* MEDIA QUERIES FOR 545px <= Resolutions */
+
+@media (max-width: 545px) {
+    .block-left {
+        display: block;
+        width: 100%;
+    }
+
+    .block-right {
+        display: block;
+        width: 100%;
+    }
+}

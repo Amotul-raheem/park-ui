@@ -1,13 +1,11 @@
+import LandingPage from "./LandingPage/LandingPage";
 
-const helloWorld = () => {
-  return "Hello World"
-}
 function App() {
-  return (
-    <div>
-        {helloWorld()}
-    </div>
-  );
+    return (
+        <div>
+            <LandingPage/>
+        </div>
+    );
 }
 
 export default App;
