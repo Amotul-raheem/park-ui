@@ -1,9 +1,11 @@
 
-
+const helloWorld = () => {
+  return "Hello World"
+}
 function App() {
   return (
     <div>
-      Hello world
+        {helloWorld()}
     </div>
   );
 }
