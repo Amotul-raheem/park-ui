@@ -1,18 +1,13 @@
-*{
+
+.container{
+    align-items: center;
+    min-height: 100vh;
+    background-color: #E5E5E5;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Asap', sans-serif;
     font-style: normal;
-
-}
-body{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #E5E5E5;
 }
 
 .form-content-left{
@@ -53,7 +48,7 @@ body{
     justify-content: center;
     width: 50%;
     align-items: center;
-    padding: 0 10px;
+    padding-left: 250px;
     background-color: #E5E5E5;
 
 }
@@ -71,13 +66,10 @@ body{
     letter-spacing: 0.02em;
     color: #000000;
 }
-.form-input-signup{
+h5{
     position: absolute;
     width: 335px;
     height: 28px;
-    left: 768px;
-    top: 217px;
-
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
