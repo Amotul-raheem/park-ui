@@ -18,7 +18,7 @@ function SignIn() {
             <div className="sign-in logo-container"/>
             <div className="sign-in sign-in-container">
                 <div className="sign-in-form">
-                    <h1> Sign In</h1>
+                    <h1 className="sign-in-header"> Sign In</h1>
                     <FormInput
                         name={"email"}
                         setValue={setEmail}
