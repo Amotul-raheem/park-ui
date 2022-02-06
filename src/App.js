@@ -1,13 +1,12 @@
+import SignIn from "./components/SignIn/SignIn";
+import "./App.css"
 
-const helloWorld = () => {
-  return "Hello World"
-}
 function App() {
-  return (
-    <div>
-        {helloWorld()}
-    </div>
-  );
+    return (
+        <div>
+            <SignIn/>
+        </div>
+    );
 }
 
 export default App;
