@@ -1,28 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,600;1,400&display=swap');
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #eef1f7;
-   overflow-x: hidden;
-}
-.Homepage {
+.homepage {
     width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'asap';
 }
 
-.Homepage .Homepage__header {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow-x: hidden;
-
+.homepage-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48%;
+    height: 100%;
+    background: #01194A;
+    transform: skew(15deg);
+    transform-origin: top;
 }
-.Header__nav {
+
+.header-nav-bar {
     margin-top: -30px;
     position: relative;
     top: 0;
@@ -33,37 +27,45 @@ body{
     align-items: center;
 }
 
-.Header__nav button:active {
+.header-nav-bar button:active {
     outline: none;
-    background: #3e0071;
+    color: #FFFFFF;
+    background: #01194A;
 }
 
-.Header__nav button:focus {
+.header-nav-bar button:focus {
     outline: none;
-    background: #3e0071;
+    color: #FFFFFF;
+    background: #01194A;
 }
 
-.Homepage ul {
+.header-nav-bar ul {
     position: relative;
     display: flex;
 }
 
-.Homepage ul li {
+.header-nav-bar ul li {
     list-style: none;
 }
-h1{
+
+.header-nav-bar .logo {
+    text-decoration: none;
+}
+
+.homepage-name {
     font-size: 50px;
     color: #425A8A;
     padding-left: 30px;
     font-style: italic;
-    font-family: 'asap';
+    text-decoration: none;
 }
-.Homepage .Nav__text{
+
+.header-nav-bar .nav-bar-text {
     position: relative;
     color: black;
 }
 
-.Homepage ul li a {
+.header-nav-bar ul li a {
     position: relative;
     color: #fff;
     left: 180px;
@@ -72,7 +74,7 @@ h1{
     text-decoration: none;
 }
 
-.Header__nav button {
+.header-nav-bar button {
     position: relative;
     border: 0;
     appearance: none;
@@ -86,14 +88,12 @@ h1{
     color: #425A8A;
     width: 150px;
     font-size: 1rem;
-    font-family:'asap';
     background: #ffffff;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, .13);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .13);
     transition: all .2s ease;
 }
 
-
-.content {
+.homepage-text-container {
     position: relative;
     width: 100%;
     display: flex;
@@ -101,34 +101,34 @@ h1{
     align-items: center;
 }
 
-.content .textBox {
+.homepage-text-container .text-box {
     padding-left: 30px;
     position: relative;
     max-width: 600px;
 }
 
-.content .textBox h2 {
+.homepage-text-container .text-box h2 {
     color: #01194A;
     font-size: 68px;
     line-height: 1.4em;
     font-weight: 500;
 }
 
-.content .textBox h2 span {
+.homepage-text-container .text-box h2 span {
     color: #425A8A;
     font-style: italic;
     font-size: 68px;
     font-weight: 900;
 }
 
-.content .textBox p {
+.homepage-text-container .text-box p {
     line-height: 28px;
     color: #576072;
-    font-weight:lighter ;
+    font-weight: lighter;
     font-size: 20px;
 }
 
-.content .textBox a {
+.homepage-text-container .text-box a {
     display: inline-block;
     margin-top: 20px;
     padding: 8px 20px;
@@ -139,7 +139,8 @@ h1{
     letter-spacing: 1px;
     text-decoration: none;
 }
-.btn-submit-form {
+
+.homepage-learn-more-btn {
     position: relative;
     border: 0;
     appearance: none;
@@ -151,22 +152,9 @@ h1{
     color: #fff;
     width: 150px;
     font-size: 1rem;
-    font-family:'asap';
     background: #01194A;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, .13);
     transition: all .2s ease;
 }
-
-.background-one {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 47%;
-    height: 100%;
-    background: #01194A;
-    transform: skew(15deg);
-    transform-origin:top;
-}
-
 
 

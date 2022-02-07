@@ -1,20 +1,19 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import React from 'react';
 import SignIn from "./components/SignIn/SignIn";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import "./App.css"
-import React, {Component} from 'react';
-import LandingPage from "./components/landingpage/LandingPage";
-import SignUp from "./components/signup/SignUp";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
     return (
         <Router>
             <Routes>
+                <Route exact path={"/"} element={<HomePage/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
-              <Route exact path={"/"} element={<LandingPage/>}/>
-              <Route path={"/sign-up"} element={<SignUp/>}/>
+                <Route path={"/sign-up"} element={<SignUp/>}/>
             </Routes>
         </Router>
     );
