@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./SignIn.css"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
+import {Link} from "react-router-dom";
 
 function SignIn() {
     const [email, setEmail] = useState();
@@ -27,7 +28,7 @@ function SignIn() {
                         name={"password"}
                         setValue={setPassword}
                     />
-                    <h4 className="sign-in-forgot"><a href="#">Forgot Password?</a></h4>
+                    <h4 className="sign-in-forgot"><Link to="/forgot-password">Forgot Password?</Link></h4>
                     <FormButton
                         name={"Sign In"}
                         onClick={handleSignIn}
