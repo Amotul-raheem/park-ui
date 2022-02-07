@@ -9,7 +9,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 48%;
+    width: 49%;
     height: 100%;
     background: #01194A;
     transform: skew(15deg);
@@ -46,6 +46,8 @@
 
 .header-nav-bar ul li {
     list-style: none;
+    font-size: 19px;
+    font-weight: normal;
 }
 
 .header-nav-bar .logo {
