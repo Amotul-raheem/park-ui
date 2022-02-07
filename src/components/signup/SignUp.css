@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,600;1,400&display=swap');
+.Details {
+    display: flex;
+    justify-content: center;
+    font-family: 'asap';
+
+}
+h3{
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: asap;
+    color: #576072;
+}
+h5{
+    color: #576072;
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: asap;
+    text-align: center;
+    margin-top: 10px;
+}
+a{
+    text-decoration: none;
+}
+.Details .Details-container {
+    margin: 30px 70px;
+    padding-left: 250px;
+    color: #000;
+}
+.Details-container header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 auto -30px 340px;
+    position: relative;
+    height: 30px;
+    font-family: 'asap';
+    width: 200px;
+    overflow: hidden;
+}
+
+.Details-container .header-headings {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+}
+
+.DetailsForm {
+    padding-top: 40px;
+    padding-left: 200px;
+
+}
+.DetailsForm input {
+    display: flex;
+    border: 0;
+    padding: 13px;
+    font-size: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    width: 90%;
+    margin-top: -9px;
+    margin-bottom: -9px;
+    border-radius: 5px;
+}
+#firstname {
+    width: 80%
+}
+#lastname {
+    width: 80%
+}
+
+.btn-submit-form-one {
+    border: 0;
+    width: 96%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding: 15px 0;
+    margin-top: 40px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: asap;
+    background: #01194A;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, .13);
+    transition: all .2s ease;
+}
+
+.DetailsForm button:hover {
+    background: #01194A;
+}
+
+.DetailsForm button:active {
+    outline: none;
+    background: #01194A;
+}
+
+.DetailsForm button:focus {
+    outline: none;
+    background: #3e0071;
+}
+
+.background-two {
+    position: absolute;
+    background-image: url(http://www.transparenttextures.com/patterns/black-twill.png);
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    background-color: #01194A;
+}
+
