@@ -11,7 +11,7 @@ function ForgotPassword() {
             <div className="forgot-password forgot-password-container">
                 <div className="forgot-password-form">
                     <div className="image-text-container">
-                        <img src={key} alt="key-image"/>
+                        <img src={key} alt="key-image" className="key-image"/>
                     <h1 className="forgot-password-header">Forgot Password?</h1>
                     <p className="forgot-password-text">Enter the email associated with your account and we'll send an
                         email to reset your password</p>
