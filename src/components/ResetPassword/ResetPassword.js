@@ -17,16 +17,16 @@ function ResetPassword() {
     }
 
     return (
-        <div className={'reset-password-successful'}>
-            <div className="reset-password-successful logo-container">
+        <div className={'reset-password'}>
+            <div className="reset-password logo-container">
                 <HomePageLogo/>
             </div>
-            <div className="reset-password-successful reset-password-successful-container">
-                <div className="reset-password-successful-form">
-                    <div className="reset-password-successful-text-container">
+            <div className="reset-password reset-password-container">
+                <div className="reset-password-form">
+                    <div className="reset-password-text-container">
                         <img src={key} alt="key-image" className="key-image"/>
-                        <h1 className="reset-password-successful-header"> Create a new password</h1>
-                        <h4 className="reset-password-successful-text"> Password must be different from previously used
+                        <h1 className="reset-password-header"> Create a new password</h1>
+                        <h4 className="reset-password-text"> Password must be different from previously used
                             password</h4>
                     </div>
 
@@ -40,7 +40,7 @@ function ResetPassword() {
                         type={"password"}
                         setValue={setConfirmPassword}
                     />
-                    <div className="reset-password-successful-button-container">
+                    <div className="reset-password-button-container">
                         <FormButton
                             name={"Reset Password"}
                             onClick={handleResetPassword}

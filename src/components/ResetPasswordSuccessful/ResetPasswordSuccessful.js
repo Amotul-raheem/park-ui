@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./ResetPasswordSuccessful.css"
 import {useNavigate} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
