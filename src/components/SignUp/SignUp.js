@@ -7,8 +7,6 @@ import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 
 function SignUp() {
 
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -17,8 +15,6 @@ function SignUp() {
 
     function handleSignUp(e) {
         e.preventDefault()
-        console.log(firstName)
-        console.log(lastName)
         console.log(username)
         console.log(email)
         console.log(password)
@@ -33,16 +29,6 @@ function SignUp() {
             <div className="sign-up sign-up-container">
                 <div className="sign-up-form">
                     <h1 className="sign-up-header"> Sign Up</h1>
-                    <FormInput
-                        name={"first name"}
-                        type={"text"}
-                        setValue={setFirstName}
-                    />
-                    <FormInput
-                        name={"last name"}
-                        type={"text"}
-                        setValue={setLastName}
-                    />
                     <FormInput
                         name={"username"}
                         type={"text"}
