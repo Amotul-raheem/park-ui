@@ -3,6 +3,7 @@ import "./ForgotPassword.css"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import key from "../../images/key.png"
+import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 
 function ForgotPassword() {
 
@@ -15,7 +16,9 @@ function ForgotPassword() {
 
     return (
         <div className='forgot-password'>
-            <div className="forgot-password logo-container"/>
+            <div className="forgot-password logo-container">
+                <HomePageLogo/>
+            </div>
             <div className="forgot-password forgot-password-container">
                 <div className="forgot-password-form">
                     <div className="image-text-container">
@@ -27,9 +30,10 @@ function ForgotPassword() {
                     </div>
                     <FormInput
                         name={"email"}
+                        type={"email"}
                         setValue={setEmail}
                     />
-                    <div className="button-container">
+                    <div className="forgot-password-button-container">
                         <FormButton
                             name={"Send link to mail"}
                             onClick={handleForgotPassword}

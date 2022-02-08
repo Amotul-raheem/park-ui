@@ -1,0 +1,18 @@
+.homepage-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.homepage-logo h1 {
+    font-style: italic;
+    font-size: 60px;
+    font-weight: normal;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.homepage-logo .logo-link {
+    text-decoration: none;
+}

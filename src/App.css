@@ -1,3 +1,5 @@
 body {
     font-family: Asap;
+    overflow-x: hidden;
+    background-color: #eef1f7
 }
