@@ -1,0 +1,14 @@
+.form-button-container {
+    padding-left: 3px;
+}
+
+.form-button {
+    width: 570px;
+    height: 60px;
+    background: #01194A;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+.sign-up {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+}
+
+.logo-container {
+    width: 30%;
+    left: 0;
+    background-color: #01194A;
+}
+
+.sign-up-container {
+    right: 0;
+    background-color: #E5E5E5;
+    width: 70%;
+}
+
+.sign-up-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sign-up-header {
+    text-align: center;
+    padding-bottom: 10px;
+    color: #01194A;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    font-style: normal;
+}
+
+.sign-in-have-account {
+    text-align: center;
+    color: #576072;
+    font-weight: normal;
+}
+
+.sign-in-have-account a {
+    color: #4A2CFC;
+    text-decoration: none;
+}
+
+.sign-up-button-container {
+    padding-top: 20px;
+}
