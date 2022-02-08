@@ -9,7 +9,6 @@ function ResetPassword() {
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
 
-
     function handleResetPassword(e) {
         e.preventDefault()
         console.log(password)
@@ -29,7 +28,6 @@ function ResetPassword() {
                         <h4 className="reset-password-text"> Password must be different from previously used
                             password</h4>
                     </div>
-
                     <FormInput
                         name={"password"}
                         type={"password"}
