@@ -6,20 +6,49 @@ import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 
 function SignUp() {
+    const [values, setValues] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    })
+    const inputs = [
+        {
+            id: 1,
+            name: "username",
+            type: "text"
+        },
+        {
+            id: 2,
+            name: "email",
+            type: "email"
+        },
+        {
+            id: 3,
+            name: "password",
+            type: "password"
+        },
+        {
+            id: 4,
+            name: "confirm password",
+            type: "password"
+        },
+    ]
 
-    const [username, setUsername] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+
+    function handleChange(e) {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
 
 
     function handleSignUp(e) {
         e.preventDefault()
-        console.log(username)
-        console.log(email)
-        console.log(password)
-        console.log(confirmPassword)
+        console.log(values)
     }
+
 
     return (
         <div className={'sign-up'}>
@@ -29,26 +58,14 @@ function SignUp() {
             <div className="sign-up sign-up-container">
                 <div className="sign-up-form">
                     <h1 className="sign-up-header"> Sign Up</h1>
-                    <FormInput
-                        name={"username"}
-                        type={"text"}
-                        setValue={setUsername}
-                    />
-                    <FormInput
-                        name={"email"}
-                        type={"email"}
-                        setValue={setEmail}
-                    />
-                    <FormInput
-                        name={"password"}
-                        type={"password"}
-                        setValue={setPassword}
-                    />
-                    <FormInput
-                        name={"confirm password"}
-                        type={"password"}
-                        setValue={setConfirmPassword}
-                    />
+                    {inputs.map((input) => (
+                        <FormInput
+                            key={input.id}
+                            {...input}
+                            defaultValue={values[input.name]}
+                            onChange={handleChange}
+                        />
+                    ))}
                     <div className="sign-up-button-container">
                         <FormButton
                             name={"Sign Up"}
