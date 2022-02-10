@@ -12,6 +12,7 @@ function SignUp() {
         password: "",
         confirmPassword: "",
     })
+
     const inputs = [
         {
             id: 1,
@@ -37,6 +38,7 @@ function SignUp() {
 
 
     function handleChange(e) {
+        e.preventDefault()
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -62,8 +64,8 @@ function SignUp() {
                         <FormInput
                             key={input.id}
                             {...input}
-                            defaultValue={values[input.name]}
-                            onChange={handleChange}
+                            value={values[input.name]}
+                            handleChange={handleChange}
                         />
                     ))}
                     <div className="sign-up-button-container">
