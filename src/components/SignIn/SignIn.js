@@ -4,16 +4,29 @@ import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import {Link} from "react-router-dom";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import inputs from "./SignInInputs"
 
 function SignIn() {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [values, setValues] = useState({
+        email: "",
+        password: ""
+    })
+
+
+    function handleChange(e) {
+        e.preventDefault()
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
 
     function handleSignIn(e) {
         e.preventDefault()
-        console.log(email)
-        console.log(password)
+        console.log(values)
     }
+
+
 
     return (
         <div className="sign-in">
@@ -23,16 +36,14 @@ function SignIn() {
             <div className="sign-in sign-in-container">
                 <div className="sign-in-form">
                     <h1 className="sign-in-header"> Sign In</h1>
-                    <FormInput
-                        name={"email"}
-                        type={"email"}
-                        setValue={setEmail}
-                    />
-                    <FormInput
-                        name={"password"}
-                        type={"password"}
-                        setValue={setPassword}
-                    />
+                    {inputs.map((input) => (
+                        <FormInput
+                            key={input.id}
+                            {...input}
+                            value={values[input.name]}
+                            handleChange={handleChange}
+                        />
+                    ))}
                     <h4 className="sign-in-forgot"><Link to="/forgot-password">Forgot Password?</Link></h4>
                     <FormButton
                         name={"Sign In"}

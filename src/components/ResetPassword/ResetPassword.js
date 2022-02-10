@@ -4,15 +4,26 @@ import key from "../../images/key.png"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import inputs from "./ResetPasswordInputs"
 
 function ResetPassword() {
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+    const [values, setValues] = useState({
+        password: "",
+        confirmPassword: ""
+    })
+
+    function handleChange(e) {
+        e.preventDefault()
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
+   
 
     function handleResetPassword(e) {
         e.preventDefault()
-        console.log(password)
-        console.log(confirmPassword)
+        console.log(values)
     }
 
     return (
@@ -28,16 +39,14 @@ function ResetPassword() {
                         <h4 className="reset-password-text"> Password must be different from previously used
                             password</h4>
                     </div>
-                    <FormInput
-                        name={"password"}
-                        type={"password"}
-                        setValue={setPassword}
-                    />
-                    <FormInput
-                        name={"confirm password"}
-                        type={"password"}
-                        setValue={setConfirmPassword}
-                    />
+                    {inputs.map((input) => (
+                        <FormInput
+                            key={input.id}
+                            {...input}
+                            value={values[input.name]}
+                            handleChange={handleChange}
+                        />
+                    ))}
                     <div className="reset-password-button-container">
                         <FormButton
                             name={"Reset Password"}

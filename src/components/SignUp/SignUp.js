@@ -6,6 +6,7 @@ import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 
 function SignUp() {
+    
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -17,25 +18,41 @@ function SignUp() {
         {
             id: 1,
             name: "username",
-            type: "text"
+            type: "text",
+            label: "username",
+            errorMessage: "Username should be at least 3 characters long",
+            required: true,
+            pattern: "^[A-Za-z0-9]{3,}$"
+
         },
         {
             id: 2,
             name: "email",
-            type: "email"
+            type: "email",
+            label: "email",
+            errorMessage: "Invalid email address",
+            required: true
+
         },
         {
             id: 3,
             name: "password",
-            type: "password"
+            type: "password",
+            label: "password",
+            errorMessage: "Password should be minimum six chaaracters",
+            required: true,
+            pattern: ".{6,}"
         },
         {
             id: 4,
-            name: "confirm password",
-            type: "password"
+            name: "confirmPassword",
+            type: "password",
+            label: "confirm password",
+            errorMessage: "Passwords don't match!",
+            required: true,
+            pattern: values.password
         },
     ]
-
 
     function handleChange(e) {
         e.preventDefault()
@@ -44,8 +61,7 @@ function SignUp() {
             [e.target.name]: e.target.value
         })
     }
-
-
+    
     function handleSignUp(e) {
         e.preventDefault()
         console.log(values)
