@@ -1,7 +1,7 @@
 import "./FormInput.css";
 
 function FormInput(props) {
-    const {name, handleChange, id, value, type} = props
+    const {name, handleChange, type} = props
 
     return (
         <div className="form-input">

@@ -79,7 +79,6 @@ function SignUp() {
                     </h4>
                 </div>
             </div>
-
         </div>
     )
 
