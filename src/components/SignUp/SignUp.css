@@ -48,3 +48,9 @@
 .sign-up-button-container {
     padding-top: 20px;
 }
+
+.sign-up-submission-error {
+    color: #800000;
+    padding-left: 3px;
+    margin: 0;
+}

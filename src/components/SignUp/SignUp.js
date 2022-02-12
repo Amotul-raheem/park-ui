@@ -4,14 +4,16 @@ import FormInput from "../common/FormInput/FormInput";
 import {Link} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import {INPUT_REGEX} from "../constants/InputValidationRegex";
+
 
 function SignUp() {
-    
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [values, setValues] = useState({
         username: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirmPassword: ""
     })
 
     const inputs = [
@@ -22,7 +24,7 @@ function SignUp() {
             label: "username",
             errorMessage: "Username should be at least 3 characters long",
             required: true,
-            pattern: "^[A-Za-z0-9]{3,}$"
+            pattern: INPUT_REGEX.USERNAME_REGEX.regexString
 
         },
         {
@@ -31,7 +33,8 @@ function SignUp() {
             type: "email",
             label: "email",
             errorMessage: "Invalid email address",
-            required: true
+            required: true,
+            pattern: INPUT_REGEX.EMAIL_REGEX.regexString
 
         },
         {
@@ -39,9 +42,9 @@ function SignUp() {
             name: "password",
             type: "password",
             label: "password",
-            errorMessage: "Password should be minimum six chaaracters",
+            errorMessage: "Password should be minimum six characters",
             required: true,
-            pattern: ".{6,}"
+            pattern: INPUT_REGEX.PASSWORD_REGEX.regexString
         },
         {
             id: 4,
@@ -55,16 +58,33 @@ function SignUp() {
     ]
 
     function handleChange(e) {
+        setCanSubmitInput(true)
         e.preventDefault()
         setValues({
             ...values,
             [e.target.name]: e.target.value
         })
     }
-    
+
     function handleSignUp(e) {
         e.preventDefault()
-        console.log(values)
+        let validationPassed = validateSignUpInputs(values)
+        if (validationPassed) {
+            setCanSubmitInput(true)
+            console.log(values)
+        } else {
+            setCanSubmitInput(false)
+
+        }
+    }
+
+    const validateSignUpInputs = (values) => {
+        const usernamePassValidation = INPUT_REGEX.USERNAME_REGEX.regex.test(values.username)
+        const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(values.email)
+        const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
+        const confirmPasswordPassValidation = values.confirmPassword === values.password
+
+        return usernamePassValidation === true && emailPassValidation === true && passwordPassValidation === true && confirmPasswordPassValidation === true;
     }
 
 
@@ -84,13 +104,15 @@ function SignUp() {
                             handleChange={handleChange}
                         />
                     ))}
+                    {canSubmitInput === false && (
+                        <p className={"sign-up-submission-error"}>
+                            There's an error in your input or no value inputted in fields above
+                        </p>
+                    )}
                     <div className="sign-up-button-container">
                         <FormButton
                             name={"Sign Up"}
-                            onClick = { () =>
-                                values.username !== "" && {handleSignUp}
-                        }
-                            // onClick={handleSignUp}
+                            onClick={handleSignUp}
                         />
                     </div>
                     <h4 className="sign-in-have-account">Already have an account?

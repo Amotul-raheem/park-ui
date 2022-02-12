@@ -29,11 +29,11 @@
 .error-text{
     font-size: 12px;
     padding: 3px;
-    color: red;
+    color: #800000;
     display: none;
 }
 input:invalid[focused = "true"]{
-    border: 1px solid red;
+    border: 1px solid #800000;
 }
 input:invalid[focused = "true"] ~ span{
     display: block;
