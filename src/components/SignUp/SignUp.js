@@ -87,7 +87,10 @@ function SignUp() {
                     <div className="sign-up-button-container">
                         <FormButton
                             name={"Sign Up"}
-                            onClick={handleSignUp}
+                            onClick = { () =>
+                                values.username !== "" && {handleSignUp}
+                        }
+                            // onClick={handleSignUp}
                         />
                     </div>
                     <h4 className="sign-in-have-account">Already have an account?

@@ -4,13 +4,33 @@ import key from "../../images/key.png"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import inputs from "./ResetPasswordInputs"
 
 function ResetPassword() {
     const [values, setValues] = useState({
         password: "",
         confirmPassword: ""
     })
+
+    const inputs = [
+        {
+            id: 1,
+            name: "password",
+            type: "password",
+            label: "password",
+            errorMessage: "Password should be minimum six chaaracters",
+            required: true,
+            pattern: ".{6,}"
+        },
+        {
+            id: 2,
+            name: "confirmPassword",
+            type: "password",
+            label: "confirm password",
+            errorMessage: "Passwords don't match!",
+            required: true,
+            pattern: values.password
+        },
+    ]
 
     function handleChange(e) {
         e.preventDefault()
