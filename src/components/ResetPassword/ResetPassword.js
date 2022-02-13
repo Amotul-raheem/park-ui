@@ -4,7 +4,7 @@ import key from "../../images/key.png"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import {INPUT_REGEX} from "../constants/InputValidationRegex";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 
 function ResetPassword() {
     const [canSubmitInput, setCanSubmitInput] = useState(true)
@@ -14,24 +14,8 @@ function ResetPassword() {
     })
 
     const inputs = [
-        {
-            id: 1,
-            name: "password",
-            type: "password",
-            label: "password",
-            errorMessage: "Password should be minimum six chaaracters",
-            required: true,
-            pattern: ".{6,}"
-        },
-        {
-            id: 2,
-            name: "confirmPassword",
-            type: "password",
-            label: "confirm password",
-            errorMessage: "Passwords don't match!",
-            required: true,
-            pattern: values.password
-        },
+        INPUTS.PASSWORD,
+        {...INPUTS.CONFIRM_PASSWORD, pattern: values.password}
     ]
 
     function handleChange(e) {
@@ -54,6 +38,7 @@ function ResetPassword() {
 
         }
     }
+
     const validateSignUpInputs = (values) => {
         const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
         const confirmPasswordPassValidation = values.confirmPassword === values.password

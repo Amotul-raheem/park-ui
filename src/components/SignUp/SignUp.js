@@ -4,7 +4,7 @@ import FormInput from "../common/FormInput/FormInput";
 import {Link} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import {INPUT_REGEX} from "../constants/InputValidationRegex";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 
 
 function SignUp() {
@@ -17,44 +17,10 @@ function SignUp() {
     })
 
     const inputs = [
-        {
-            id: 1,
-            name: "username",
-            type: "text",
-            label: "username",
-            errorMessage: "Username should be at least 3 characters long",
-            required: true,
-            pattern: INPUT_REGEX.USERNAME_REGEX.regexString
-
-        },
-        {
-            id: 2,
-            name: "email",
-            type: "email",
-            label: "email",
-            errorMessage: "Invalid email address",
-            required: true,
-            pattern: INPUT_REGEX.EMAIL_REGEX.regexString
-
-        },
-        {
-            id: 3,
-            name: "password",
-            type: "password",
-            label: "password",
-            errorMessage: "Password should be minimum six characters",
-            required: true,
-            pattern: INPUT_REGEX.PASSWORD_REGEX.regexString
-        },
-        {
-            id: 4,
-            name: "confirmPassword",
-            type: "password",
-            label: "confirm password",
-            errorMessage: "Passwords don't match!",
-            required: true,
-            pattern: values.password
-        },
+        INPUTS.USERNAME,
+        INPUTS.EMAIL,
+        INPUTS.PASSWORD,
+        {...INPUTS.CONFIRM_PASSWORD, pattern: values.password}
     ]
 
     function handleChange(e) {

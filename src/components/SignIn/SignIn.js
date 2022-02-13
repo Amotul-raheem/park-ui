@@ -4,7 +4,7 @@ import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import {Link} from "react-router-dom";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import {INPUT_REGEX} from "../constants/InputValidationRegex";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 
 function SignIn() {
     const [canSubmitInput, setCanSubmitInput] = useState(true)
@@ -12,26 +12,9 @@ function SignIn() {
         email: "",
         password: ""
     })
-   const inputs = [
-        {
-            id: 1,
-            name: "email",
-            type: "email",
-            label: "email",
-            errorMessage: "Invalid email address",
-            required: true,
-            pattern: INPUT_REGEX.EMAIL_REGEX.regexString
-        },
-        {
-            id: 2,
-            name: "password",
-            type: "password",
-            label: "password",
-            errorMessage: "Password should be minimum six characters",
-            required: true,
-            pattern: INPUT_REGEX.PASSWORD_REGEX.regexString
-
-        }
+    const inputs = [
+        INPUTS.EMAIL,
+        INPUTS.PASSWORD
     ]
 
 
@@ -55,13 +38,13 @@ function SignIn() {
 
         }
     }
+
     const validateSignUpInputs = (values) => {
         const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(values.email)
         const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
-        
+
         return emailPassValidation === true && passwordPassValidation === true;
     }
-
 
 
     return (
