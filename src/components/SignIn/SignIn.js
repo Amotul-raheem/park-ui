@@ -4,13 +4,35 @@ import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import {Link} from "react-router-dom";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import inputs from "./SignInInputs"
+import {INPUT_REGEX} from "../constants/InputValidationRegex";
 
 function SignIn() {
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [values, setValues] = useState({
         email: "",
         password: ""
     })
+   const inputs = [
+        {
+            id: 1,
+            name: "email",
+            type: "email",
+            label: "email",
+            errorMessage: "Username should be at least 3 characters long",
+            required: true,
+            pattern: INPUT_REGEX.USERNAME_REGEX.regexString
+        },
+        {
+            id: 2,
+            name: "password",
+            type: "password",
+            label: "password",
+            errorMessage: "Invalid email address",
+            required: true,
+            pattern: INPUT_REGEX.EMAIL_REGEX.regexString
+
+        }
+    ]
 
 
     function handleChange(e) {
@@ -23,7 +45,20 @@ function SignIn() {
 
     function handleSignIn(e) {
         e.preventDefault()
-        console.log(values)
+        let validationPassed = validateSignUpInputs(values)
+        if (validationPassed) {
+            setCanSubmitInput(true)
+            console.log(values)
+        } else {
+            setCanSubmitInput(false)
+
+        }
+    }
+    const validateSignUpInputs = (values) => {
+        const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(values.email)
+        const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
+        
+        return emailPassValidation === true && passwordPassValidation === true;
     }
 
 
@@ -45,6 +80,11 @@ function SignIn() {
                         />
                     ))}
                     <h4 className="sign-in-forgot"><Link to="/forgot-password">Forgot Password?</Link></h4>
+                    {canSubmitInput === false && (
+                        <p className={"sign-in-submission-error"}>
+                            There's an error in your input or no value inputted in fields above
+                        </p>
+                    )}
                     <FormButton
                         name={"Sign In"}
                         onClick={handleSignIn}
