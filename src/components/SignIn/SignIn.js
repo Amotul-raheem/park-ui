@@ -4,16 +4,48 @@ import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import {Link} from "react-router-dom";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 
 function SignIn() {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
+    const [values, setValues] = useState({
+        email: "",
+        password: ""
+    })
+    const inputs = [
+        INPUTS.EMAIL,
+        INPUTS.PASSWORD
+    ]
+
+
+    function handleChange(e) {
+        setCanSubmitInput(true)
+        e.preventDefault()
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
 
     function handleSignIn(e) {
         e.preventDefault()
-        console.log(email)
-        console.log(password)
+        let validationPassed = validateSignUpInputs(values)
+        if (validationPassed) {
+            setCanSubmitInput(true)
+            console.log(values)
+        } else {
+            setCanSubmitInput(false)
+
+        }
     }
+
+    const validateSignUpInputs = (values) => {
+        const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(values.email)
+        const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
+
+        return emailPassValidation === true && passwordPassValidation === true;
+    }
+
 
     return (
         <div className="sign-in">
@@ -23,17 +55,20 @@ function SignIn() {
             <div className="sign-in sign-in-container">
                 <div className="sign-in-form">
                     <h1 className="sign-in-header"> Sign In</h1>
-                    <FormInput
-                        name={"email"}
-                        type={"email"}
-                        setValue={setEmail}
-                    />
-                    <FormInput
-                        name={"password"}
-                        type={"password"}
-                        setValue={setPassword}
-                    />
+                    {inputs.map((input) => (
+                        <FormInput
+                            key={input.id}
+                            {...input}
+                            value={values[input.name]}
+                            handleChange={handleChange}
+                        />
+                    ))}
                     <h4 className="sign-in-forgot"><Link to="/forgot-password">Forgot Password?</Link></h4>
+                    {canSubmitInput === false && (
+                        <p className={"sign-in-submission-error"}>
+                            There's an error in your input or no value inputted in fields above
+                        </p>
+                    )}
                     <FormButton
                         name={"Sign In"}
                         onClick={handleSignIn}

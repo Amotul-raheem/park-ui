@@ -4,15 +4,46 @@ import key from "../../images/key.png"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 
 function ResetPassword() {
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
+    const [values, setValues] = useState({
+        password: "",
+        confirmPassword: ""
+    })
+
+    const inputs = [
+        INPUTS.PASSWORD,
+        {...INPUTS.CONFIRM_PASSWORD, pattern: values.password}
+    ]
+
+    function handleChange(e) {
+        setCanSubmitInput(true)
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
+
 
     function handleResetPassword(e) {
         e.preventDefault()
-        console.log(password)
-        console.log(confirmPassword)
+        let validationPassed = validateSignUpInputs(values)
+        if (validationPassed) {
+            setCanSubmitInput(true)
+            console.log(values)
+        } else {
+            setCanSubmitInput(false)
+
+        }
+    }
+
+    const validateSignUpInputs = (values) => {
+        const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
+        const confirmPasswordPassValidation = values.confirmPassword === values.password
+
+        return passwordPassValidation === true && confirmPasswordPassValidation === true;
     }
 
     return (
@@ -28,16 +59,19 @@ function ResetPassword() {
                         <h4 className="reset-password-text"> Password must be different from previously used
                             password</h4>
                     </div>
-                    <FormInput
-                        name={"password"}
-                        type={"password"}
-                        setValue={setPassword}
-                    />
-                    <FormInput
-                        name={"confirm password"}
-                        type={"password"}
-                        setValue={setConfirmPassword}
-                    />
+                    {inputs.map((input) => (
+                        <FormInput
+                            key={input.id}
+                            {...input}
+                            value={values[input.name]}
+                            handleChange={handleChange}
+                        />
+                    ))}
+                    {canSubmitInput === false && (
+                        <p className={"reset-password-submission-error"}>
+                            There's an error in your input or no value inputted in fields above
+                        </p>
+                    )}
                     <div className="reset-password-button-container">
                         <FormButton
                             name={"Reset Password"}

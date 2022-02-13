@@ -57,3 +57,8 @@
     color: #4A2CFC;
     text-decoration: none;
 }
+.sign-in-submission-error{
+    color: #800000;
+    padding-left: 3px;
+    margin: 0;
+}

@@ -4,22 +4,55 @@ import FormInput from "../common/FormInput/FormInput";
 import {Link} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
+
 
 function SignUp() {
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
+    const [values, setValues] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+    })
 
-    const [username, setUsername] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+    const inputs = [
+        INPUTS.USERNAME,
+        INPUTS.EMAIL,
+        INPUTS.PASSWORD,
+        {...INPUTS.CONFIRM_PASSWORD, pattern: values.password}
+    ]
 
+    function handleChange(e) {
+        setCanSubmitInput(true)
+        e.preventDefault()
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
 
     function handleSignUp(e) {
         e.preventDefault()
-        console.log(username)
-        console.log(email)
-        console.log(password)
-        console.log(confirmPassword)
+        let validationPassed = validateSignUpInputs(values)
+        if (validationPassed) {
+            setCanSubmitInput(true)
+            console.log(values)
+        } else {
+            setCanSubmitInput(false)
+
+        }
     }
+
+    const validateSignUpInputs = (values) => {
+        const usernamePassValidation = INPUT_REGEX.USERNAME_REGEX.regex.test(values.username)
+        const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(values.email)
+        const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
+        const confirmPasswordPassValidation = values.confirmPassword === values.password
+
+        return usernamePassValidation === true && emailPassValidation === true && passwordPassValidation === true && confirmPasswordPassValidation === true;
+    }
+
 
     return (
         <div className={'sign-up'}>
@@ -29,26 +62,19 @@ function SignUp() {
             <div className="sign-up sign-up-container">
                 <div className="sign-up-form">
                     <h1 className="sign-up-header"> Sign Up</h1>
-                    <FormInput
-                        name={"username"}
-                        type={"text"}
-                        setValue={setUsername}
-                    />
-                    <FormInput
-                        name={"email"}
-                        type={"email"}
-                        setValue={setEmail}
-                    />
-                    <FormInput
-                        name={"password"}
-                        type={"password"}
-                        setValue={setPassword}
-                    />
-                    <FormInput
-                        name={"confirm password"}
-                        type={"password"}
-                        setValue={setConfirmPassword}
-                    />
+                    {inputs.map((input) => (
+                        <FormInput
+                            key={input.id}
+                            {...input}
+                            value={values[input.name]}
+                            handleChange={handleChange}
+                        />
+                    ))}
+                    {canSubmitInput === false && (
+                        <p className={"sign-up-submission-error"}>
+                            There's an error in your input or no value inputted in fields above
+                        </p>
+                    )}
                     <div className="sign-up-button-container">
                         <FormButton
                             name={"Sign Up"}
@@ -60,7 +86,6 @@ function SignUp() {
                     </h4>
                 </div>
             </div>
-
         </div>
     )
 

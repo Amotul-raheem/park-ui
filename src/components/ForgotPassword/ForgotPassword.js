@@ -4,14 +4,37 @@ import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import key from "../../images/key.png"
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
+import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 
 function ForgotPassword() {
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
+    const [values, setValues] = useState({
+        email: "",
+    })
 
-    const [email, setEmail] = useState();
+    function handleChange(e) {
+        setCanSubmitInput(true)
+        e.preventDefault()
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
 
     function handleForgotPassword(e) {
         e.preventDefault()
-        console.log(email)
+        let validationPassed = validateForgotPasswordInput(values.email)
+        if (validationPassed) {
+            setCanSubmitInput(true)
+            console.log(values.email)
+        } else {
+            setCanSubmitInput(false)
+        }
+    }
+
+    const validateForgotPasswordInput = (email) => {
+        const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(email)
+        return emailPassValidation === true;
     }
 
     return (
@@ -29,10 +52,15 @@ function ForgotPassword() {
                             email to reset your password</p>
                     </div>
                     <FormInput
-                        name={"email"}
-                        type={"email"}
-                        setValue={setEmail}
+                        key={INPUTS.EMAIL.id}
+                        {...INPUTS.EMAIL}
+                        handleChange={handleChange}
                     />
+                    {canSubmitInput === false && (
+                        <p className={"forgot-password-submission-error"}>
+                            There's an error in the email inputted above
+                        </p>
+                    )}
                     <div className="forgot-password-button-container">
                         <FormButton
                             name={"Send link to mail"}
