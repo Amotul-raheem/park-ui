@@ -18,24 +18,25 @@ function SignIn() {
             name: "email",
             type: "email",
             label: "email",
-            errorMessage: "Username should be at least 3 characters long",
+            errorMessage: "Invalid email address",
             required: true,
-            pattern: INPUT_REGEX.USERNAME_REGEX.regexString
+            pattern: INPUT_REGEX.EMAIL_REGEX.regexString
         },
         {
             id: 2,
             name: "password",
             type: "password",
             label: "password",
-            errorMessage: "Invalid email address",
+            errorMessage: "Password should be minimum six characters",
             required: true,
-            pattern: INPUT_REGEX.EMAIL_REGEX.regexString
+            pattern: INPUT_REGEX.PASSWORD_REGEX.regexString
 
         }
     ]
 
 
     function handleChange(e) {
+        setCanSubmitInput(true)
         e.preventDefault()
         setValues({
             ...values,

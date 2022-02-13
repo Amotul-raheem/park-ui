@@ -35,6 +35,7 @@ function ResetPassword() {
     ]
 
     function handleChange(e) {
+        setCanSubmitInput(true)
         setValues({
             ...values,
             [e.target.name]: e.target.value
