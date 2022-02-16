@@ -25,7 +25,7 @@ function ResetPasswordCheckEmail() {
                     </div>
                     <div className="reset-password-check-email-resend-text-container">
                         <p>
-                            Didn't recieve email?
+                            Didn't receive email?
                             <a onClick ={handleResendClick} className= "resend-text"> Click to resend </a>
                         </p>
                     </div>
