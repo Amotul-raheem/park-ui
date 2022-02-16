@@ -7,6 +7,7 @@ import "./App.css"
 import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPasswordSuccessful/ResetPasswordSuccessful";
+import ResetPasswordCheckEmail from "./components/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
 
 function App() {
     return (
@@ -17,7 +18,9 @@ function App() {
                 <Route path="/reset-password" element={<ResetPassword/>}/>
                 <Route path="/reset-password-successful" element={<ResetPasswordSuccessful/>}/>
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
-                <Route path={"/sign-up"} element={<SignUp/>}/>
+                <Route path="/sign-up" element={<SignUp/>}/>
+                <Route path="/reset-password-check-email" element={<ResetPasswordCheckEmail/>}/>
+                
             </Routes>
         </Router>
     );
