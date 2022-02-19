@@ -20,8 +20,8 @@ function HomePage(props) {
                     <li><Link to={"/"}>Contact</Link></li>
                 </ul>
                 <ul>
-                    <button onClick={() => navigate("/sign-in")}>Sign In</button>
-                    <button onClick={() => navigate("/sign-up")}>Sign Up</button>
+                    <button className={"buttons"} onClick={() => navigate("/sign-in")}>Sign In</button>
+                    <button className={"buttons"} onClick={() => navigate("/sign-up")}>Sign Up</button>
                 </ul>
             </div>
             <div className="homepage-text-container">
