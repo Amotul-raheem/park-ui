@@ -12,13 +12,9 @@ function BookingSuccessful() {
                 <div className="booking-successful-text-container">
                     <img src={check} alt="check-image" className="check-image"/>
                     <h2 className="booking-successful-header">Booking Successfully Done!</h2>
+                    <button className={"booking-successful-button-container"} onClick={"/"}>Go Back To Home</button>
                 </div>
-                <div className="booking-successful-button-container">
-                    <FormButton
-                        name={"Go Back To Home"}
-                        onClick={() => navigate("/")}
-                    />
-                </div>
+
             </div>
         </div>
     )
