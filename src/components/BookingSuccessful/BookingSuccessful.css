@@ -1,10 +1,10 @@
 
 .booking-successful-container {
     position: absolute;
-    top: 30%;
+    top: 20%;
     text-align: center;
-    width: 50%;
-left: 25%;
+    width: 75%;
+left: 15%;
     background-color: white;
     border-radius: 15px;
 }
@@ -17,21 +17,4 @@ left: 25%;
     padding-bottom: 30px;
     font-style: normal;
     color: #01194A;
-}
-
-.booking-successful-button-container {
-    width: 100%;
-    height: 60px;
-    background: #01194A;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    color: #FFFFFF;
-    font-size: 20px;
-    cursor: pointer;
-}
-.booking-successful-button-container:hover{
-    background-color: #425A8A;
-    color: white;
-    border: 0;
-
 }
