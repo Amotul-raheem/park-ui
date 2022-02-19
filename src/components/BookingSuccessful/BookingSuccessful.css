@@ -4,21 +4,24 @@
     top: 0;
     overflow-x: hidden;
 }
-.booking-successful-container{
+
+.booking-successful-container {
     margin-top: 150px;
     text-align: center;
     margin-left: 300px;
     background-color: white;
-   padding: 70px;
+    padding: 70px;
     border-radius: 15px;
 }
-.booking-successful-header{
+
+.booking-successful-header {
     text-align: center;
     width: 500px;
     padding-left: 30px;
     font-style: normal;
     color: #01194A;
 }
-.booking-successful-button-container{
-   padding-top: 40px;
+
+.booking-successful-button-container {
+    padding-top: 40px;
 }
