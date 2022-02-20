@@ -94,6 +94,10 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, .13);
     transition: all .2s ease;
 }
+.homepage-nav-bar-buttons:hover{
+    background-color: #425A8A;
+    color: white;
+}
 
 .homepage-text-container {
     position: relative;
