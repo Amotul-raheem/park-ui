@@ -15,7 +15,7 @@
     border-radius: 15px;
     padding: 40px;
     text-align: center;
-    width: 55%;
+    width: 700px;
 }
 
 .booking-successful-header {
@@ -23,6 +23,7 @@
     color: #01194A;
     font-size: 30px;
     line-height: 46px;
+    padding-top: 10px;
     padding-bottom: 50px;
     font-weight: bold;
     margin: 0;
