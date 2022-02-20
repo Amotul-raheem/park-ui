@@ -9,13 +9,13 @@
 .booking-successful-container {
     position: absolute;
     top: 20%;
-    right: 20%;
-    height: 250px;
+    right: 18%;
+    height: 230px;
     background-color: white;
     border-radius: 15px;
     padding: 40px;
     text-align: center;
-    width: 700px;
+    width: 55%;
 }
 
 .booking-successful-header {
@@ -23,8 +23,7 @@
     color: #01194A;
     font-size: 30px;
     line-height: 46px;
-    padding-top: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     font-weight: bold;
     margin: 0;
     font-style: normal;
