@@ -1,20 +1,37 @@
+.booking-successful {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}
 
 .booking-successful-container {
     position: absolute;
     top: 20%;
-    text-align: center;
-    width: 75%;
-left: 15%;
+    right: 20%;
+    height: 250px;
     background-color: white;
     border-radius: 15px;
-}
-.booking-successful-text-container{
+    padding: 40px;
     text-align: center;
-    padding: 10%;
+    width: 55%;
 }
+
 .booking-successful-header {
     text-align: center;
-    padding-bottom: 30px;
-    font-style: normal;
     color: #01194A;
+    font-size: 30px;
+    line-height: 46px;
+    padding-bottom: 50px;
+    font-weight: bold;
+    margin: 0;
+    font-style: normal;
+}
+
+.booking-successful-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
