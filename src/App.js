@@ -5,6 +5,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import "./App.css"
 import HomePage from "./components/HomePage/HomePage";
+import UserProfile from "./components/UserProfile/UserProfile";
 import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPasswordSuccessful/ResetPasswordSuccessful";
 import ResetPasswordCheckEmail from "./components/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/reset-password-successful" element={<ResetPasswordSuccessful/>}/>
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
+                <Route path="/user-profile" element={<UserProfile/>}/>
                 <Route path="/reset-password-check-email" element={<ResetPasswordCheckEmail/>}/>
                 
             </Routes>

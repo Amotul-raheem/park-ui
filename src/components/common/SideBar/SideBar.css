@@ -1,0 +1,25 @@
+.sidebar {
+
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+.sidebar img{
+    width: 30px;
+}
+
+.sidebar h1 {
+    font-size: 20px;
+    font-weight: normal;
+    padding-left: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.sidebar .logo-link {
+    padding-left: 30px;
+    display: flex;
+padding-bottom: 60px;
+    text-decoration: none;
+}
