@@ -1,0 +1,40 @@
+.profile-input {
+    font-size: 20px;
+    color: #576072;
+}
+
+.profile-header-name {
+    text-transform: capitalize;
+    padding: 7px;
+}
+
+.profile-input-field-container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.profile-input-field {
+    border-radius: 10px;
+    width: 400px;
+    height: 50px;
+    padding-left: 15px;
+    outline: none;
+    border: 5px solid #E5E5E5;
+    background-color: #FFFFFF;
+    font-size: 22px;
+    font-style: normal;
+    font-family: Asap;
+    color: #576072;
+}
+.error-text{
+    font-size: 12px;
+    padding: 3px;
+    color: #800000;
+    display: none;
+}
+input:invalid[focused = "true"]{
+    border: 1px solid #800000;
+}
+input:invalid[focused = "true"] ~ span{
+    display: block;
+}
