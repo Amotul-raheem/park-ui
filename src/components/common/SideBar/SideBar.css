@@ -1,18 +1,28 @@
 .sidebar {
-
     position: absolute;
-    top: 20%;
-    left: 10%;
+    top: 50%;
+    height: 100%;
     transform: translate(-50%, -50%);
+    background: #01194A;
+    padding-top: 50px;
+
 }
-.sidebar img{
+
+.sidebar-content {
+    margin-top: 40px;
+    padding-left: 100px;
+}
+
+.sidebar img {
     width: 30px;
+    height: 30px;
 }
 
 .sidebar h1 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: normal;
     padding-left: 20px;
+    padding-right: 20px;
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -20,6 +30,6 @@
 .sidebar .logo-link {
     padding-left: 30px;
     display: flex;
-padding-bottom: 60px;
+    padding-bottom: 60px;
     text-decoration: none;
 }

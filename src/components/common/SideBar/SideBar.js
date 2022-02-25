@@ -8,14 +8,17 @@ import React from "react";
 function SideBar() {
     return (
         <div className="sidebar">
-            <Link className="logo-link" to={"/"}>
-                <img src={home} alt="home-image" className="home-image"/>
-                <h1>Home</h1>
-            </Link>
-            <Link className="logo-link" to={"/"}>
-                <img src={history} alt="history-image" className="history-image"/>
-                <h1>History</h1>
-            </Link>
+            <div className="sidebar-content">
+                <Link className="logo-link" to={"/"}>
+                    <img src={home} alt="home-image" className="home-image"/>
+                    <h1>Home</h1>
+                </Link>
+                <Link className="logo-link" to={"/"}>
+                    <img src={history} alt="history-image" className="history-image"/>
+                    <h1>History</h1>
+                </Link>
+            </div>
+
         </div>
     )
 }

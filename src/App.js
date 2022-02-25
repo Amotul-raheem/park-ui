@@ -22,7 +22,7 @@ function App() {
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/user-profile" element={<UserProfile/>}/>
                 <Route path="/reset-password-check-email" element={<ResetPasswordCheckEmail/>}/>
-                
+
             </Routes>
         </Router>
     );

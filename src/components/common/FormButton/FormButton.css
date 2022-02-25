@@ -12,3 +12,8 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+.form-button:hover {
+    background-color: #425A8A;
+    border: 0;
+}

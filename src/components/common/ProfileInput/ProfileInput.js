@@ -1,32 +1,28 @@
 import "./ProfileInput.css";
-import {useState} from "react";
+
 
 function ProfileInput(props) {
-    const [focused, setFocused] = useState(false)
-    const {name, label, handleChange, type, errorMessage, ...inputProps} = props
-
-    function handleFocus(e) {
-        setFocused(true)
-
-    }
+    const {label, description, name, type, placeholder} = props
 
     return (
         <div className="profile-input">
-            <label className="profile-header-name"> {label} </label>
-            <div className="profile-input-field-container">
-                <input {...inputProps}
-                       className="profile-input-field"
-                       name={name}
-                       type={type}
-                       onChange={handleChange}
-                       onBlur={handleFocus}
-                       onFocus={() =>
-                           name === "confirmPassword" && setFocused(true)
-                       }
-                       focused={focused.toString()}
-                />
-                <span className="error-text"> {errorMessage}</span>
-            </div>
+            <tr>
+                <td>
+                    <div className="profile-input-label"><label className="profile-name">{label}</label>
+                        <h5 className="profile-description">{description}</h5></div>
+                </td>
+                <td>
+                    <div className="profile-input-field-container">
+                        <input
+                            className="profile-input-field"
+                            name={name}
+                            type={type}
+                            placeholder={placeholder}
+                        />
+                    </div>
+                </td>
+            </tr>
+
         </div>
     )
 }

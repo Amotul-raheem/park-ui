@@ -1,8 +1,8 @@
 import "./FormButton.css";
 
-function FormButton(props){
+function FormButton(props) {
 
-    return(
+    return (
         <div className="form-button-container">
             <button className="form-button" onClick={props.onClick}>{props.name}</button>
         </div>
