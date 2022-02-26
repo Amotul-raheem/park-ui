@@ -9,6 +9,8 @@ import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPasswordSuccessful/ResetPasswordSuccessful";
 import ResetPasswordCheckEmail from "./components/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
 import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful";
+import AccountVerificationSuccessful from "./components/AccountVerificationSucessful/AccountVerificationSuccessful";
+import AccountVerificationCheckEmail from "./components/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 
 function App() {
     return (
@@ -22,7 +24,8 @@ function App() {
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/reset-password-check-email" element={<ResetPasswordCheckEmail/>}/>
                 <Route path="/booking-successful" element={<BookingSuccessful/>}/>
-                
+                <Route path="/account-verification-successful" element={<AccountVerificationSuccessful/>}/>
+                <Route path="/account-verification-check-email" element={<AccountVerificationCheckEmail/>}/>
             </Routes>
         </Router>
     );
