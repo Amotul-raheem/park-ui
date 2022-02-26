@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import './SignUp.css';
 import FormInput from "../common/FormInput/FormInput";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
+import {signUpUser} from "../utils/AuthenticationServiceUtils";
+import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 
 
 function SignUp() {
+    let navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.SIGN_UP)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [values, setValues] = useState({
         username: "",
@@ -32,15 +36,26 @@ function SignUp() {
         })
     }
 
+    function sendSignUpRequest(values) {
+        try {
+            signUpUser(values.email, values.username, values.password)
+            navigate("/");
+        } catch (e) {
+            console.log(e.message)
+            setCanSubmitInput(false)
+            setErrorMessage(e.message)
+        }
+    }
+
     function handleSignUp(e) {
         e.preventDefault()
         let validationPassed = validateSignUpInputs(values)
         if (validationPassed) {
             setCanSubmitInput(true)
             console.log(values)
+            sendSignUpRequest(values)
         } else {
             setCanSubmitInput(false)
-
         }
     }
 
@@ -72,7 +87,7 @@ function SignUp() {
                     ))}
                     {canSubmitInput === false && (
                         <p className={"sign-up-submission-error"}>
-                            There's an error in your input or no value inputted in fields above
+                            {errorMessage}
                         </p>
                     )}
                     <div className="sign-up-button-container">
