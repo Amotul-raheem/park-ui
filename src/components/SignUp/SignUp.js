@@ -39,7 +39,7 @@ function SignUp() {
     function sendSignUpRequest(values) {
         try {
             signUpUser(values.email, values.username, values.password)
-            navigate("/");
+            navigate("/account-verification-check-email");
         } catch (e) {
             console.log(e.message)
             setCanSubmitInput(false)
