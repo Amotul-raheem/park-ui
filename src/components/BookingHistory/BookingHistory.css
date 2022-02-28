@@ -1,0 +1,13 @@
+.booking-history {
+    position: relative;
+    top: 0;
+    height: 100%;
+
+}
+
+.booking-header {
+    color: #01194A;
+    font-weight: bold;
+    padding-top: 40px;
+    margin-left: 550px;
+}

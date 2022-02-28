@@ -7,6 +7,7 @@
 .profile-header-name {
     position: relative;
     color: #01194A;
+    top: 30px;
     font-weight: lighter;
     text-align: center;
     right: -6.5%;
@@ -18,6 +19,7 @@
     width: 78%;
     padding: 30px;
     justify-content: center;
+    margin-top: 70px;
     border-radius: 15px;
 }
 
