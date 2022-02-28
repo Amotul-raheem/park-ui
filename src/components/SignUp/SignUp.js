@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import './SignUp.css';
 import FormInput from "../common/FormInput/FormInput";
+import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
-import {signUpUser} from "../utils/AuthenticationServiceUtils";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
+import {ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
+import {SIGN_UP_ENDPOINT} from "../constants/Endpoints";
 
 
 function SignUp() {
@@ -36,25 +38,38 @@ function SignUp() {
         })
     }
 
-    function sendSignUpRequest(values) {
+    async function sendSignUpRequest(values) {
         try {
-            signUpUser(values.email, values.username, values.password)
-            navigate("/account-verification-check-email");
+            const response = await axios.post(SIGN_UP_ENDPOINT,
+                {
+                    email: values.email,
+                    username: values.username,
+                    password: values.password
+                })
+            console.log(response)
+            navigate(ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH);
         } catch (e) {
-            console.log(e.message)
             setCanSubmitInput(false)
-            setErrorMessage(e.message)
+            const errorResponse = e.response
+            if (errorResponse.status === 400) {
+                setErrorMessage("Email already exists, please try again with another email address or Sign In by clicking on the link below")
+            } else if (errorResponse.status === 500) {
+                setErrorMessage("There was an issue signing you up to our service, please try again")
+            } else {
+                setErrorMessage("There was an issue signing you up to our service, please try again")
+            }
         }
     }
 
-    function handleSignUp(e) {
+    async function handleSignUp(e) {
         e.preventDefault()
         let validationPassed = validateSignUpInputs(values)
         if (validationPassed) {
             setCanSubmitInput(true)
             console.log(values)
-            sendSignUpRequest(values)
+            await sendSignUpRequest(values)
         } else {
+            setErrorMessage(DEFAULT_ERROR_MESSAGE.SIGN_UP)
             setCanSubmitInput(false)
         }
     }
@@ -67,7 +82,6 @@ function SignUp() {
 
         return usernamePassValidation === true && emailPassValidation === true && passwordPassValidation === true && confirmPasswordPassValidation === true;
     }
-
 
     return (
         <div className={'sign-up'}>
@@ -97,14 +111,12 @@ function SignUp() {
                         />
                     </div>
                     <h4 className="sign-in-have-account">Already have an account?
-                        <Link to="/sign-in"> Sign In</Link>
+                        <Link to={SIGN_IN_PATH}> Sign In</Link>
                     </h4>
                 </div>
             </div>
         </div>
     )
-
-
 }
 
 export default SignUp;
