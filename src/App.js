@@ -22,6 +22,7 @@ import {
     RESET_PASSWORD_PATH,
     RESET_PASSWORD_SUCCESSFUL_PATH,
     SIGN_IN_PATH,
+    USER_PROFILE_PATH,
     SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
 
@@ -38,8 +39,7 @@ function App() {
                 <Route path={RESET_PASSWORD_CHECK_EMAIL_PATH} element={<ResetPasswordCheckEmail/>}/>
                 <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingSuccessful/>}/>
                 <Route path={ACCOUNT_VERIFICATION_SUCCESSFUL_PATH} element={<AccountVerificationSuccessful/>}/>
-                <Route path="/user-profile" element={<UserProfile/>}/>
-
+                <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>
                 <Route path={ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH} element={<AccountVerificationCheckEmail/>}/>
             </Routes>
         </Router>
