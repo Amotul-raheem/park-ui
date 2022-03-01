@@ -1,0 +1,1 @@
+export const SIGN_UP_ENDPOINT = "http://localhost:5000/api/sign-up"
