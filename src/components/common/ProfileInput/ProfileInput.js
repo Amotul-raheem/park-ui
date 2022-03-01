@@ -8,8 +8,11 @@ function ProfileInput(props) {
         <div className="profile-input">
             <tr>
                 <td>
-                    <div className="profile-input-label"><label className="profile-name">{label}</label>
-                        <h5 className="profile-description">{description}</h5></div>
+                    <div className="profile-input-label">
+                        <label className="profile-name">{label}</label>
+                        <br/>
+                        <h5 className="profile-description">{description}</h5>
+                    </div>
                 </td>
                 <td>
                     <div className="profile-input-field-container">
