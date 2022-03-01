@@ -2,7 +2,6 @@ import React from "react";
 import "./BookingHistory.css"
 import ParkingDetail from "../common/ParkingDetail/ParkingDetail";
 import SideBar from "../common/SideBar/SideBar";
-import profile from "../../images/profile.png";
 
 function BookingHistory() {
     return (
