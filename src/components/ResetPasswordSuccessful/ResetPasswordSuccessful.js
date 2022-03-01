@@ -16,7 +16,7 @@ function ResetPasswordSuccessful() {
                 <div className="reset-password-successful-form">
                     <div className="reset-password-successful-text-container">
                         <img src={check} alt="check-image" className="check-image"/>
-                        <h1 className="reset-password-successful-header">Password Reset Successfully</h1>
+                        <h1 className="reset-password-successful-header">Password Reset Successful</h1>
                         <p className="reset-password-successful-text">Your new password has been successfully reset.
                             Click below to sign in</p>
                     </div>
