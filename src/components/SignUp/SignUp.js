@@ -10,7 +10,6 @@ import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
 import {SIGN_UP_ENDPOINT} from "../constants/Endpoints";
 
-
 function SignUp() {
     let navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.SIGN_UP)

@@ -1,12 +1,18 @@
 import React, {useState} from "react";
 import "./SignIn.css"
+import axios from "axios";
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
+import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
+import {SIGN_IN_ENDPOINT} from "../constants/Endpoints";
+import {HOMEPAGE_PATH} from "../constants/UrlPaths";
 
 function SignIn() {
+    let navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.SIGN_IN)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [values, setValues] = useState({
         email: "",
@@ -26,26 +32,51 @@ function SignIn() {
             [e.target.name]: e.target.value
         })
     }
+    async function sendSignInRequest(values) {
+        try {
+            const response = await axios.post(SIGN_IN_ENDPOINT,
+                {
+                    email: values.email,
+                    password: values.password
+                })
+            console.log(response)
+            navigate(HOMEPAGE_PATH);
+        } catch (e) {
+            setCanSubmitInput(false)
+            const errorResponse = e.response
+            console.log(errorResponse.data)
+            if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
+                setErrorMessage("Email already exists, please try again with another email address or Sign In by clicking on the link below")
+            } else if (errorResponse.status === 400 && errorResponse.data === "Incorrect password") {
+                setErrorMessage("Password is incorrect, please try again")
+            }else if (errorResponse.status === 500) {
+                setErrorMessage("There was an issue signing you up to our service, please try again")
+            } else {
+                setErrorMessage("There was an issue signing you up to our service, please try again")
+            }
+        }
+    }
 
-    function handleSignIn(e) {
+   async function handleSignIn(e) {
         e.preventDefault()
-        let validationPassed = validateSignUpInputs(values)
+        let validationPassed = validateSignInInputs(values)
         if (validationPassed) {
             setCanSubmitInput(true)
             console.log(values)
+            await sendSignInRequest(values)
         } else {
+            setErrorMessage(DEFAULT_ERROR_MESSAGE.SIGN_IN)
             setCanSubmitInput(false)
 
         }
     }
 
-    const validateSignUpInputs = (values) => {
+    const validateSignInInputs = (values) => {
         const emailPassValidation = INPUT_REGEX.EMAIL_REGEX.regex.test(values.email)
         const passwordPassValidation = INPUT_REGEX.PASSWORD_REGEX.regex.test(values.password)
 
         return emailPassValidation === true && passwordPassValidation === true;
     }
-
 
     return (
         <div className="sign-in">
@@ -66,7 +97,7 @@ function SignIn() {
                     <h4 className="sign-in-forgot"><Link to="/forgot-password">Forgot Password?</Link></h4>
                     {canSubmitInput === false && (
                         <p className={"sign-in-submission-error"}>
-                            There's an error in your input or no value inputted in fields above
+                            {errorMessage}
                         </p>
                     )}
                     <FormButton
