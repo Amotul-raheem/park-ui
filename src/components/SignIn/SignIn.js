@@ -32,6 +32,7 @@ function SignIn() {
             [e.target.name]: e.target.value
         })
     }
+
     async function sendSignInRequest(values) {
         try {
             const response = await axios.post(SIGN_IN_ENDPOINT,
@@ -44,20 +45,22 @@ function SignIn() {
         } catch (e) {
             setCanSubmitInput(false)
             const errorResponse = e.response
-            console.log(errorResponse.data)
+            console.log(errorResponse)
             if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
                 setErrorMessage("Email already exists, please try again with another email address or Sign In by clicking on the link below")
             } else if (errorResponse.status === 400 && errorResponse.data === "Incorrect password") {
                 setErrorMessage("Password is incorrect, please try again")
-            }else if (errorResponse.status === 500) {
-                setErrorMessage("There was an issue signing you up to our service, please try again")
+            } else if (errorResponse.status === 401 && errorResponse.data === 'Your Email has not been verified. Check your mail') {
+                setErrorMessage('Your Email has not been verified. Check your mail')
+            } else if (errorResponse.status === 500) {
+                setErrorMessage("There was an issue signing you in, please try again")
             } else {
-                setErrorMessage("There was an issue signing you up to our service, please try again")
+                setErrorMessage("There was an issue signing you in, please try again")
             }
         }
     }
 
-   async function handleSignIn(e) {
+    async function handleSignIn(e) {
         e.preventDefault()
         let validationPassed = validateSignInInputs(values)
         if (validationPassed) {
