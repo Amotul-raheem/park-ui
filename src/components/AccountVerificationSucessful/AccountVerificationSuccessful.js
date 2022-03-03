@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "./AccountVerificationSuccessful.css"
 import {useNavigate} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import check from "../../images/check.png";
+import axios from "axios";
+import {ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
 
 function AccountVerificationSuccessful() {
     const navigate = useNavigate();
+
+    let token = new URLSearchParams(window.location.hash).get('token')
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+    axios.post(ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, config)
+
     return (
         <div className='account-verification-successful'>
             <div className="account-verification-successful logo-container">
@@ -23,7 +32,7 @@ function AccountVerificationSuccessful() {
                     <div className="account-verification-successful-button-container">
                         <FormButton
                             name={"Sign In"}
-                            onClick={() => navigate("/sign-in")}
+                            onClick={() => navigate(SIGN_IN_PATH)}
                         />
                     </div>
                 </div>
