@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./AccountVerificationSuccessful.css"
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import check from "../../images/check.png";
@@ -9,12 +9,10 @@ import {ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, SIGN_IN_PATH} from "../constants/U
 
 function AccountVerificationSuccessful() {
     const navigate = useNavigate();
+    const { token } = useParams();
 
-    let token = new URLSearchParams(window.location.hash).get('token')
-    const config = {
-        headers: { Authorization: `Bearer ${token}` }
-    };
-    axios.post(ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, config)
+    axios.post(ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, {params: {token}}
+        )
 
     return (
         <div className='account-verification-successful'>
