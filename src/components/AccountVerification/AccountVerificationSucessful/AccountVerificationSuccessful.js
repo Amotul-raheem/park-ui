@@ -1,18 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./AccountVerificationSuccessful.css"
 import {useNavigate, useParams} from "react-router-dom";
-import FormButton from "../common/FormButton/FormButton";
-import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import check from "../../images/check.png";
+import FormButton from "../../common/FormButton/FormButton";
+import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
+import check from "../../../images/check.png";
 import axios from "axios";
-import {ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
+import {ACCOUNT_VERIFICATION_PATH, SIGN_IN_PATH} from "../../constants/UrlPaths";
 
 function AccountVerificationSuccessful() {
     const navigate = useNavigate();
-    const { token } = useParams();
 
-    axios.post(ACCOUNT_VERIFICATION_SUCCESSFUL_PATH, {params: {token}}
-        )
 
     return (
         <div className='account-verification-successful'>

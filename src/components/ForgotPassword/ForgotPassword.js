@@ -30,26 +30,22 @@ function ForgotPassword() {
 
     async function sendForgotPasswordRequest(values) {
         try {
-            const response = await axios.post(FORGOT_PASSWORD_ENDPOINT,
-                {
-                    email: values.email,
-                })
+            const response = await axios.post(FORGOT_PASSWORD_ENDPOINT, {email: values.email})
             console.log(response)
             navigate(RESET_PASSWORD_CHECK_EMAIL_PATH);
         } catch (e) {
             setCanSubmitInput(false)
             const errorResponse = e.response
             console.log(errorResponse)
-            if (errorResponse.status === 400) {
-                setErrorMessage("Email is invalid")
-            }else if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
-                setErrorMessage("Email is invalid")
-            }else {
+            if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
+                setErrorMessage("Email does not exist")
+            } else {
                 setErrorMessage("There was an issue, please try again")
             }
         }
     }
-   async function handleForgotPassword(e) {
+
+    async function handleForgotPassword(e) {
         e.preventDefault()
         let validationPassed = validateForgotPasswordInput(values.email)
         if (validationPassed) {
