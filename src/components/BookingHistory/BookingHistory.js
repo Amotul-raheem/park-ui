@@ -6,16 +6,24 @@ import SideBar from "../common/SideBar/SideBar";
 
 function BookingHistory() {
 
+    const handleChange = (x) => {
+        console.log(x)
+
+    }
     return (
         <div className="booking-history">
             <div>
-                <SideBar/></div>
+                <SideBar
+                    onBookingHistory={true}
+                    onBooking={false}
+                />
+            </div>
 
             <div className="booking-history-container">
-
-
                 <h1 className="booking-header">Parking History</h1>
-                <YearPicker className="year-picker"/>
+                {/*//todo this library has a bug and its features are limited.*/}
+                {/*//todo you can't pass in the default value and it logs alot of errors*/}
+                <YearPicker onChange={handleChange} className="year-picker"/>
                 <ParkingDetail
                     label="Spot 5"
                     checkInTime="11 Feb,12:30pm"
