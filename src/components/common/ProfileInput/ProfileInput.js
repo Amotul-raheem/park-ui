@@ -2,7 +2,7 @@ import "./ProfileInput.css";
 
 
 function ProfileInput(props) {
-    const {label, name, type, placeholder} = props
+    const {label, name, value, handleChange, type, placeholder} = props
 
     return (
         <div className="profile-input">
@@ -19,12 +19,13 @@ function ProfileInput(props) {
                             className="profile-input-field"
                             name={name}
                             type={type}
+                            value={value}
+                            onChange={handleChange}
                             placeholder={placeholder}
                         />
                     </div>
                 </td>
             </tr>
-
         </div>
     )
 }

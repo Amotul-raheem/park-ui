@@ -2,12 +2,25 @@ import React from "react";
 import "./UserProfile.css"
 import ProfileInput from "../common/ProfileInput/ProfileInput";
 import FormButton from "../common/FormButton/FormButton";
-import profile from "../../../src/images/profile.png"
 import SideBar from "../common/SideBar/SideBar";
 
 
 function UserProfile() {
 
+    const handleGenderChange = (e) => {
+        const {name, value} = e.target;
+        console.log(name)
+        console.log(value)
+    }
+
+    const handleChange = (e) => {
+
+    }
+
+//todo we need to handle updating the profile fields and
+// also getting these values from the backend to display here
+// ensuring no empty fields are present as well. If any field is
+// deleted to be empty we'll replace the value with what was there before.
     return (
         <div className="user-profile">
             <div>
@@ -18,20 +31,29 @@ function UserProfile() {
                 <ProfileInput
                     label="First Name"
                     type="text"
-                    description="Customize your first name"
+                    value="Neemat"
                     placeholder="First Name"
+                    handleChange={handleChange}
                 />
                 <ProfileInput
                     label="Last Name"
                     type="text"
-                    description=" Your last name"
+                    value="Olajide"
                     placeholder="Last Name"
+                    handleChange={handleChange}
                 />
                 <ProfileInput
                     label="Username"
                     type="text"
-                    description="Receive your ticket using your username"
+                    value="folaneem"
+                    handleChange={handleChange}
 
+                />
+                <ProfileInput
+                    label="Date Of Birth"
+                    type="date"
+                    value="2013-01-08"
+                    handleChange={handleChange}
                 />
                 <tr>
                     <td>
@@ -41,17 +63,12 @@ function UserProfile() {
                     </td>
                     <td>
                         <div className="profile-input-gender">
-                            <input type="radio" value="MALE" name="gender"/> Male
-                            <input type="radio" value="FEMALE" name="gender"/> Female
-                            <input type="radio" value="OTHERS" name="gender"/> Others
+                            <input type="radio" value="MALE" name="gender" onChange={handleGenderChange}/> Male
+                            <input type="radio" value="FEMALE" name="gender" onChange={handleGenderChange}/> Female
+                            <input type="radio" value="OTHERS" name="gender" onChange={handleGenderChange}/> Others
                         </div>
                     </td>
                 </tr>
-                <ProfileInput
-                    label="Date Of Birth"
-                    type="date"
-                    description="For your birthday"
-                />
                 <div className="user-profile-button-container">
                     <FormButton
                         name={"Save Changes"}

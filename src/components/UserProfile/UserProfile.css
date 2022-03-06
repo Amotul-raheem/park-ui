@@ -18,7 +18,7 @@
     margin-top: 10px;
     margin-left: 180px;
     width: 80vw;
-    padding: 30px 30px 10px 20px;
+    padding: 30px 30px 0 40px;
     justify-content: center;
     border-radius: 15px;
 }
@@ -52,3 +52,30 @@
     color: #01194A;
 }
 
+.profile-input-gender input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.profile-input-gender input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #01194A;;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
