@@ -14,13 +14,18 @@ function UserProfile() {
                 <SideBar/></div>
             <h1 className="profile-header-name">Profile</h1>
             <div className="user-profile-container">
-                <h1 className="profile-picture-name">Profile Picture <img src={profile} alt="profile-image"
-                                                                          className="profile-image"/></h1>
+
                 <ProfileInput
-                    label="Full Name"
+                    label="First Name"
                     type="text"
-                    description="Customize your account name"
-                    placeholder="Full Name"
+                    description="Customize your first name"
+                    placeholder="First Name"
+                />
+                <ProfileInput
+                    label="Last Name"
+                    type="text"
+                    description=" Your last name"
+                    placeholder="Last Name"
                 />
                 <ProfileInput
                     label="Username"
@@ -32,8 +37,6 @@ function UserProfile() {
                     <td>
                         <div className="profile-input-label">
                             <label className="profile-name">Gender</label>
-                            <br/>
-                            <h5 className="profile-description">How you would like to be identified</h5>
                         </div>
                     </td>
                     <td>

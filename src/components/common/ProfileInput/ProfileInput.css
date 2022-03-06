@@ -1,5 +1,5 @@
 .profile-input {
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 .profile-input input {
@@ -8,7 +8,8 @@
     border: 2px solid lightgray;
     width: 100%;
     padding: 15px;
-    font-size: 1rem;
+    font-size: 18px;
+    font-weight: lighter;
     background-color: #FFFFFF;
     border-radius: 5px;
     margin-left: 60px;
