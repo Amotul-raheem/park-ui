@@ -4,9 +4,10 @@
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 15px;
+    justify-content: center;
     height: 100px;
-    left: 20%;
-    width: 850px;
+    left: 18%;
+    width: 70vw;
 }
 
 .parking-detail-label {
@@ -29,5 +30,11 @@
 .parking-detail-time h5 {
     color: #576072;
     font-weight: bold;
+}
+@media screen and (max-width: 992px) {
+   .parking-detail {
+width: 75vw;
+
+    }
 }
 

@@ -2,12 +2,13 @@
     position: relative;
     top: 0;
     height: 100%;
+    overflow: hidden;
 
 }
 
 .booking-header {
     color: #01194A;
     font-weight: bold;
-    padding-top: 40px;
-    margin-left: 550px;
+   margin-left: 45%;
 }
+

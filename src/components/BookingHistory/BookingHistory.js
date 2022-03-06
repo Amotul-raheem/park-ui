@@ -14,18 +14,18 @@ function BookingHistory() {
 
                 <ParkingDetail
                     label="Spot 5"
-                    checkInTime="Fri,11 Feb,12:30pm"
-                    checkOutTime="Sat,12 Feb, 12:30pm"
+                    checkInTime="11 Feb,12:30pm"
+                    checkOutTime="12 Feb, 12:30pm"
                     price="$99.99"/>
                 <ParkingDetail
                     label="Spot 5"
-                    checkInTime="Fri,11 Feb,12:30pm"
-                    checkOutTime="Sat,12 Feb, 12:30pm"
+                    checkInTime="11 Feb,12:30pm"
+                    checkOutTime="12 Feb, 12:30pm"
                     price="$99.99"/>
                 <ParkingDetail
                     label="Spot 5"
-                    checkInTime="Fri,11 Feb,12:30pm"
-                    checkOutTime="Sat,12 Feb, 12:30pm"
+                    checkInTime="11 Feb,12:30pm"
+                    checkOutTime="12 Feb, 12:30pm"
                     price="$99.99"/>
             </div>
 

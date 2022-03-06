@@ -1,5 +1,5 @@
 .profile-input {
-    padding-top: 20px;
+    padding-top:8px;
 }
 
 .profile-input input {
@@ -16,6 +16,7 @@
 
 .profile-input-label {
     width: 250px;
+    padding-left: 30px;
 }
 
 .profile-name {

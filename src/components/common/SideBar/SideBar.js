@@ -1,24 +1,33 @@
+
 import {Link} from "react-router-dom";
+import * as FaIcons from "react-icons/fa"
 import "./SideBar.css"
-import home from "../../../images/home.png"
-import history from "../../../images/history.png"
 import React from "react";
+import {IconContext} from "react-icons";
 
 
 function SideBar() {
     return (
         <div className="sidebar">
-            <div className="sidebar-content">
-                <Link className="logo-link" to={"/"}>
-                    <img src={home} alt="home-image" className="home-image"/>
-                    <h1>Home</h1>
-                </Link>
-                <Link className="logo-link" to={"/"}>
-                    <img src={history} alt="history-image" className="history-image"/>
-                    <h1>History</h1>
-                </Link>
-            </div>
+            <IconContext.Provider value={{color:'#fff', size: '20px'}}>
+                <div className="sidebar-container">
+                    <nav>
+                        <ul className="nav-menu-items">
+                            <li className="sidebar-text">
+                                <Link to={"/"}>
+                                    <FaIcons.FaHome/> <span>Home</span>
 
+                                </Link>
+                            </li>
+                            <li className="sidebar-text">
+                                <Link to={"/booking-history"}>
+                                    <FaIcons.FaHistory/> <span >History</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </IconContext.Provider>
         </div>
     )
 }
