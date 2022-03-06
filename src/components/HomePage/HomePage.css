@@ -99,6 +99,16 @@
     color: white;
 }
 
+.header-nav-bar button:hover {
+    background-color: #425A8A;
+    color: #FFFFFF;
+}
+
+.header-nav-bar button:hover {
+    background-color: #425A8A;
+    color: #FFFFFF;
+}
+
 .homepage-text-container {
     position: relative;
     width: 100%;
