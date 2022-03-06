@@ -2,34 +2,42 @@
     position: relative;
     top: 0;
     height: 100%;
+    overflow: hidden;
 }
 
 .profile-header-name {
     position: relative;
     color: #01194A;
-    font-weight: lighter;
+    font-weight: bold;
     text-align: center;
     right: -6.5%;
 }
 
 .user-profile-container {
     background: white;
-    margin-left: 15%;
-    width: 78%;
-    padding: 30px;
+    margin-top: 10px;
+    margin-left: 170px;
+    width: 80vw;
+    padding: 10px 30px 10px 20px;
     justify-content: center;
     border-radius: 15px;
 }
 
-.profile-header {
-    text-align: center;
+@media screen and (max-width: 990px) {
+    .user-profile-container {
+        width: 78%;
+    }
+}
+
+.profile-input-gender {
+    margin-left: 55px;
+    font-size: 20px;
     color: #01194A;
-    font-weight: lighter;
 }
 
 .user-profile-button-container {
-    padding-bottom: 30px;
-    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     margin-left: 25%;
 }
 
@@ -42,3 +50,4 @@
     font-weight: normal;
     color: #01194A;
 }
+

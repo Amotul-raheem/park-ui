@@ -12,10 +12,8 @@ function UserProfile() {
         <div className="user-profile">
             <div>
                 <SideBar/></div>
-            <h1 className="profile-header-name">PROFILE</h1>
+            <h1 className="profile-header-name">Profile</h1>
             <div className="user-profile-container">
-                <h1 className="profile-header">Account</h1>
-                <hr/>
                 <h1 className="profile-picture-name">Profile Picture <img src={profile} alt="profile-image"
                                                                           className="profile-image"/></h1>
                 <ProfileInput
@@ -30,11 +28,22 @@ function UserProfile() {
                     description="Receive your ticket using your username"
 
                 />
-                <ProfileInput
-                    label="Gender"
-                    description="How you would like to be identified"
-
-                />
+                <tr>
+                    <td>
+                        <div className="profile-input-label">
+                            <label className="profile-name">Gender</label>
+                            <br/>
+                            <h5 className="profile-description">How you would like to be identified</h5>
+                        </div>
+                    </td>
+                    <td>
+                        <div className="profile-input-gender">
+                            <input type="radio" value="MALE" name="gender"/> Male
+                            <input type="radio" value="FEMALE" name="gender"/> Female
+                            <input type="radio" value="OTHERS" name="gender"/> Others
+                        </div>
+                    </td>
+                </tr>
                 <ProfileInput
                     label="Date Of Birth"
                     type="date"
