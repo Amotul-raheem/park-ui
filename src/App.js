@@ -22,8 +22,9 @@ import {
     RESET_PASSWORD_PATH,
     RESET_PASSWORD_SUCCESSFUL_PATH,
     SIGN_IN_PATH,
-    SIGN_UP_PATH,
     BOOKING_HISTORY_PATH
+    USER_PROFILE_PATH,
+    SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
                 <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingSuccessful/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>
                 <Route path={ACCOUNT_VERIFICATION_SUCCESSFUL_PATH} element={<AccountVerificationSuccessful/>}/>
+                <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>
                 <Route path={ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH} element={<AccountVerificationCheckEmail/>}/>
             </Routes>
         </Router>
