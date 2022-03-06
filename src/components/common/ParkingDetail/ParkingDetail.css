@@ -1,0 +1,45 @@
+.parking-detail {
+    margin-top: 40px;
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 15px;
+    justify-content: center;
+    height: 100px;
+    left: 23%;
+    width: 60vw;
+
+}
+
+
+.parking-detail-label {
+    font-weight: bold;
+    color: #01194A;
+    font-size: 20px;
+}
+
+.parking-detail-container {
+    position: absolute;
+    margin-left: 25px;
+}
+
+.parking-detail-time {
+    margin-right: 200px;
+    text-align: center;
+    width: 70%;
+}
+
+.parking-detail-time h5 {
+    color: #576072;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+    .parking-detail {
+        width: 70vw;
+        float: left;
+        left: 20%;
+
+    }
+}
+

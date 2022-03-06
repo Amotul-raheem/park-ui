@@ -9,6 +9,7 @@ const RESET_PASSWORD_SUCCESSFUL_PATH = "/reset-password-successful";
 const RESET_PASSWORD_PATH = "/reset-password";
 const SIGN_IN_PATH = "/sign-in";
 const HOMEPAGE_PATH = "/";
+const BOOKING_HISTORY_PATH="/booking-history";
 
 
 export {
@@ -22,7 +23,8 @@ export {
     SIGN_UP_PATH,
     USER_PROFILE_PATH,
     SIGN_IN_PATH,
-    HOMEPAGE_PATH
+    HOMEPAGE_PATH,
+    BOOKING_HISTORY_PATH
 
 }
 

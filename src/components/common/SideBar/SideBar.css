@@ -18,7 +18,6 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 8px 0 8px 5px;
     margin-left: 8px;
     list-style: none;
     height: 60px;
@@ -37,15 +36,20 @@
 
 }
 
-.sidebar-text :hover {
+.sidebar-text-focus {
     background-color: #eef1f7;
     border-radius: 20px;
-    color: black;
+    color: #01194A;
 }
 
-.sidebar-text :active {
-    background-color: #eef1f7;
+.sidebar-text-focus span{
+    color: #01194A;
 }
+
+.sidebar-text-focus svg{
+    color: #01194A !important;
+}
+
 
 .nav-menu-items {
     width: 100%;
