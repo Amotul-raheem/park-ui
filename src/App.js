@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import React from 'react';
+import React, {useState} from 'react';
 import SignIn from "./components/SignIn/SignIn";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
@@ -10,6 +10,7 @@ import ResetPasswordSuccessful from "./components/ResetPasswordSuccessful/ResetP
 import ResetPasswordCheckEmail from "./components/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
 import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful";
 import AccountVerificationCheckEmail from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
+import AccountVerification from "./components/AccountVerification/AccountVerification";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
@@ -22,7 +23,7 @@ import {
     SIGN_IN_PATH,
     SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
-import AccountVerification from "./components/AccountVerification/AccountVerification";
+
 
 function App() {
     return (

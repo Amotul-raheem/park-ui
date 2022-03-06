@@ -35,7 +35,8 @@ function SignIn() {
 
     async function sendSignInRequest(values) {
         try {
-            const response = await axios.post(SIGN_IN_ENDPOINT,
+            const response = await axios.post(
+                SIGN_IN_ENDPOINT,
                 {
                     email: values.email,
                     password: values.password
