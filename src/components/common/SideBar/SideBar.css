@@ -43,8 +43,10 @@
     color: black;
 }
 
-.sidebar-text :active {
+.sidebar-text :focus {
     background-color: #eef1f7;
+    border-radius: 20px;
+    color: #01194A;
 }
 
 .nav-menu-items {

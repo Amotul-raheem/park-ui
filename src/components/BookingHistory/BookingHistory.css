@@ -7,8 +7,12 @@
 }
 
 .booking-header {
+    position: relative;
     color: #01194A;
     font-weight: bold;
-   margin-left: 45%;
+    margin-left: 45%;
 }
-
+.year-picker {
+    left: 79%;
+    z-index: 1;
+}

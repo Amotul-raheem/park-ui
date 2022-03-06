@@ -6,9 +6,11 @@
     border-radius: 15px;
     justify-content: center;
     height: 100px;
-    left: 18%;
-    width: 70vw;
+    left: 23%;
+    width: 60vw;
+
 }
+
 
 .parking-detail-label {
     font-weight: bold;
@@ -18,7 +20,7 @@
 
 .parking-detail-container {
     position: absolute;
-    margin-left: 10%;
+    margin-left: 25px;
 }
 
 .parking-detail-time {
@@ -31,9 +33,12 @@
     color: #576072;
     font-weight: bold;
 }
-@media screen and (max-width: 992px) {
-   .parking-detail {
-width: 75vw;
+
+@media screen and (max-width: 1024px) {
+    .parking-detail {
+        width: 70vw;
+        float: left;
+        left: 20%;
 
     }
 }
