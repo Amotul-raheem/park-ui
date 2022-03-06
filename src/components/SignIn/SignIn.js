@@ -41,7 +41,7 @@ function SignIn() {
                     email: values.email,
                     password: values.password
                 })
-            console.log(response)
+            console.log(response.headers)
             navigate(HOMEPAGE_PATH);
         } catch (e) {
             setCanSubmitInput(false)
