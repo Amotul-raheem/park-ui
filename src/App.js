@@ -22,7 +22,7 @@ import {
     RESET_PASSWORD_PATH,
     RESET_PASSWORD_SUCCESSFUL_PATH,
     SIGN_IN_PATH,
-    BOOKING_HISTORY_PATH
+    BOOKING_HISTORY_PATH,
     USER_PROFILE_PATH,
     SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
