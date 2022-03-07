@@ -12,7 +12,6 @@ import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful"
 import AccountVerificationCheckEmail
     from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";
-import useToken from "./components/Utils/useToken";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
@@ -28,22 +27,12 @@ import {
 
 
 function App() {
-    const [token, setToken] = useToken();
 
-    if (!token) {
-        return (
-            <Router>
-                <Routes>
-                    <Route path={SIGN_IN_PATH} element={<SignIn/>} setToken={setToken}/>
-                </Routes>
-            </Router>
-        )
-    }
     return (
         <Router>
             <Routes>
                 <Route exact path={HOMEPAGE_PATH} element={<HomePage/>}/>
-                {/*<Route path={SIGN_IN_PATH} element={<SignIn/>}/>*/}
+                <Route path={SIGN_IN_PATH} element={<SignIn/>}/>
                 <Route path={RESET_PASSWORD_PATH} element={<ResetPassword/>}/>
                 <Route path={RESET_PASSWORD_SUCCESSFUL_PATH} element={<ResetPasswordSuccessful/>}/>
                 <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPassword/>}/>

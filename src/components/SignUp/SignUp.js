@@ -9,6 +9,7 @@ import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
 import {SIGN_UP_ENDPOINT} from "../constants/Endpoints";
+import {getToken} from "../utils/TokenUtils";
 
 function SignUp() {
     let navigate = useNavigate();
@@ -29,6 +30,7 @@ function SignUp() {
     ]
 
     function handleChange(e) {
+        console.log(getToken())
         setCanSubmitInput(true)
         e.preventDefault()
         setValues({

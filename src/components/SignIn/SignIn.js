@@ -9,9 +9,9 @@ import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {SIGN_IN_ENDPOINT} from "../constants/Endpoints";
 import {HOMEPAGE_PATH} from "../constants/UrlPaths";
-import PropTypes from "prop-types";
+import {setToken} from "../utils/TokenUtils";
 
-function SignIn({ setToken }) {
+function SignIn() {
     let navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.SIGN_IN)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
@@ -24,7 +24,6 @@ function SignIn({ setToken }) {
         INPUTS.PASSWORD
     ]
 
-
     function handleChange(e) {
         setCanSubmitInput(true)
         e.preventDefault()
@@ -36,14 +35,9 @@ function SignIn({ setToken }) {
 
     async function sendSignInRequest(values) {
         try {
-            const response = await axios.post(
-                SIGN_IN_ENDPOINT,
-                {
-                    email: values.email,
-                    password: values.password
-                })
-            setToken(response.headers["auth-token"])
-            console.log(response.headers["auth-token"])
+            const response = await axios.post(SIGN_IN_ENDPOINT, {email: values.email, password: values.password})
+            setToken(response.headers.token)
+            console.log(response.headers.token)
             navigate(HOMEPAGE_PATH);
         } catch (e) {
             setCanSubmitInput(false)
@@ -118,7 +112,4 @@ function SignIn({ setToken }) {
     )
 }
 
-SignIn.propTypes = {
-    setToken: PropTypes.func.isRequired
-}
 export default SignIn
