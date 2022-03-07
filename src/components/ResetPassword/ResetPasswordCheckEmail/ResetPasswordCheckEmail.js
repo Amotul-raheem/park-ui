@@ -1,7 +1,7 @@
 import React from "react";
 import "./ResetPasswordCheckEmail.css"
-import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import mail from "../../images/mail.png";
+import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
+import mail from "../../../images/mail.png";
 
 function ResetPasswordCheckEmail() {
     function handleResendClick() {

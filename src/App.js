@@ -6,8 +6,8 @@ import ResetPassword from "./components/ResetPassword/ResetPassword";
 import "./App.css"
 import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
-import ResetPasswordSuccessful from "./components/ResetPasswordSuccessful/ResetPasswordSuccessful";
-import ResetPasswordCheckEmail from "./components/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
+import ResetPasswordSuccessful from "./components/ResetPassword/ResetPasswordSuccessful/ResetPasswordSuccessful";
+import ResetPasswordCheckEmail from "./components/ResetPassword/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
 import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful";
 import BookingHistory from "./components/BookingHistory/BookingHistory";
 import AccountVerificationCheckEmail
@@ -22,12 +22,14 @@ import {
     RESET_PASSWORD_CHECK_EMAIL_PATH,
     RESET_PASSWORD_PATH,
     RESET_PASSWORD_SUCCESSFUL_PATH,
+    RESET_PASSWORD_FAILURE_PATH,
     SIGN_IN_PATH,
     BOOKING_HISTORY_PATH,
     USER_PROFILE_PATH,
     SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
 import UserProfile from "./components/UserProfile/UserProfile";
+import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
 
 function App() {
     return (
@@ -37,6 +39,7 @@ function App() {
                 <Route path={SIGN_IN_PATH} element={<SignIn/>}/>
                 <Route path={RESET_PASSWORD_PATH} element={<ResetPassword/>}/>
                 <Route path={RESET_PASSWORD_SUCCESSFUL_PATH} element={<ResetPasswordSuccessful/>}/>
+                <Route path={RESET_PASSWORD_FAILURE_PATH} element={<ResetPasswordFailure/>}/>
                 <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPassword/>}/>
                 <Route path={SIGN_UP_PATH} element={<SignUp/>}/>
                 <Route path={RESET_PASSWORD_CHECK_EMAIL_PATH} element={<ResetPasswordCheckEmail/>}/>
