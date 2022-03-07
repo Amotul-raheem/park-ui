@@ -10,8 +10,6 @@ import ResetPasswordSuccessful from "./components/ResetPasswordSuccessful/ResetP
 import ResetPasswordCheckEmail from "./components/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
 import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful";
 import BookingHistory from "./components/BookingHistory/BookingHistory";
-import AccountVerificationSuccessful from "./components/AccountVerificationSucessful/AccountVerificationSuccessful";
-import AccountVerificationCheckEmail from "./components/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerificationCheckEmail
     from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";
@@ -29,6 +27,7 @@ import {
     USER_PROFILE_PATH,
     SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
     return (
@@ -44,7 +43,6 @@ function App() {
                 <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingSuccessful/>}/>
                 <Route path={ACCOUNT_VERIFICATION_PATH} element={<AccountVerification/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>
-                <Route path={ACCOUNT_VERIFICATION_SUCCESSFUL_PATH} element={<AccountVerificationSuccessful/>}/>
                 <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>
                 <Route path={ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH} element={<AccountVerificationCheckEmail/>}/>
             </Routes>

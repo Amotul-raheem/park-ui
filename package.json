@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.26.0",
     "prop-types": "^15.8.1",
     "add": "^2.0.6",
     "axios": "^0.26.0",
@@ -15,8 +14,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
-    "react-year-picker": "^0.3.7",
+   "react-year-picker": "^0.3.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
