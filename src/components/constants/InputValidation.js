@@ -14,6 +14,7 @@ export const INPUT_REGEX =
             regex: /.{3,}/,
             regexString: ".{3,}"
         }
+
     };
 
 export const INPUTS = {
