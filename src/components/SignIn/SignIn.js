@@ -9,8 +9,9 @@ import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {SIGN_IN_ENDPOINT} from "../constants/Endpoints";
 import {HOMEPAGE_PATH} from "../constants/UrlPaths";
+import PropTypes from "prop-types";
 
-function SignIn() {
+function SignIn({ setToken }) {
     let navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.SIGN_IN)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
@@ -41,7 +42,8 @@ function SignIn() {
                     email: values.email,
                     password: values.password
                 })
-            console.log(response.headers)
+            setToken(response.headers["auth-token"])
+            console.log(response.headers["auth-token"])
             navigate(HOMEPAGE_PATH);
         } catch (e) {
             setCanSubmitInput(false)
@@ -71,7 +73,6 @@ function SignIn() {
         } else {
             setErrorMessage(DEFAULT_ERROR_MESSAGE.SIGN_IN)
             setCanSubmitInput(false)
-
         }
     }
 
@@ -117,4 +118,7 @@ function SignIn() {
     )
 }
 
+SignIn.propTypes = {
+    setToken: PropTypes.func.isRequired
+}
 export default SignIn
