@@ -1,5 +1,5 @@
 const ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH = "/account-verification-check-email";
-const ACCOUNT_VERIFICATION_SUCCESSFUL_PATH = "/account-verification-successful";
+const ACCOUNT_VERIFICATION_PATH = "/account-verification/:token";
 const BOOKING_SUCCESSFUL_PATH = "/booking-successful";
 const RESET_PASSWORD_CHECK_EMAIL_PATH = "/reset-password-check-email";
 const SIGN_UP_PATH = "/sign-up";
@@ -14,7 +14,7 @@ const BOOKING_HISTORY_PATH="/booking-history";
 
 export {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
-    ACCOUNT_VERIFICATION_SUCCESSFUL_PATH,
+    ACCOUNT_VERIFICATION_PATH,
     BOOKING_SUCCESSFUL_PATH,
     RESET_PASSWORD_SUCCESSFUL_PATH,
     RESET_PASSWORD_CHECK_EMAIL_PATH,
