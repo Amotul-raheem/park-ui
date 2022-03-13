@@ -26,7 +26,7 @@ import {
     SIGN_IN_PATH,
     BOOKING_HISTORY_PATH,
     USER_PROFILE_PATH,
-    SIGN_UP_PATH,
+    SIGN_UP_PATH
 } from "./components/constants/UrlPaths";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";

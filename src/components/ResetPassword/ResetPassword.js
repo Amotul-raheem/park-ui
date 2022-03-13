@@ -14,8 +14,6 @@ import {useNavigate, useParams} from "react-router-dom";
 function ResetPassword() {
     let navigate = useNavigate();
     const {token} = useParams();
-    const [success, setSuccess] = useState(false)
-    const [error, setError] = useState(null)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.RESET_PASSWORD)
     const [values, setValues] = useState({
