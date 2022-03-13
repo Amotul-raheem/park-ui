@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./BookingHistory.css"
-import YearPicker from "react-year-picker";
+// import YearPicker from "react-year-picker";
 import ParkingDetail from "../common/ParkingDetail/ParkingDetail";
 import SideBar from "../common/SideBar/SideBar";
 
@@ -23,7 +23,7 @@ function BookingHistory() {
                 <h1 className="booking-header">Parking History</h1>
                 {/*//todo this library has a bug and its features are limited.*/}
                 {/*//todo you can't pass in the default value and it logs alot of errors*/}
-                <YearPicker onChange={handleChange} className="year-picker"/>
+                {/*<YearPicker onChange={handleChange} className="year-picker"/>*/}
                 <ParkingDetail
                     label="Spot 5"
                     checkInTime="11 Feb,12:30pm"
