@@ -2,11 +2,16 @@ import React from "react";
 import "./ResetPasswordCheckEmail.css"
 import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
 import mail from "../../../images/mail.png";
+import {useLocation, useNavigate} from "react-router-dom";
+import {FORGOT_PASSWORD_PATH} from "../../constants/UrlPaths";
 
 function ResetPasswordCheckEmail() {
+    let navigate = useNavigate();
+    const { state } = useLocation();
+    console.log(state);
+
     function handleResendClick() {
-        console.log("testing")
-        // <Route path="/dashboard" element={<Dashboard authed={true} />} />
+        navigate(FORGOT_PASSWORD_PATH )
     }
 
     return (
@@ -21,7 +26,7 @@ function ResetPasswordCheckEmail() {
                         <img src={mail} alt="mail-image" className="mail-image"/>
                         <h1 className="reset-password-check-email-header">Check your mail</h1>
                         <p className="reset-password-check-email-text">A password reset link has been sent to </p>
-                        <p className=" reset-password-check-email-text user-text-mail"> User@gmail.com </p>
+                        <p className=" reset-password-check-email-text user-text-mail"> {state.email} </p>
                     </div>
                     <div className="reset-password-check-email-resend-text-container">
                         <p>
