@@ -32,7 +32,7 @@ function ForgotPassword() {
         try {
             const response = await axios.post(FORGOT_PASSWORD_ENDPOINT, {email: values.email})
             console.log(response)
-            navigate(RESET_PASSWORD_CHECK_EMAIL_PATH);
+            navigate(RESET_PASSWORD_CHECK_EMAIL_PATH, {state: {email: values.email}});
         } catch (e) {
             setCanSubmitInput(false)
             const errorResponse = e.response
