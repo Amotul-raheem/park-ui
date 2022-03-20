@@ -49,7 +49,7 @@ function BookingPage() {
           {
               third_arr?.map((item)=>{
                   return   (
-                  <div className="parking-space" style={{background: item?.isSelected ? '#01194A' : item?.isOsccupied ? '#f00': '#c4c4c4'}} >
+                  <div className="parking-space" style={{background: item?.isSelected ? '#01194A' : item?.isOccupied ? '#f00': '#c4c4c4'}} >
                       {item?.space_number}
                   </div>)
               })
