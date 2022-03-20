@@ -28,4 +28,4 @@ function ParkingDetail(props) {
     )
 }
 
-export default ParkingDetail
+export default ParkingDetail;

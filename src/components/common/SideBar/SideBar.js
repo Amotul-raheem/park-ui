@@ -14,7 +14,7 @@ function SideBar(props) {
                     <nav>
                         <ul className="nav-menu-items">
                             <li className={onBooking ? "sidebar-text sidebar-text-focus" : "sidebar-text"}>
-                                <Link to={"/"}>
+                                <Link to={"/booking-page"}>
                                     <FaIcons.FaHome/> <span>Home</span>
                                 </Link>
                             </li>

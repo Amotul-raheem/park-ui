@@ -1,0 +1,82 @@
+.booking-page{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.booking-space-container {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  margin-left: 300px;
+  width: 65%;
+  padding: 60px 0px 50px 100px;
+  margin-top: 60px;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.booking-slot {
+  position: relative;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: 100px;
+  justify-content: space-between;
+}
+.parking-space {
+  margin-bottom: 20px;
+  width: calc(50% - 10px);
+  padding: 10px 0px 10px 0px;
+  color: white;
+  text-align: center;
+font-family: Asap;
+font-size: 15px;
+}
+.booking-description{
+    margin-top: -370px;
+    font-size: 13px;
+  font-weight: 300;
+display: flex;
+margin-left: 270px;
+writing-mode: vertical-rl;
+}
+.spot-selected{
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    box-sizing: border-box;
+    background-color: #01194a;
+}
+.spot-booked{
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    box-sizing: border-box;
+    background-color: red;
+}
+.spot-available{
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    box-sizing: border-box;
+    background-color: #c4c4c4;
+}
+.booking-time-container{
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 40%;
+}
+.booking-time{
+   margin-right: 200px;
+  font-size: small;
+   width: 100%;
+}
+@media screen and (max-width: 990px) {
+    .booking-space-container {
+        width: 55%;
+        margin-left: 250px;
+    }
+}
+

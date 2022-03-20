@@ -1,0 +1,13 @@
+.parking-space{
+    display: flex;
+}
+.parking-space-container{
+    background-color: grey;
+    width: 70px;
+    text-align: center;
+    padding:8px;
+    height: 20px;
+    color: #FFFFFF;
+    margin: 10px;
+
+}
