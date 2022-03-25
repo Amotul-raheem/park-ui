@@ -4,7 +4,6 @@ import SignIn from "./components/SignIn/SignIn";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import "./App.css"
-import UserProfile from "./components/UserProfile/UserProfile";
 import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPassword/ResetPasswordSuccessful/ResetPasswordSuccessful";
@@ -14,9 +13,9 @@ import BookingHistory from "./components/BookingHistory/BookingHistory";
 import AccountVerificationCheckEmail
     from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";
+import UserProfile from "./components/UserProfile/UserProfile";
+import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
 import BookingPage from "./components/BookingPage/BookingPage";
-import AccountVerificationSuccessful from "./components/AccountVerificationSucessful/AccountVerificationSuccessful";
-import AccountVerificationCheckEmail from "./components/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
@@ -33,8 +32,6 @@ import {
     SIGN_UP_PATH,
     BOOKING_PAGE_PATH
 } from "./components/constants/UrlPaths";
-import UserProfile from "./components/UserProfile/UserProfile";
-import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
 
 function App() {
     return (
@@ -52,7 +49,6 @@ function App() {
                 <Route path={ACCOUNT_VERIFICATION_PATH} element={<AccountVerification/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>
                 <Route path={BOOKING_PAGE_PATH} element={<BookingPage/>}/>
-                <Route path={ACCOUNT_VERIFICATION_SUCCESSFUL_PATH} element={<AccountVerificationSuccessful/>}/>
                 <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>
                 <Route path={ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH} element={<AccountVerificationCheckEmail/>}/>
             </Routes>
