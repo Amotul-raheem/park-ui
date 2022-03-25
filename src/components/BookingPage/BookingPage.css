@@ -8,12 +8,13 @@
   display: flex;
   flex-direction: row;
   background: white;
-  margin-left: 300px;
-  width: 65%;
-  padding: 60px 0px 50px 100px;
-  margin-top: 60px;
+  margin-left: 480px;
+  width: 55%;
+  padding: 90px 0px 80px 100px;
+  margin-top: 50px;
   justify-content: center;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .booking-slot {
@@ -37,12 +38,13 @@
 font-family: Asap;
 font-size: 15px;
 }
+
 .booking-description{
-    margin-top: -370px;
-    font-size: 13px;
+    margin-top: -420px;
+    font-size: 15px;
   font-weight: 300;
 display: flex;
-margin-left: 270px;
+margin-left: 450px;
 writing-mode: vertical-rl;
 }
 .spot-selected{
@@ -65,18 +67,114 @@ writing-mode: vertical-rl;
 }
 .booking-time-container{
     position: absolute;
-    margin-top: 30px;
-    margin-left: 40%;
+    margin-left: 26.4%;
 }
 .booking-time{
-   margin-right: 200px;
-  font-size: small;
+  margin-left: 180px;
+}
+.booking-time h3{
+  margin-top: 100px;
+margin-right: 420px;
+justify-content: end;
    width: 100%;
+}
+.booking-date-time-range{
+  margin-left: 12px;
+  width: 528px;
+  padding: 20px;
+  justify-content: center;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 2px solid #e5e5e5;
+
+}
+.booking-button-container {
+  padding-bottom: 30px;
+  padding-top: 40px;
+  margin-left: 20%;
+}
+.entrance{
+margin-left: -8px;
+}
+.exit{
+  margin-left: 11px;
+}
+.parking-entrance{
+  position: absolute;
+  margin-top: 195px;
+  font-size: large;
+margin-right: 1020px;
+}
+.parking-exit{
+  position: absolute;
+  margin-left: 830px;
+  font-size: large;
+}
+.dropdown {
+display: inline-block;
+position: relative;
+margin-top: 30px;
+margin-left: 1700px;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  z-index: 1;
+margin-left: -140px;
+}
+.dropdown-text {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 50px;
+  padding-right: 40px;
+  font-weight: bold;
+}
+.dropdown-text a {
+  text-decoration: none;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  color: #000;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 @media screen and (max-width: 990px) {
     .booking-space-container {
-        width: 55%;
-        margin-left: 250px;
+     justify-content: center;
+width: 65%;
+margin-left: 18%;
+
+    }
+    .booking-description{
+      margin-left: 220px;
+    }
+    .booking-time{
+      margin-left: 150px;
+    }
+    .booking-time-container{
+      margin-left: 235px;
+    }
+    .booking-date-time-range{
+      width: 500px;
+    }
+    .booking-button-container{
+     margin-left: 20%;
+    }
+    .dropdown{
+    margin-left: 1350px;
     }
 }
 
