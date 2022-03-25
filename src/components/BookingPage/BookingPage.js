@@ -9,11 +9,14 @@ import FormButton from "../common/FormButton/FormButton";
 import {IconContext} from "react-icons";
 import spots from './Data';
 import BasicDateTimePicker from "../common/BasicDateTimePicker/BasicDateTimePicker";
-import BookingSlot from "./BookingSlot";
+import ParkSpace from "../common/ParkingSpace/ParkSpace";
 
 
 function BookingPage() {
     const [parkSpots, setParkSpots] = useState(spots)
+    const [checkInTime, setCheckInTime] = useState(new Date());
+    const [checkOutTime, setCheckOutTime] = useState(checkInTime);
+
     const first_arr = parkSpots.slice(0, 10);
     const second_arr = parkSpots.slice(10, 20);
     const third_arr = parkSpots.slice(20, 30);
@@ -22,6 +25,9 @@ function BookingPage() {
         console.log(parkSpot)
         let newParkSpots = parkSpots.map(p => {
                 let newP = {...p, isSelected: false};
+                if (newP.isOccupied) {
+                    return newP;
+                }
                 return newP.id === parkSpot.id ? {...newP, isSelected: true} : newP;
             }
         );
@@ -36,6 +42,7 @@ function BookingPage() {
                     onBooking={true}
                 />
             </div>
+            <h1 className="booking-header">Park Booking</h1>
             <IconContext.Provider value={{color: '#000', size: '50px'}}>
                 <div class="dropdown">
                     <CgIcons.CgProfile/>
@@ -63,21 +70,21 @@ function BookingPage() {
 
                     <div className="booking-slot">
                         {first_arr?.map((item) => (
-                            <BookingSlot
+                            <ParkSpace
                                 item={item}
                                 onSelectSpot={onSelectSpot}
                             />))}
                     </div>
                     <div className="booking-slot">
                         {second_arr?.map((item) => (
-                            <BookingSlot
+                            <ParkSpace
                                 item={item}
                                 onSelectSpot={onSelectSpot}
                             />))}
                     </div>
                     <div className="booking-slot">
                         {third_arr?.map((item) => (
-                            <BookingSlot
+                            <ParkSpace
                                 item={item}
                                 onSelectSpot={onSelectSpot}
                             />))}
@@ -89,11 +96,11 @@ function BookingPage() {
                 </div>
 
                 <div className="booking-description">
-                    <div className="spot-selected"></div>
+                    <div className="spot-selected"/>
                     Your Selection
-                    <div className="spot-booked"></div>
+                    <div className="spot-booked"/>
                     Already Booked
-                    <div className="spot-available"></div>
+                    <div className="spot-available"/>
                     Available
                 </div>
 
@@ -107,17 +114,21 @@ function BookingPage() {
                     </div>
                     <div>
                         <tr>
-
                             <td>
                                 <div className="booking-date-time-range">
-                                    <BasicDateTimePicker/>
-
+                                    <BasicDateTimePicker
+                                        dateTime={checkInTime}
+                                        setDateTime={setCheckInTime}
+                                    />
                                 </div>
                             </td>
                             <td>
                                 <div className="booking-date-time-range">
-                                    <BasicDateTimePicker/></div>
-
+                                    <BasicDateTimePicker
+                                        dateTime={checkOutTime}
+                                        setDateTime={setCheckOutTime}
+                                    />
+                                </div>
                             </td>
                         </tr>
                     </div>
@@ -130,7 +141,6 @@ function BookingPage() {
                 </div>
             </IconContext.Provider>
         </div>
-
     )
 }
 

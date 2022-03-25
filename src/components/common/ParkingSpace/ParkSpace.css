@@ -1,0 +1,23 @@
+.park-space {
+    margin-bottom: 20px;
+    width: calc(50% - 10px);
+    padding: 10px 0px 10px 0px;
+    color: white;
+    text-align: center;
+    font-family: Asap;
+    font-size: 15px;
+}
+
+.available-slot {
+    cursor: pointer;
+    background-color: #c4c4c4;
+}
+
+.occupied-slot {
+    background-color: #800000;
+}
+
+.selected-slot {
+    cursor: pointer;
+    background-color: #01194A;
+}

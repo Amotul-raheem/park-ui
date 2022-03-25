@@ -29,7 +29,7 @@ const spots=[
     {"space_number":"Spot 27","id":"27","isOccupied":false, 'isSelected': false},
     {"space_number":"Spot 28","id":"28","isOccupied":false, 'isSelected': false},
     {"space_number":"Spot 29","id":"29","isOccupied":false, 'isSelected': false},
-    // {"space_number":"Spot 30","id":"30","isOccupied":false, 'isSelected': false}
+    {"space_number":"Spot 30","id":"30","isOccupied":false, 'isSelected': false}
 ];
 
 export default spots;
