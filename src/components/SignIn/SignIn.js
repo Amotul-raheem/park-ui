@@ -9,6 +9,7 @@ import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {SIGN_IN_ENDPOINT} from "../constants/Endpoints";
 import {HOMEPAGE_PATH} from "../constants/UrlPaths";
+import {setToken} from "../Utils/TokenUtils";
 
 function SignIn() {
     let navigate = useNavigate();
@@ -23,7 +24,6 @@ function SignIn() {
         INPUTS.PASSWORD
     ]
 
-
     function handleChange(e) {
         setCanSubmitInput(true)
         e.preventDefault()
@@ -35,12 +35,9 @@ function SignIn() {
 
     async function sendSignInRequest(values) {
         try {
-            const response = await axios.post(SIGN_IN_ENDPOINT,
-                {
-                    email: values.email,
-                    password: values.password
-                })
-            console.log(response)
+            const response = await axios.post(SIGN_IN_ENDPOINT, {email: values.email, password: values.password})
+            setToken(response.headers.token)
+            console.log(response.headers.token)
             navigate(HOMEPAGE_PATH);
         } catch (e) {
             setCanSubmitInput(false)
@@ -70,7 +67,6 @@ function SignIn() {
         } else {
             setErrorMessage(DEFAULT_ERROR_MESSAGE.SIGN_IN)
             setCanSubmitInput(false)
-
         }
     }
 

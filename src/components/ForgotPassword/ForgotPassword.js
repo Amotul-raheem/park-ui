@@ -5,8 +5,15 @@ import FormButton from "../common/FormButton/FormButton";
 import key from "../../images/key.png"
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
+import {useNavigate} from "react-router-dom";
+import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
+import axios from "axios";
+import {FORGOT_PASSWORD_ENDPOINT} from "../constants/Endpoints";
+import {RESET_PASSWORD_CHECK_EMAIL_PATH} from "../constants/UrlPaths";
 
 function ForgotPassword() {
+    let navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.FORGOT_PASSWORD)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [values, setValues] = useState({
         email: "",
@@ -21,13 +28,32 @@ function ForgotPassword() {
         })
     }
 
-    function handleForgotPassword(e) {
+    async function sendForgotPasswordRequest(values) {
+        try {
+            const response = await axios.post(FORGOT_PASSWORD_ENDPOINT, {email: values.email})
+            console.log(response)
+            navigate(RESET_PASSWORD_CHECK_EMAIL_PATH, {state: {email: values.email}});
+        } catch (e) {
+            setCanSubmitInput(false)
+            const errorResponse = e.response
+            console.log(errorResponse)
+            if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
+                setErrorMessage("Email does not exist")
+            } else {
+                setErrorMessage("There was an issue, please try again")
+            }
+        }
+    }
+
+    async function handleForgotPassword(e) {
         e.preventDefault()
         let validationPassed = validateForgotPasswordInput(values.email)
         if (validationPassed) {
             setCanSubmitInput(true)
             console.log(values.email)
+            await sendForgotPasswordRequest(values)
         } else {
+            setErrorMessage(DEFAULT_ERROR_MESSAGE.FORGOT_PASSWORD)
             setCanSubmitInput(false)
         }
     }
@@ -58,7 +84,7 @@ function ForgotPassword() {
                     />
                     {canSubmitInput === false && (
                         <p className={"forgot-password-submission-error"}>
-                            There's an error in the email inputted above
+                            {errorMessage}
                         </p>
                     )}
                     <div className="forgot-password-button-container">
@@ -71,6 +97,7 @@ function ForgotPassword() {
             </div>
         </div>
     )
+
 }
 
 export default ForgotPassword

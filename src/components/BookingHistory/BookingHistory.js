@@ -1,15 +1,12 @@
 import React, {useState} from "react";
 import "./BookingHistory.css"
-// import YearPicker from "react-year-picker";
 import ParkingDetail from "../common/ParkingDetail/ParkingDetail";
 import SideBar from "../common/SideBar/SideBar";
+import YearPicker from "../common/YearPicker/YearPicker";
 
 function BookingHistory() {
+    const [year, setYear] = useState(new Date());
 
-    const handleChange = (x) => {
-        console.log(x)
-
-    }
     return (
         <div className="booking-history">
             <div>
@@ -21,9 +18,12 @@ function BookingHistory() {
 
             <div className="booking-history-container">
                 <h1 className="booking-header">Parking History</h1>
-                {/*//todo this library has a bug and its features are limited.*/}
-                {/*//todo you can't pass in the default value and it logs alot of errors*/}
-                {/*<YearPicker onChange={handleChange} className="year-picker"/>*/}
+                <div className={"booking-history-year-picker"}>
+                    <YearPicker
+                        year={year}
+                        setYear={setYear}
+                    />
+                </div>
                 <ParkingDetail
                     label="Spot 5"
                     checkInTime="11 Feb,12:30pm"

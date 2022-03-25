@@ -1,9 +1,9 @@
 import React from "react";
 import "./ResetPasswordSuccessful.css"
 import {useNavigate} from "react-router-dom";
-import FormButton from "../common/FormButton/FormButton";
-import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import check from "../../images/check.png";
+import FormButton from "../../common/FormButton/FormButton";
+import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
+import check from "../../../images/check.png";
 
 function ResetPasswordSuccessful() {
     const navigate = useNavigate();

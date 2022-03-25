@@ -1,18 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ResetPassword.css';
 import key from "../../images/key.png"
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
+import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
+import axios from "axios";
+import {RESET_PASSWORD_ENDPOINT} from "../constants/Endpoints";
+import {RESET_PASSWORD_FAILURE_PATH, RESET_PASSWORD_PATH, RESET_PASSWORD_SUCCESSFUL_PATH} from "../constants/UrlPaths";
+import {useNavigate, useParams} from "react-router-dom";
 
 function ResetPassword() {
+    let navigate = useNavigate();
+    const {token} = useParams();
     const [canSubmitInput, setCanSubmitInput] = useState(true)
+    const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.RESET_PASSWORD)
     const [values, setValues] = useState({
         password: "",
         confirmPassword: ""
     })
-
     const inputs = [
         INPUTS.PASSWORD,
         {...INPUTS.CONFIRM_PASSWORD, pattern: values.password}
@@ -26,16 +33,27 @@ function ResetPassword() {
         })
     }
 
+    async function sendResetPasswordRequest(values) {
+        try {
+            const response = await axios.post(RESET_PASSWORD_ENDPOINT + "/" + token, {password: values.password})
+            console.log(response)
+            navigate(RESET_PASSWORD_SUCCESSFUL_PATH);
+        } catch (e) {
+            console.log(e)
+            navigate(RESET_PASSWORD_FAILURE_PATH);
+        }
+    }
 
-    function handleResetPassword(e) {
+    async function handleResetPassword(e) {
         e.preventDefault()
         let validationPassed = validateSignUpInputs(values)
         if (validationPassed) {
             setCanSubmitInput(true)
             console.log(values)
+            await sendResetPasswordRequest(values)
         } else {
+            setErrorMessage(DEFAULT_ERROR_MESSAGE.RESET_PASSWORD)
             setCanSubmitInput(false)
-
         }
     }
 
@@ -69,7 +87,7 @@ function ResetPassword() {
                     ))}
                     {canSubmitInput === false && (
                         <p className={"reset-password-submission-error"}>
-                            There's an error in your input or no value inputted in fields above
+                            {errorMessage}
                         </p>
                     )}
                     <div className="reset-password-button-container">
