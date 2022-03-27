@@ -17,7 +17,7 @@ function BookingHistory() {
             </div>
 
             <div className="booking-history-container">
-                <h1 className="booking-header">Parking History</h1>
+                <h1 className="booking-header">Parking Booking History</h1>
                 <div className={"booking-history-year-picker"}>
                     <YearPicker
                         year={year}

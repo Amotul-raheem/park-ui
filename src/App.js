@@ -15,7 +15,7 @@ import AccountVerificationCheckEmail
 import AccountVerification from "./components/AccountVerification/AccountVerification";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
-import BookingPage from "./components/BookingPage/BookingPage";
+import Booking from "./components/BookingPage/Booking";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
@@ -30,7 +30,7 @@ import {
     BOOKING_HISTORY_PATH,
     USER_PROFILE_PATH,
     SIGN_UP_PATH,
-    BOOKING_PAGE_PATH
+    BOOKING_PATH
 } from "./components/constants/UrlPaths";
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
                 <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingSuccessful/>}/>
                 <Route path={ACCOUNT_VERIFICATION_PATH} element={<AccountVerification/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>
-                <Route path={BOOKING_PAGE_PATH} element={<BookingPage/>}/>
+                <Route path={BOOKING_PATH} element={<Booking/>}/>
                 <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>
                 <Route path={ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH} element={<AccountVerificationCheckEmail/>}/>
             </Routes>

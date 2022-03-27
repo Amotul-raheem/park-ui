@@ -1,42 +1,27 @@
 .booking-page {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
+    /*position: absolute;*/
+    /*height: 100%;*/
 }
 
 .booking-header {
-    position: relative;
     color: #01194A;
     font-weight: bold;
     margin-left: 45%;
 }
 
-.booking-space-container {
+.park-spaces {
     display: flex;
     flex-direction: row;
     background: white;
-    margin-left: 480px;
+    /*margin-left: 480px;*/
     width: 55%;
-    padding: 90px 0px 80px 100px;
-    margin-top: 50px;
+    padding: 60px 10px 70px 90px;
+    /*margin-top: 35px;*/
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.booking-slot {
-    position: relative;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
-    width: 200px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-right: 100px;
-    justify-content: space-between;
-}
 
 .booking-description {
     margin-top: -420px;
@@ -103,6 +88,7 @@
     border: 2px solid #ffffff;
     padding-left: 140px;
     cursor: pointer;
+    width: 250px;
 }
 
 .booking-button-container {
@@ -175,38 +161,6 @@
     display: block;
 }
 
-@media screen and (max-width: 990px) {
-    .booking-space-container {
-        justify-content: center;
-        width: 65%;
-        margin-left: 18%;
-
-    }
-
-    .booking-description {
-        margin-left: 220px;
-    }
-
-    .booking-time {
-        margin-left: 150px;
-    }
-
-    .booking-time-container {
-        margin-left: 235px;
-    }
-
-    .booking-date-time-range {
-        width: 500px;
-    }
-
-    .booking-button-container {
-        margin-left: 20%;
-    }
-
-    .dropdown {
-        margin-left: 1350px;
-    }
-}
 
 .react-datepicker {
     font-family: Asap !important;

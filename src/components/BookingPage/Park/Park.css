@@ -1,0 +1,10 @@
+.book-slot {
+    height: 100%;
+    overflow: hidden;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 100px;
+    justify-content: space-between;
+}
