@@ -1,0 +1,161 @@
+.booking {
+    height: 100%;
+}
+
+.logo-container {
+    width: 150px;
+    left: 0;
+    background-color: #01194A;
+}
+
+.booking-container {
+    width: 80%;
+    right: 0;
+    background-color: #eef1f7;
+}
+
+.book-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.booking-header {
+    text-align: center;
+    padding-bottom: 10px;
+    color: #01194A;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    font-style: normal;
+}
+
+.booking-button-container{
+    padding-top: 20px;
+}
+
+.booking-time-container {
+    padding-bottom: 30px;
+}
+
+
+
+.park-spaces {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*background: white;*/
+    /*margin-left: 480px;*/
+    /*width: 55%;*/
+    /*padding: 60px 10px 70px 90px;*/
+    /*margin-top: 35px;*/
+    /*justify-content: center;*/
+    /*border-radius: 10px;*/
+    /*overflow: hidden;*/
+}
+
+
+/*.booking-description {*/
+/*    margin-top: -420px;*/
+/*    font-size: 15px;*/
+/*    font-weight: 300;*/
+/*    display: flex;*/
+/*    margin-left: 450px;*/
+/*    writing-mode: vertical-rl;*/
+/*}*/
+
+/*.spot-selected {*/
+/*    padding: 10px;*/
+/*    margin: 10px 0;*/
+/*    box-sizing: border-box;*/
+/*    background-color: #01194a;*/
+/*}*/
+
+/*.spot-booked {*/
+/*    padding: 10px;*/
+/*    margin: 10px 0px 10px 0px;*/
+/*    box-sizing: border-box;*/
+/*    background-color: #800000;*/
+/*}*/
+
+/*.spot-available {*/
+/*    padding: 10px;*/
+/*    margin: 10px 0px 10px 0px;*/
+/*    box-sizing: border-box;*/
+/*    background-color: #c4c4c4;*/
+/*}*/
+
+
+
+
+
+/*.booking-button-container {*/
+/*    padding-bottom: 30px;*/
+/*    padding-top: 40px;*/
+/*    margin-left: 20%;*/
+/*}*/
+
+/*.entrance {*/
+/*    margin-left: -8px;*/
+/*}*/
+
+/*.exit {*/
+/*    margin-left: 11px;*/
+/*}*/
+
+/*.parking-entrance {*/
+/*    position: absolute;*/
+/*    margin-top: 195px;*/
+/*    font-size: large;*/
+/*    margin-right: 1020px;*/
+/*}*/
+
+/*.parking-exit {*/
+/*    position: absolute;*/
+/*    margin-left: 830px;*/
+/*    font-size: large;*/
+/*}*/
+
+/*.dropdown {*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    margin-top: 30px;*/
+/*    margin-left: 1700px;*/
+
+/*}*/
+
+/*.dropdown-content {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    justify-content: center;*/
+/*    background-color: #f9f9f9;*/
+/*    min-width: 160px;*/
+/*    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);*/
+/*    border-radius: 10px;*/
+/*    z-index: 1;*/
+/*    margin-left: -140px;*/
+/*}*/
+
+/*.dropdown-text {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    list-style: none;*/
+/*    height: 50px;*/
+/*    padding-right: 40px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.dropdown-text a {*/
+/*    text-decoration: none;*/
+/*    width: 100%;*/
+/*    height: 70%;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    color: #000;*/
+
+/*}*/
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+

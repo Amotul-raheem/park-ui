@@ -15,7 +15,7 @@ import AccountVerificationCheckEmail
 import AccountVerification from "./components/AccountVerification/AccountVerification";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
-import Booking from "./components/BookingPage/Booking";
+import Booking from "./components/Booking/Booking";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
