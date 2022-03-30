@@ -1,8 +1,8 @@
 .booking {
+
 }
 
 .logo-container {
-    height: 100%;
     position: fixed;
     width: 10%;
     left: 0;
@@ -11,7 +11,9 @@
 }
 
 .booking-container {
-    height: 100%;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
     position: fixed;
     width: 90%;
     max-width: 90%;
@@ -51,6 +53,7 @@
     display: flex;
     justify-content: center;
     padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .dropdown {
