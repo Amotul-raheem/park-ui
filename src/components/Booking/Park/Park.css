@@ -1,5 +1,4 @@
-.book-slot {
-    position: relative;
+.park-slot {
     overflow: hidden;
     top: 0;
     height: 100%;
@@ -11,13 +10,12 @@
     justify-content: space-between;
 }
 
-.booking-container {
+.park-container {
     display: flex;
     flex-direction: row;
     background: white;
-    margin-left: 400px;
     width: 60%;
-    padding: 60px 0px 50px 100px;
+    padding: 50px 0px 50px 50px;
     justify-content: center;
     border-radius: 5px;
 }

@@ -12,6 +12,7 @@ import BasicDateTimePicker from "../common/BasicDateTimePicker/BasicDateTimePick
 import ParkSpace from "../common/ParkingSpace/ParkSpace";
 import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
+import ParkDescription from "./ParkDescription";
 
 
 function Booking() {
@@ -38,37 +39,38 @@ function Booking() {
 
     return (
         <div className="booking">
-            <div className="booking logo-container">
+            <div className="logo-container">
                 <SideBar
                     onBookingHistory={false}
                     onBooking={true}
                 />
             </div>
 
-            <IconContext.Provider value={{color: '#000', size: '50px'}}>
-                <div className="dropdown">
-                    <CgIcons.CgProfile/>
-                    <div className="dropdown-content">
-                        <nav>
-                            <ul>
-                                <li className="dropdown-text">
-                                    <Link to={"/user-profile"}>
-                                        <CgIcons.CgProfile size={'30px'}/> <span>Profile</span>
-                                    </Link>
-                                </li>
-                                <li className="dropdown-text">
-                                    <Link to={"#"}>
-                                        <BiIcons.BiLogOut size={'30px'}/> <span>SignOut</span>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </IconContext.Provider>
-            <div className="book-content">
+            {/*<IconContext.Provider value={{color: '#000', size: '50px'}}>*/}
+            {/*    <div className="dropdown">*/}
+            {/*        <CgIcons.CgProfile/>*/}
+            {/*        <div className="dropdown-content">*/}
+            {/*            <nav>*/}
+            {/*                <ul>*/}
+            {/*                    <li className="dropdown-text">*/}
+            {/*                        <Link to={"/user-profile"}>*/}
+            {/*                            <CgIcons.CgProfile size={'30px'}/> <span>Profile</span>*/}
+            {/*                        </Link>*/}
+            {/*                    </li>*/}
+            {/*                    <li className="dropdown-text">*/}
+            {/*                        <Link to={"#"}>*/}
+            {/*                            <BiIcons.BiLogOut size={'30px'}/> <span>SignOut</span>*/}
+            {/*                        </Link>*/}
+            {/*                    </li>*/}
+            {/*                </ul>*/}
+            {/*            </nav>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</IconContext.Provider>*/}
+            <div className="booking-content">
                 <h1 className="booking-header">Park Booking</h1>
-                <div>
+                <div className="booking-park">
+                    <ParkDescription/>
                     <Park
                         first_arr={first_arr}
                         second_arr={second_arr}
@@ -76,19 +78,6 @@ function Booking() {
                         onSelectSpot={onSelectSpot}
                     />
                 </div>
-                <div className='park-spaces'>
-                    <div className="booking-description">
-                        <div className="spot-selected"/>
-                        Your Selection
-                        <div className="spot-booked"/>
-                        Already Booked
-                        <div className="spot-available"/>
-                        Available
-                    </div>
-
-                </div>
-
-
                 <div className="booking-time-container">
                     <CheckInCheckOut
                         checkInTime={checkInTime}
@@ -103,8 +92,6 @@ function Booking() {
                     />
                 </div>
             </div>
-
-
         </div>
     )
 }

@@ -32,12 +32,13 @@ import {
     SIGN_UP_PATH,
     BOOKING_PATH
 } from "./components/constants/UrlPaths";
+import ParkDescription from "./components/Booking/ParkDescription";
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route exact path={HOMEPAGE_PATH} element={<HomePage/>}/>
+                <Route exact path={HOMEPAGE_PATH} element={<ParkDescription/>}/>
                 <Route path={SIGN_IN_PATH} element={<SignIn/>}/>
                 <Route path={RESET_PASSWORD_PATH} element={<ResetPassword/>}/>
                 <Route path={RESET_PASSWORD_SUCCESSFUL_PATH} element={<ResetPasswordSuccessful/>}/>
