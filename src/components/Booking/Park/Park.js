@@ -1,12 +1,14 @@
 import ParkSpace from "../../common/ParkingSpace/ParkSpace";
+import './Park.css'
 import React from "react";
 
 
 export default function Park(props) {
+
     const {first_arr, second_arr, third_arr, onSelectSpot} = props
 
     return (
-        <div>
+        <div className='booking-container'>
             <div className="book-slot">
                 {first_arr?.map((item) => (
                     <ParkSpace

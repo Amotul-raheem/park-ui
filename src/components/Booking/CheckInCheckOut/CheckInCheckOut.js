@@ -1,14 +1,16 @@
 import BasicDateTimePicker from "../../common/BasicDateTimePicker/BasicDateTimePicker";
-import "./CheckInCheckOut.css"
 import React from "react";
+import './CheckInCheckOut.css'
 
 export default function CheckInCheckOut(props) {
     const {checkInTime, setCheckInTime, checkOutTime, setCheckOutTime} = props
 
     return (
         <div>
+            <tr>
+
             <div className="checkin-checkout">
-                <div className="check-in">
+                <td><div className="check-in">
                     <h3>Check In Date Time</h3>
                     <div className="checkin-checkout-time-range">
                         <BasicDateTimePicker
@@ -16,8 +18,8 @@ export default function CheckInCheckOut(props) {
                             setDateTime={setCheckOutTime}
                         />
                     </div>
-                </div>
-                <div className="check-out">
+                </div></td>
+                <td><div className="check-out">
                     <h3>Check Out Date Time</h3>
                     <div className="checkin-checkout-time-range">
                         <BasicDateTimePicker
@@ -25,9 +27,9 @@ export default function CheckInCheckOut(props) {
                             setDateTime={setCheckInTime}
                         />
                     </div>
-                </div>
+                </div></td>
 
-            </div>
+            </div></tr>
         </div>
     )
 }

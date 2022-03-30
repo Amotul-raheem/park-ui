@@ -1,10 +1,23 @@
 .book-slot {
-    height: 100%;
+    position: relative;
     overflow: hidden;
-    width: 200px;
+    top: 0;
+    height: 100%;
+    width: 300px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-right: 100px;
     justify-content: space-between;
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    margin-left: 400px;
+    width: 60%;
+    padding: 60px 0px 50px 100px;
+    justify-content: center;
+    border-radius: 5px;
 }

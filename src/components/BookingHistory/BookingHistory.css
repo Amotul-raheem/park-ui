@@ -6,14 +6,24 @@
 
 }
 
-.booking-history-year-picker {
+.booking-history-year-picker .react-datepicker__input-container input {
+    position: relative;
     float: right;
-    padding-right: 30px;
+    margin-right: 260px;
+    width: 10% !important;
+    height: 30px !important;
+}
+
+.booking-history-year-picker .react-datepicker-popper {
+    position: absolute;
+    margin-left: 75%;
 }
 
 .booking-header {
+    padding-top: 20px;
     position: relative;
     color: #01194A;
-    font-weight: bold;
-    margin-left: 45%;
+    font-weight: lighter;
+    left: 5%;
+    text-align: center;
 }

@@ -44,64 +44,66 @@ function Booking() {
                     onBooking={true}
                 />
             </div>
-            <div className="booking booking-container">
-                <div className="book-content">
-                    <h1 className="booking-header">Park Booking</h1>
-                    <div className='park-spaces'>
-                        <div className="booking-description">
-                            <div className="spot-selected"/>
-                            Your Selection
-                            <div className="spot-booked"/>
-                            Already Booked
-                            <div className="spot-available"/>
-                            Available
-                        </div>
-                        <Park
-                            first_arr={first_arr}
-                            second_arr={second_arr}
-                            third_arr={third_arr}
-                            onSelectSpot={onSelectSpot}
-                        />
+
+            <IconContext.Provider value={{color: '#000', size: '50px'}}>
+                <div className="dropdown">
+                    <CgIcons.CgProfile/>
+                    <div className="dropdown-content">
+                        <nav>
+                            <ul>
+                                <li className="dropdown-text">
+                                    <Link to={"/user-profile"}>
+                                        <CgIcons.CgProfile size={'30px'}/> <span>Profile</span>
+                                    </Link>
+                                </li>
+                                <li className="dropdown-text">
+                                    <Link to={"#"}>
+                                        <BiIcons.BiLogOut size={'30px'}/> <span>SignOut</span>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </IconContext.Provider>
+            <div className="book-content">
+                <h1 className="booking-header">Park Booking</h1>
+                <div>
+                    <Park
+                        first_arr={first_arr}
+                        second_arr={second_arr}
+                        third_arr={third_arr}
+                        onSelectSpot={onSelectSpot}
+                    />
+                </div>
+                <div className='park-spaces'>
+                    <div className="booking-description">
+                        <div className="spot-selected"/>
+                        Your Selection
+                        <div className="spot-booked"/>
+                        Already Booked
+                        <div className="spot-available"/>
+                        Available
                     </div>
 
-
-                    {/*<div className="booking-time-container">*/}
-                    {/*    <CheckInCheckOut*/}
-                    {/*        checkInTime={checkInTime}*/}
-                    {/*        checkOutTime={checkOutTime}*/}
-                    {/*        setCheckInTime={setCheckInTime}*/}
-                    {/*        setCheckOutTime={setCheckOutTime}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
-                    {/*<div className="booking-button-container">*/}
-                    {/*    <FormButton*/}
-                    {/*        name={"BOOK NOW"}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
                 </div>
 
-                </div>
 
-            {/*<IconContext.Provider value={{color: '#000', size: '50px'}}> </IconContext.Provider>*/}
-            {/*<div className="dropdown">*/}
-            {/*    <CgIcons.CgProfile/>*/}
-            {/*    <div className="dropdown-content">*/}
-            {/*        <nav>*/}
-            {/*            <ul>*/}
-            {/*                <li className="dropdown-text">*/}
-            {/*                    <Link to={"/user-profile"}>*/}
-            {/*                        <CgIcons.CgProfile size={'30px'}/> <span>Profile</span>*/}
-            {/*                    </Link>*/}
-            {/*                </li>*/}
-            {/*                <li className="dropdown-text">*/}
-            {/*                    <Link to={"#"}>*/}
-            {/*                        <BiIcons.BiLogOut size={'30px'}/> <span>SignOut</span>*/}
-            {/*                    </Link>*/}
-            {/*                </li>*/}
-            {/*            </ul>*/}
-            {/*        </nav>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                <div className="booking-time-container">
+                    <CheckInCheckOut
+                        checkInTime={checkInTime}
+                        checkOutTime={checkOutTime}
+                        setCheckInTime={setCheckInTime}
+                        setCheckOutTime={setCheckOutTime}
+                    />
+                </div>
+                <div className="booking-button-container">
+                    <FormButton
+                        name={"BOOK NOW"}
+                    />
+                </div>
+            </div>
+
 
         </div>
     )
