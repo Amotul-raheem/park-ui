@@ -1,15 +1,24 @@
 .booking {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .logo-container {
+    height: 100%;
+    position: fixed;
+    width: 10%;
+    left: 0;
     min-width: 100px;
     max-width: 100px;
 }
 
+.booking-container {
+    height: 100%;
+    position: fixed;
+    width: 90%;
+    max-width: 90%;
+    right: 0;
+}
+
 .booking-content {
-    width: 92% ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,9 +31,9 @@
 }
 
 .booking-header {
+    position: unset !important;
     text-align: center;
     padding-bottom: 40px;
-    padding-right: 100px;
     color: #01194A;
     font-weight: normal;
     font-size: 40px;
