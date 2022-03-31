@@ -9,7 +9,7 @@ function BookingHistory() {
 
     return (
         <div className="booking-history">
-            <div className="logo-container">
+            <div className="booking-history-logo-container">
                 <SideBar
                     onBookingHistory={true}
                     onBooking={false}

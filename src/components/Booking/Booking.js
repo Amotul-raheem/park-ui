@@ -52,7 +52,7 @@ function Booking() {
                 />
             </div>
             <div className="booking">
-                <div className="logo-container">
+                <div className="booking-logo-container">
                     <SideBar
                         onBookingHistory={false}
                         onBooking={true}

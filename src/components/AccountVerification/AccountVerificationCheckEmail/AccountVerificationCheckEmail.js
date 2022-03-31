@@ -12,7 +12,7 @@ function AccountVerificationCheckEmail() {
 
     return (
         <div className='account-verification-check-email'>
-            <div className='account-verification-check-email logo-container'>
+            <div className='account-verification-check-email account-verification-check-email-logo-container'>
                 <HomePageLogo/>
             </div>
 
