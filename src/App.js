@@ -36,12 +36,13 @@ import ParkDescription from "./components/Booking/ParkDescription";
 import ParkingDetail from "./components/BookingHistory/ParkingDetail/ParkingDetail";
 import CheckInCheckoutHistory
     from "./components/BookingHistory/ParkingDetail/CheckInCheckOutHistory/CheckInCheckoutHistory";
+import ProfileNav from "./components/common/ProfileNav/ProfileNav";
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route exact path={HOMEPAGE_PATH} element={<HomePage/>}/>
+                <Route exact path={HOMEPAGE_PATH} element={<ProfileNav/>}/>
                 <Route path={SIGN_IN_PATH} element={<SignIn/>}/>
                 <Route path={RESET_PASSWORD_PATH} element={<ResetPassword/>}/>
                 <Route path={RESET_PASSWORD_SUCCESSFUL_PATH} element={<ResetPasswordSuccessful/>}/>

@@ -2,7 +2,6 @@
 
 }
 
-
 .logo-container {
     position: fixed;
     width: 10%;
@@ -13,7 +12,6 @@
 
 .booking-history-container {
     display: flex;
-    /*justify-content: center;*/
     align-items: center;
     flex-direction: column !important;
     top: 0;
