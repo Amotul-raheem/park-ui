@@ -86,7 +86,7 @@ function SignUp() {
 
     return (
         <div className={'sign-up'}>
-            <div className="sign-up logo-container">
+            <div className="sign-up sign-up-logo-container">
                 <HomePageLogo/>
             </div>
             <div className="sign-up sign-up-container">

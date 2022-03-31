@@ -79,7 +79,7 @@ function SignIn() {
 
     return (
         <div className="sign-in">
-            <div className="sign-in logo-container">
+            <div className="sign-in sign-in-logo-container">
                 <HomePageLogo/>
             </div>
             <div className="sign-in sign-in-container">

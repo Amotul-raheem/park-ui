@@ -13,7 +13,7 @@ function AccountVerificationSuccessful() {
 
     return (
         <div className='account-verification-successful'>
-            <div className="account-verification-successful logo-container">
+            <div className="account-verification-successful account-verification-successful-logo-container">
                 <HomePageLogo/>
             </div>
             <div className="account-verification-successful account-verification-successful-container">

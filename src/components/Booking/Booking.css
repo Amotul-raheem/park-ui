@@ -1,0 +1,80 @@
+.booking {
+
+}
+
+.profile-nav-container {
+    position: relative;
+    float: right;
+    padding-right: 20px;
+    padding-top: 10px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.booking-logo-container {
+    position: fixed;
+    width: 10%;
+    left: 0;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.booking-container {
+    top: 20px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    width: 90%;
+    max-width: 90%;
+    right: 0;
+}
+
+.booking-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+}
+
+.booking-park {
+    display: flex;
+    justify-content: center;
+}
+
+.booking-header {
+    position: unset !important;
+    text-align: center;
+    color: #01194A;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    font-style: normal;
+}
+
+.booking-time-container {
+    margin-bottom: 50px;
+}
+
+.booking-cost {
+    color: #01194A;
+    text-align: center;
+}
+
+.booking-cost h2{
+    font-weight: normal;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.booking-cost h3{
+    font-size: 40px;
+    margin: 0;
+}
+
+.booking-button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

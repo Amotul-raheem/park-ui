@@ -1,0 +1,12 @@
+.checkin-checkout-history {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.checkin-checkout-history h5 {
+    padding-top: 20px;
+    padding-left: 16px;
+    color: #576072;
+    font-size: 14px;
+}
