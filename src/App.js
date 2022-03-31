@@ -32,11 +32,6 @@ import {
     SIGN_UP_PATH,
     BOOKING_PATH
 } from "./components/constants/UrlPaths";
-import ParkDescription from "./components/Booking/ParkDescription";
-import ParkingDetail from "./components/BookingHistory/ParkingDetail/ParkingDetail";
-import CheckInCheckoutHistory
-    from "./components/BookingHistory/ParkingDetail/CheckInCheckOutHistory/CheckInCheckoutHistory";
-import ProfileNav from "./components/common/ProfileNav/ProfileNav";
 
 function App() {
     return (

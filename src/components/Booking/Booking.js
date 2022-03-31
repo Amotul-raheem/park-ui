@@ -5,7 +5,7 @@ import FormButton from "../common/FormButton/FormButton";
 import spots from './Data';
 import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
-import ParkDescription from "./ParkDescription";
+import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
 
 
