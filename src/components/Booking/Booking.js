@@ -61,6 +61,14 @@ function Booking() {
                 <div className="booking-container">
                     <div className="booking-content">
                         <h1 className="booking-header">Park Booking</h1>
+                        <div className="booking-time-container">
+                            <CheckInCheckOut
+                                checkInTime={checkInTime}
+                                checkOutTime={checkOutTime}
+                                setCheckInTime={setCheckInTime}
+                                setCheckOutTime={setCheckOutTime}
+                            />
+                        </div>
                         <div className="booking-park">
                             <ParkDescription/>
                             <Park
@@ -70,13 +78,9 @@ function Booking() {
                                 onSelectSpot={onSelectSpot}
                             />
                         </div>
-                        <div className="booking-time-container">
-                            <CheckInCheckOut
-                                checkInTime={checkInTime}
-                                checkOutTime={checkOutTime}
-                                setCheckInTime={setCheckInTime}
-                                setCheckOutTime={setCheckOutTime}
-                            />
+                        <div className="booking-cost">
+                            <h2>Park Cost</h2>
+                            <h3>£99</h3>
                         </div>
                         <div className="booking-button-container">
                             <FormButton

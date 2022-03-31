@@ -3,7 +3,7 @@
 }
 
 .profile-nav-container {
-    position:relative;
+    position: relative;
     float: right;
     padding-right: 20px;
     padding-top: 10px;
@@ -45,7 +45,6 @@
 .booking-header {
     position: unset !important;
     text-align: center;
-    padding-bottom: 40px;
     color: #01194A;
     font-weight: normal;
     font-size: 40px;
@@ -54,13 +53,28 @@
 }
 
 .booking-time-container {
-    padding-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.booking-cost {
+    color: #01194A;
+    text-align: center;
+}
+
+.booking-cost h2{
+    font-weight: normal;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.booking-cost h3{
+    font-size: 40px;
+    margin: 0;
 }
 
 .booking-button-container {
     display: flex;
     justify-content: center;
-    padding-top: 30px;
+    padding-top: 50px;
     padding-bottom: 50px;
 }
