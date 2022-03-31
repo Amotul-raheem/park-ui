@@ -30,7 +30,7 @@
     background-color: #c4c4c4;
 }
 
-h5 {
+.park-description h5 {
     writing-mode: vertical-rl;
     max-width: 1px;
     padding-left: 0;

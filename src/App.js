@@ -33,12 +33,15 @@ import {
     BOOKING_PATH
 } from "./components/constants/UrlPaths";
 import ParkDescription from "./components/Booking/ParkDescription";
+import ParkingDetail from "./components/BookingHistory/ParkingDetail/ParkingDetail";
+import CheckInCheckoutHistory
+    from "./components/BookingHistory/ParkingDetail/CheckInCheckOutHistory/CheckInCheckoutHistory";
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route exact path={HOMEPAGE_PATH} element={<ParkDescription/>}/>
+                <Route exact path={HOMEPAGE_PATH} element={<HomePage/>}/>
                 <Route path={SIGN_IN_PATH} element={<SignIn/>}/>
                 <Route path={RESET_PASSWORD_PATH} element={<ResetPassword/>}/>
                 <Route path={RESET_PASSWORD_SUCCESSFUL_PATH} element={<ResetPasswordSuccessful/>}/>
