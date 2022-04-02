@@ -65,7 +65,7 @@ function ForgotPassword() {
 
     return (
         <div className='forgot-password'>
-            <div className="forgot-password logo-container">
+            <div className="forgot-password forgot-password-logo-container">
                 <HomePageLogo/>
             </div>
             <div className="forgot-password forgot-password-container">

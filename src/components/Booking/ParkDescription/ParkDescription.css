@@ -1,0 +1,42 @@
+.park-description {
+    font-size: 15px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+}
+
+.spot-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.spot {
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 10px;
+    max-height: 10px;
+    box-sizing: border-box;
+}
+
+.spot-selected {
+    background-color: #01194a;
+}
+
+.spot-booked {
+    background-color: #800000;
+}
+
+.spot-available {
+    background-color: #c4c4c4;
+}
+
+.park-description h5 {
+    writing-mode: vertical-rl;
+    max-width: 1px;
+    padding-left: 0;
+    font-weight: 300;
+    font-family: 'Asap';
+    margin-left: 18px;
+    font-size: 15px;
+    margin-right: 10px;
+}

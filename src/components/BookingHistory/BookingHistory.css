@@ -1,19 +1,50 @@
 .booking-history {
-    position: relative;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
 
 }
+
+.booking-history-logo-container {
+    position: fixed;
+    width: 10%;
+    left: 0;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.booking-history-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column !important;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    width: 90%;
+    max-width: 90%;
+    right: 0;
+}
+
+
+.booking-history-header {
+    position: unset !important;
+    text-align: center;
+    padding-bottom: 40px;
+    color: #01194A;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    font-style: normal;
+}
+
 
 .booking-history-year-picker {
-    float: right;
-    padding-right: 30px;
+    padding-left: 850px;
 }
 
-.booking-header {
+.booking-history-year-picker .react-datepicker__input-container input {
     position: relative;
-    color: #01194A;
-    font-weight: bold;
-    margin-left: 45%;
+    width: 60px !important;
+    float: right;
+    height: 30px !important;
 }
+

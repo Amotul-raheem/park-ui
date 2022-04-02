@@ -9,7 +9,7 @@ function ResetPasswordSuccessful() {
     const navigate = useNavigate();
     return (
         <div className='reset-password-successful'>
-            <div className="reset-password-successful logo-container">
+            <div className="reset-password-successful reset-password-successful-logo-container">
                 <HomePageLogo/>
             </div>
             <div className="reset-password-successful reset-password-successful-container">

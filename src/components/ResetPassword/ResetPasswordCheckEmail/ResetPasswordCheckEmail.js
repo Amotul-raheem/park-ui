@@ -16,7 +16,7 @@ function ResetPasswordCheckEmail() {
 
     return (
         <div className='reset-password-check-email'>
-            <div className='reset-password-check-email logo-container'>
+            <div className='reset-password-check-email reset-password-check-email-logo-container'>
                 <HomePageLogo/>
             </div>
 
