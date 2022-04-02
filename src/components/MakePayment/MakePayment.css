@@ -1,0 +1,56 @@
+.payment {
+    height: 100%;
+    top: 0;
+    overflow-x: hidden;
+    position: fixed;
+}
+
+.logo-container {
+    width: 30%;
+    background-color: #01194A;
+    left: 0;
+}
+.lock-image {
+    padding-bottom: 20px;
+    margin-top: -20px;
+    margin-left: 220px;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 35px;
+}
+/*.code-image {*/
+/*    margin-left: 150px;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*}*/
+
+.payment-container {
+    position: fixed;
+    width: 70%;
+    top: 20%;
+    background-color: #E5E5E5;
+}
+.payment-form {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    /*transform: translate(-50%, -50%);*/
+}
+
+.payment-header {
+    text-align: center;
+    color: #01194A;
+    font-size: 40px;
+    line-height: 46px;
+    padding: 0px 40px 60px 0;
+    font-weight: normal;
+    margin: 0;
+    font-style: normal;
+}
+
+
+.payment-button-container {
+    padding-top: 20px;
+}
+

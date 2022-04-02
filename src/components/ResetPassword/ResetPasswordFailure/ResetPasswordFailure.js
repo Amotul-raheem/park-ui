@@ -1,4 +1,4 @@
-
+import React from 'react'
 function ResetPasswordFailure() {
 
     //todo reset password failure ui

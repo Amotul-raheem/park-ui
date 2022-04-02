@@ -38,3 +38,7 @@ input:invalid[focused = "true"]{
 input:invalid[focused = "true"] ~ span{
     display: block;
 }
+::placeholder {
+    color: grey;
+font-size: medium;
+}

@@ -1,3 +1,4 @@
+import React from 'react'
 import "./ParkingDetail.css"
 
 function ParkingDetail(props) {
