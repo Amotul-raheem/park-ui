@@ -1,12 +1,15 @@
-.booking-successful {
+.booking-modal {
     height: 100%;
     position: fixed;
     top: 0;
     width: 100%;
     overflow: hidden;
+    z-index: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.booking-successful-container {
+.booking-modal-container {
     position: absolute;
     top: 20%;
     right: 18%;
@@ -15,23 +18,21 @@
     border-radius: 15px;
     padding: 40px;
     text-align: center;
-    width: 55%;
+    width: 48%;
 }
 
-.booking-successful-header {
+.booking-modal img {
+    padding-top: 20px;
+}
+
+.booking-modal-header {
     text-align: center;
     color: #01194A;
     font-size: 30px;
     line-height: 46px;
     padding-bottom: 40px;
+    padding-top: 10px;
     font-weight: bold;
     margin: 0;
     font-style: normal;
-}
-
-.booking-successful-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }

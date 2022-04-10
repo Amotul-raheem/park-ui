@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import "./Booking.css"
 import SideBar from "../common/SideBar/SideBar";
 import FormButton from "../common/FormButton/FormButton";
@@ -7,11 +8,14 @@ import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
-import Payment from "../Payment/Payment"
+import BookingModal from "../common/Modal/BookingSuccessful/BookingModal";
+import {BOOKING_PATH} from "../constants/UrlPaths";
 
 
 function Booking() {
-    const [openPayment, setOpenPayment] = useState(false);
+    let navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false)
+    const [bookingSuccessful, isBookingSuccessful] = useState(null)
     const [parkSpots, setParkSpots] = useState(spots)
     const [checkInTime, setCheckInTime] = useState(new Date());
     const [checkOutTime, setCheckOutTime] = useState(checkInTime);
@@ -45,8 +49,17 @@ function Booking() {
         setParkSpots(newParkSpots)
     }
 
+    const closeModal = () => {
+        setShowModal(false)
+        navigate(BOOKING_PATH);
+    }
     return (
         <div onClick={closeDropDown}>
+            {showModal === true ?
+                <BookingModal
+                    success={bookingSuccessful}
+                    onClick={closeModal}
+                /> : null}
             <div className="profile-nav-container">
                 <ProfileNav
                     toggleDropDown={toggleDropDown}
@@ -88,7 +101,7 @@ function Booking() {
                             <FormButton
                                 name={"BOOK NOW"}
                                 onClick={() => {
-                                    setOpenPayment(true);
+                                    setShowModal(true);
                                 }}
                             />
                         </div>
