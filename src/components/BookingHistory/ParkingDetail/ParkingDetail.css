@@ -1,0 +1,32 @@
+.parking-detail {
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    min-width: 750px ;
+}
+
+
+.parking-detail-spot {
+    font-weight: bold;
+    color: #01194A;
+    font-size: 20px;
+}
+
+.parking-detail-time {
+    min-width: 400px;
+
+}
+
+.parking-detail-price {
+    padding-top: 50px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+

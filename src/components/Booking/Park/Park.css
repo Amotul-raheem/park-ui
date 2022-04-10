@@ -1,0 +1,21 @@
+.park-slot {
+    overflow: hidden;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 55px;
+    justify-content: space-between;
+}
+
+.park-container {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    width: 60%;
+    padding: 50px 0px 50px 50px;
+    justify-content: center;
+    border-radius: 5px;
+}

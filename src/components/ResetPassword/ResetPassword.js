@@ -66,7 +66,7 @@ function ResetPassword() {
 
     return (
         <div className={'reset-password'}>
-            <div className="reset-password logo-container">
+            <div className="reset-password reset-password-logo-container">
                 <HomePageLogo/>
             </div>
             <div className="reset-password reset-password-container">
