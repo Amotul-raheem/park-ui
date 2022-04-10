@@ -87,14 +87,13 @@ function Booking() {
                         <div className="booking-button-container">
                             <FormButton
                                 name={"BOOK NOW"}
-                                onClick={()=>{
+                                onClick={() => {
                                     setOpenPayment(true);
                                 }}
                             />
                         </div>
                     </div>
                 </div>
-                {openPayment && <Payment closePayment={setOpenPayment}/>}
             </div>
         </div>
     )

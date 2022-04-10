@@ -19,7 +19,7 @@ function AccountVerificationFailure() {
                 <div className="account-verification-failure-form">
                     <div className="account-verification-failure-text-container">
                         <img src={fail} alt="fail-image" className="fail-image"/>
-                        <h1 className="account-verification-failure-header">Account Verification Failed</h1>
+                        <h1 className="account-verification-failure-header">Account Verification Failure</h1>
                         <p className="account-verification-failure-text">This account which you tried to connect has already been used.<br/>Try creating a different account by clicking below</p>
                     </div>
                     <div className="account-verification-failure-button-container">

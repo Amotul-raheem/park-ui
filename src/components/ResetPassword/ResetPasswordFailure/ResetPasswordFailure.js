@@ -18,8 +18,8 @@ function ResetPasswordFailure() {
                 <div className="reset-password-failure-form">
                     <div className="reset-password-failure-text-container">
                         <img src={fail} alt="fail-image" className="fail-image"/>
-                        <h1 className="reset-password-failure-header">Account Verification Failed</h1>
-                        <p className="reset-password-failure-text">An error occured while we processed your password<br/>reset request.Please try again later</p>
+                        <h1 className="reset-password-failure-header">Reset Password Failure</h1>
+                        <p className="reset-password-failure-text">An error occurred while we processed your password<br/>reset request. Please try again later</p>
                     </div>
                     <div className="reset-password-failure-button-container">
                         <FormButton
