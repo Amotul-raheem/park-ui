@@ -4,16 +4,25 @@ import "react-datepicker/dist/react-datepicker.css";
 import {subDays} from "date-fns";
 
 export default function BasicDateTimePicker(props) {
-    const {dateTime, setDateTime} = props
+    const {dateTime, setDateTime, defaultDateTime} = props
+
+    const filterPassedTime = (time) => {
+        const currentDate = defaultDateTime;
+        const selectedDate = new Date(time);
+
+        return currentDate.getTime() < selectedDate.getTime();
+    };
+
     return (
         <DatePicker
             selected={dateTime}
             onChange={(date) => setDateTime(date)}
             showTimeSelect
-            minDate={subDays(new Date(), 0)}
+            minDate={subDays(defaultDateTime, 0)}
             timeFormat="HH:mm"
             timeIntervals={30}
             timeCaption="time"
+            filterTime={filterPassedTime}
             dateFormat="MMMM d, yyyy h:mm aa"
         />
     );

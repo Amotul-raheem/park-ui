@@ -1,4 +1,4 @@
-import ParkSpace from "../../common/ParkingSpace/ParkSpace";
+import ParkSpace from "./ParkingSpace/ParkSpace";
 import './Park.css'
 import React from "react";
 
