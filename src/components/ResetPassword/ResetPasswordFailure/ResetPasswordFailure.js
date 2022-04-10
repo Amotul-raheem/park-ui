@@ -1,10 +1,9 @@
 import React from 'react'
 import "./ResetPasswordFailure.css"
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import FormButton from "../../common/FormButton/FormButton";
 import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
 import fail from "../../../images/fail.png";
-import axios from "axios";
 
 function ResetPasswordFailure() {
 

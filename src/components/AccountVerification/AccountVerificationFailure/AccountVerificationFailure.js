@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "./AccountVerificationFailure.css"
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import FormButton from "../../common/FormButton/FormButton";
 import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
 import fail from "../../../images/fail.png";
-import axios from "axios";
-import {ACCOUNT_VERIFICATION_PATH, SIGN_UP_PATH} from "../../constants/UrlPaths";
+import {SIGN_UP_PATH} from "../../constants/UrlPaths";
 
 function AccountVerificationFailure() {
     const navigate = useNavigate();
