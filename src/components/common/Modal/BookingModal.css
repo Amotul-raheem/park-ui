@@ -23,6 +23,9 @@
 
 .booking-modal img {
     padding-top: 20px;
+    height: 60px;
+    width: 60px;
+    margin-left: 60px;
     color: #800000;
 }
 
