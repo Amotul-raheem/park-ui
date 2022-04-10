@@ -1,4 +1,4 @@
-import ParkSpace from "../../common/ParkingSpace/ParkSpace";
+import ParkSpace from "./ParkingSpace/ParkSpace";
 import './Park.css'
 import React from "react";
 
@@ -10,21 +10,21 @@ export default function Park(props) {
     return (
         <div className='park-container'>
             <div className="park-slot">
-                {first_arr?.map((item) => (
+                {first_arr.map((item) => (
                     <ParkSpace
                         item={item}
                         onSelectSpot={onSelectSpot}
                     />))}
             </div>
             <div className="park-slot">
-                {second_arr?.map((item) => (
+                {second_arr.map((item) => (
                     <ParkSpace
                         item={item}
                         onSelectSpot={onSelectSpot}
                     />))}
             </div>
             <div className="park-slot">
-                {third_arr?.map((item) => (
+                {third_arr.map((item) => (
                     <ParkSpace
                         item={item}
                         onSelectSpot={onSelectSpot}

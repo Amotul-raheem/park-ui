@@ -1,3 +1,4 @@
+import React from "react";
 import "./CheckInCheckoutHistory.css"
 
 export default function CheckInCheckoutHistory(props) {

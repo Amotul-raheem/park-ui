@@ -1,3 +1,4 @@
+import React from "react";
 import "./ParkingDetail.css"
 import CheckInCheckoutHistory from "./CheckInCheckOutHistory/CheckInCheckoutHistory";
 

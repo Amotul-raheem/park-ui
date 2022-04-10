@@ -1,3 +1,4 @@
+import React from 'react'
 import "./FormInput.css";
 import {useState} from "react";
 
@@ -12,7 +13,7 @@ function FormInput(props) {
 
     return (
         <div className="form-input">
-            <label className="header-name"> {label} </label>
+            <label className="header-name"> {label}</label>
             <div className="input-field-container">
                 <input {...inputProps}
                        className="input-field"

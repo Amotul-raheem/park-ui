@@ -13,6 +13,7 @@ export default function CheckInCheckOut(props) {
                     <BasicDateTimePicker
                         dateTime={checkOutTime}
                         setDateTime={setCheckOutTime}
+                        defaultDateTime={new Date()}
                     />
                 </div>
             </div>
@@ -22,6 +23,7 @@ export default function CheckInCheckOut(props) {
                     <BasicDateTimePicker
                         dateTime={checkInTime}
                         setDateTime={setCheckInTime}
+                        defaultDateTime={checkOutTime}
                     />
                 </div>
             </div>

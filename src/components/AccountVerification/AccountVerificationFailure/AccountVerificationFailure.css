@@ -1,22 +1,22 @@
-.reset-password-failure {
+.account-verification-failure {
     height: 100%;
     position: fixed;
     top: 0;
     overflow-x: hidden;
 }
 
-.reset-password-failure-logo-container {
+.account-verification-failure-logo-container {
     width: 30%;
     background-color: #01194A;
     left: 0;
 }
 
-.reset-password-failure-container {
+.account-verification-failure-container {
     width: 70%;
     background-color: #E5E5E5;
     right: 0;
 }
-.reset-password-failure-text-container {
+.account-verification-failure-text-container {
     text-align: center;
 }
 
@@ -27,14 +27,14 @@
     width: 45px;
     height: 45px;
 }
-.reset-password-failure-form {
+.account-verification-failure-form {
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.reset-password-failure-header {
+.account-verification-failure-header {
     text-align: center;
     color: #01194A;
     font-size: 40px;
@@ -45,7 +45,7 @@
     font-style: normal;
 }
 
-.reset-password-failure-text {
+.account-verification-failure-text {
     text-align: center;
     width: 500px;
     line-height: 20px;
@@ -56,6 +56,6 @@
     color: rgba(87, 96, 114, 0.65);
 }
 
-.reset-password-failure-button-container {
+.account-verification-failure-button-container {
     padding-top: 10px;
 }
