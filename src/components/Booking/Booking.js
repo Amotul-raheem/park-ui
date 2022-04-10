@@ -100,6 +100,7 @@ function Booking() {
                         <div className="booking-button-container">
                             <FormButton
                                 name={"BOOK NOW"}
+                                //todo make request to backend for booking and set the booking successful
                                 onClick={() => {
                                     setShowModal(true);
                                 }}
