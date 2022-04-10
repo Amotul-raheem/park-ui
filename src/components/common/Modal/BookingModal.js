@@ -1,13 +1,10 @@
 import React from "react";
 import "./BookingModal.css"
-import {useNavigate} from "react-router-dom";
-import FormButton from "../../FormButton/FormButton";
-import check from "../../../../images/check.png";
-import {MODAL_MESSAGE} from "../../../constants/ModalMessage";
-import {BOOKING_PATH} from "../../../constants/UrlPaths";
+import FormButton from "../FormButton/FormButton";
+import check from "../../../images/check.png";
+import {MODAL_MESSAGE} from "../../constants/ModalMessage";
 
 function BookingModal(props) {
-    const navigate = useNavigate();
     const {success, onClick} = props
     const message = success ? MODAL_MESSAGE.SUCCESSFUL.HEADER : MODAL_MESSAGE.ERROR.HEADER;
     return (

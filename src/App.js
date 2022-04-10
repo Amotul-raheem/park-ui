@@ -8,7 +8,7 @@ import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPassword/ResetPasswordSuccessful/ResetPasswordSuccessful";
 import ResetPasswordCheckEmail from "./components/ResetPassword/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
-import BookingModal from "./components/common/Modal/BookingSuccessful/BookingModal";
+import BookingModal from "./components/common/Modal/BookingModal";
 import BookingHistory from "./components/BookingHistory/BookingHistory";
 import AccountVerificationCheckEmail from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";

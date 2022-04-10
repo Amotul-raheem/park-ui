@@ -8,7 +8,7 @@ import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
-import BookingModal from "../common/Modal/BookingSuccessful/BookingModal";
+import BookingModal from "../common/Modal/BookingModal";
 import {BOOKING_PATH} from "../constants/UrlPaths";
 
 
