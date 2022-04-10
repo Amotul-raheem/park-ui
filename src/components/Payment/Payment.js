@@ -2,24 +2,30 @@ import React from "react";
 import FormInput from "../common/FormInput/FormInput";
 import FormButton from "../common/FormButton/FormButton";
 import HomePageLogo from "../common/HomeLogo/HomePageLogo";
-import "./MakePayment.css"
+import "./Payment.css"
 import lock from "../../images/lock.png"
-// import code from "../../images/code.png"
+import BookingDetails from "../Booking/BookingDetails/BookingDetails"
 
 
-function MakePayment() {
+function Payment({closePayment}) {
     const handleChange = (e) => {
 
     }
 
-    return (
-        <div className="payment">
-            <div className="payment logo-container">
-                <HomePageLogo/>
-            </div>
+    return (<div className="payment">
+
+
             <div className="payment-container">
                 <div className="payment-form">
                     <h1 className="payment-header">Make Your Payment</h1>
+                    <div className="payment-booking-details">
+                        <BookingDetails
+                            spot="25"
+                            price="$99"
+                            checkInTime="Mon 25th"
+                            checkOutTime="Tue 26th"/>
+                    </div>
+                    <div className="vertical-line"></div>
                     <FormInput
                         id="ccn"
                         name="credit-number"
@@ -62,8 +68,7 @@ function MakePayment() {
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        </div>)
 }
 
-export default MakePayment;
+export default Payment;

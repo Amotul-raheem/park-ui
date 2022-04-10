@@ -1,5 +1,6 @@
 const ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH = "/account-verification-check-email";
 const ACCOUNT_VERIFICATION_PATH = "/account-verification/:token";
+const ACCOUNT_VERIFICATION_FAILURE_PATH = "/account-verification-failure/:token";
 const BOOKING_SUCCESSFUL_PATH = "/booking-successful";
 const RESET_PASSWORD_CHECK_EMAIL_PATH = "/reset-password-check-email";
 const SIGN_UP_PATH = "/sign-up";
@@ -11,13 +12,14 @@ const RESET_PASSWORD_PATH = "/reset-password/:token";
 const SIGN_IN_PATH = "/sign-in";
 const HOMEPAGE_PATH = "/";
 const BOOKING_HISTORY_PATH="/booking-history";
-const MAKE_PAYMENT_PATH="/make-payment";
+const PAYMENT_PATH="/payment";
 const BOOKING_PATH="/booking";
 
 
 export {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
+    ACCOUNT_VERIFICATION_FAILURE_PATH,
     BOOKING_SUCCESSFUL_PATH,
     RESET_PASSWORD_SUCCESSFUL_PATH,
     RESET_PASSWORD_FAILURE_PATH,
@@ -29,7 +31,7 @@ export {
     SIGN_IN_PATH,
     HOMEPAGE_PATH,
     BOOKING_HISTORY_PATH,
-    MAKE_PAYMENT_PATH,
+    PAYMENT_PATH,
     BOOKING_PATH
 }
 

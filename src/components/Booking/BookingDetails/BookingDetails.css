@@ -1,0 +1,43 @@
+.booking-details{
+    height: 100%;
+    top: 0;
+    overflow-x: hidden;
+    position: fixed;
+    background-color: aqua;
+}
+.booking-details-container{
+    position: fixed;
+    top: 29.5%;
+    left: 24%;
+}
+.booking-details-header{
+    color: #01194A;
+    margin-top:10.5%;
+    padding-left: 23%;
+}
+.booking-details-list li {
+    list-style-type: none;
+    margin: 0;
+    padding:12px;
+    font-size: 20px;
+}
+ul{
+    padding-top: 15px;
+    color: #01194A;
+}
+.booking-details-list label{
+    color: rgba(87, 96, 114, 0.65);
+    font-weight:bold ;
+
+}
+@media only screen and (max-width: 1280px) {
+    .booking-details-container{
+        left: 3%;
+        top: 26%;
+    }
+  /*  .booking-details-header{*/
+  /*      padding-left: 8%;*/
+  /*}*/
+
+
+}

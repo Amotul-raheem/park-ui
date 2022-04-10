@@ -1,4 +1,4 @@
-import * as ImIcons from "react-icons/im";
+import React from "react";
 import * as CgIcons from "react-icons/cg";
 import * as BiIcons from "react-icons/bi";
 import {IconContext} from "react-icons";

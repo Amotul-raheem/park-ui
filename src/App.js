@@ -12,13 +12,15 @@ import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful"
 import BookingHistory from "./components/BookingHistory/BookingHistory";
 import AccountVerificationCheckEmail from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";
-import MakePayment from "./components/MakePayment/MakePayment";
+import AccountVerificationFailure from "./components/AccountVerification/AccountVerificationFailure/AccountVerificationFailure";
+import Payment from "./components/Payment/Payment";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
 import Booking from "./components/Booking/Booking";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
+    ACCOUNT_VERIFICATION_FAILURE_PATH,
     BOOKING_SUCCESSFUL_PATH,
     FORGOT_PASSWORD_PATH,
     HOMEPAGE_PATH,
@@ -30,7 +32,7 @@ import {
     BOOKING_HISTORY_PATH,
     USER_PROFILE_PATH,
     SIGN_UP_PATH,
-    MAKE_PAYMENT_PATH,
+    PAYMENT_PATH,
     BOOKING_PATH
 } from "./components/constants/UrlPaths";
 
@@ -48,10 +50,11 @@ function App() {
                 <Route path={RESET_PASSWORD_CHECK_EMAIL_PATH} element={<ResetPasswordCheckEmail/>}/>
                 <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingSuccessful/>}/>
                 <Route path={ACCOUNT_VERIFICATION_PATH} element={<AccountVerification/>}/>
+                <Route path={ACCOUNT_VERIFICATION_FAILURE_PATH} element={<AccountVerificationFailure/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>
                 <Route path={BOOKING_PATH} element={<Booking/>}/>
                 <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>
-                <Route path={MAKE_PAYMENT_PATH} element={<MakePayment/>}/>
+                <Route path={PAYMENT_PATH} element={<Payment/>}/>
                 <Route path={ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH} element={<AccountVerificationCheckEmail/>}/>
             </Routes>
         </Router>

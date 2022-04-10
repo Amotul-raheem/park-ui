@@ -7,9 +7,11 @@ import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
+import Payment from "../Payment/Payment"
 
 
 function Booking() {
+    const [openPayment, setOpenPayment] = useState(false);
     const [parkSpots, setParkSpots] = useState(spots)
     const [checkInTime, setCheckInTime] = useState(new Date());
     const [checkOutTime, setCheckOutTime] = useState(checkInTime);
@@ -80,17 +82,20 @@ function Booking() {
                         </div>
                         <div className="booking-cost">
                             <h2>Park Cost</h2>
-                            <h3>£99</h3>
+                            <h3>$99</h3>
                         </div>
                         <div className="booking-button-container">
                             <FormButton
                                 name={"BOOK NOW"}
+                                onClick={()=>{
+                                    setOpenPayment(true);
+                                }}
                             />
                         </div>
                     </div>
                 </div>
+                {openPayment && <Payment closePayment={setOpenPayment}/>}
             </div>
-
         </div>
     )
 }
