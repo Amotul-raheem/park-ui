@@ -8,17 +8,18 @@ import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPassword/ResetPasswordSuccessful/ResetPasswordSuccessful";
 import ResetPasswordCheckEmail from "./components/ResetPassword/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
-import BookingSuccessful from "./components/BookingSuccessful/BookingSuccessful";
+import BookingModal from "./components/common/Modal/BookingModal";
 import BookingHistory from "./components/BookingHistory/BookingHistory";
-import AccountVerificationCheckEmail
-    from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
+import AccountVerificationCheckEmail from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";
+import AccountVerificationFailure from "./components/AccountVerification/AccountVerificationFailure/AccountVerificationFailure";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ResetPasswordFailure from "./components/ResetPassword/ResetPasswordFailure/ResetPasswordFailure";
 import Booking from "./components/Booking/Booking";
 import {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,
+    ACCOUNT_VERIFICATION_FAILURE_PATH,
     BOOKING_SUCCESSFUL_PATH,
     FORGOT_PASSWORD_PATH,
     HOMEPAGE_PATH,
@@ -45,8 +46,9 @@ function App() {
                 <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPassword/>}/>
                 <Route path={SIGN_UP_PATH} element={<SignUp/>}/>
                 <Route path={RESET_PASSWORD_CHECK_EMAIL_PATH} element={<ResetPasswordCheckEmail/>}/>
-                <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingSuccessful/>}/>
+                <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingModal/>}/>
                 <Route path={ACCOUNT_VERIFICATION_PATH} element={<AccountVerification/>}/>
+                <Route path={ACCOUNT_VERIFICATION_FAILURE_PATH} element={<AccountVerificationFailure/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>
                 <Route path={BOOKING_PATH} element={<Booking/>}/>
                 <Route path={USER_PROFILE_PATH} element={<UserProfile/>}/>

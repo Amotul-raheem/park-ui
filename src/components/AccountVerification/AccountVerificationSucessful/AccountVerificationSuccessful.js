@@ -6,7 +6,6 @@ import HomePageLogo from "../../common/HomeLogo/HomePageLogo";
 import check from "../../../images/check.png";
 import axios from "axios";
 import {ACCOUNT_VERIFICATION_PATH, SIGN_IN_PATH} from "../../constants/UrlPaths";
-
 function AccountVerificationSuccessful() {
     const navigate = useNavigate();
 

@@ -1,22 +1,25 @@
 .profile-input {
     padding-top: 15px;
+    display: flex;
+    justify-content: flex-start !important;
 }
 
 .profile-input input {
     position: relative;
-    border: 2px solid lightgray;
-    padding: 15px;
+    border: 1px solid lightgray;
+    padding: 13px;
     background-color: #FFFFFF;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-left: 60px;
 }
 
 .profile-input-label {
-    width: 250px;
+    width: 200px;
+    padding-top: 7px;
 }
 
 .profile-name {
-    font-size: 27px;
+    font-size: 31px;
     color: #01194A;
 }
 
@@ -26,7 +29,6 @@
 }
 
 .profile-input-field-container{
-    padding-top: 12px;
     padding-bottom: 12px;
 }
 
@@ -39,6 +41,7 @@
     border: 5px solid #E5E5E5;
     background-color: #FFFFFF;
     font-size: 22px;
+    font-weight: 100;
     font-style: normal;
     font-family: Asap;
     color: #576072;

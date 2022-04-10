@@ -15,7 +15,6 @@ function BookingHistory() {
                     onBooking={false}
                 />
             </div>
-
             <div className="booking-history-container">
                 <h1 className="booking-history-header">Parking Booking History</h1>
                 <div className="booking-history-year-picker">
@@ -70,8 +69,6 @@ function BookingHistory() {
                     checkOutTime="12 Feb, 12:30pm"
                     price="$99.99"/>
             </div>
-
-
         </div>
     )
 }

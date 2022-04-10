@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import "./Booking.css"
 import SideBar from "../common/SideBar/SideBar";
 import FormButton from "../common/FormButton/FormButton";
@@ -7,9 +8,14 @@ import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
+import BookingModal from "../common/Modal/BookingModal";
+import {BOOKING_PATH} from "../constants/UrlPaths";
 
 
 function Booking() {
+    let navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false)
+    const [bookingSuccessful, isBookingSuccessful] = useState(null)
     const [parkSpots, setParkSpots] = useState(spots)
     const [checkInTime, setCheckInTime] = useState(new Date());
     const [checkOutTime, setCheckOutTime] = useState(checkInTime);
@@ -43,8 +49,17 @@ function Booking() {
         setParkSpots(newParkSpots)
     }
 
+    const closeModal = () => {
+        setShowModal(false)
+        navigate(BOOKING_PATH);
+    }
     return (
         <div onClick={closeDropDown}>
+            {showModal === true ?
+                <BookingModal
+                    success={bookingSuccessful}
+                    onClick={closeModal}
+                /> : null}
             <div className="profile-nav-container">
                 <ProfileNav
                     toggleDropDown={toggleDropDown}
@@ -80,17 +95,20 @@ function Booking() {
                         </div>
                         <div className="booking-cost">
                             <h2>Park Cost</h2>
-                            <h3>£99</h3>
+                            <h3>$99</h3>
                         </div>
                         <div className="booking-button-container">
                             <FormButton
                                 name={"BOOK NOW"}
+                                //todo make request to backend for booking and set the booking successful
+                                onClick={() => {
+                                    setShowModal(true);
+                                }}
                             />
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
