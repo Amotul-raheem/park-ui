@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import "./Booking.css"
 import SideBar from "../common/SideBar/SideBar";
@@ -10,6 +10,9 @@ import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
 import BookingModal from "../common/Modal/BookingModal";
 import {BOOKING_PATH} from "../constants/UrlPaths";
+import {getToken} from "../Utils/TokenUtils";
+import axios from "axios";
+import {GET_PARK_SPOTS_ENDPOINT} from "../constants/Endpoints";
 
 
 function Booking() {
@@ -20,6 +23,53 @@ function Booking() {
     const [checkInTime, setCheckInTime] = useState(new Date());
     const [checkOutTime, setCheckOutTime] = useState(checkInTime);
     const [dropDown, setDropDown] = useState(false)
+
+    useEffect(async () => {
+        try {
+            const response = await axios.post(GET_PARK_SPOTS_ENDPOINT, {
+                check_in: checkInTime,
+                check_out: checkOutTime
+            });
+
+            const allSpots = response.data
+            const availableSpots = allSpots.available
+            const unavailableSpots = allSpots.unavailable
+
+            let availableSpaces = availableSpots.reduce((accum, spot) => {
+                let trackSpot = {}
+                let space_name = spot.space_name
+                let id = spot._id
+
+                trackSpot.space_name = space_name
+                trackSpot.id = id
+                trackSpot.isOccupied = false
+                trackSpot.isSelected = false
+                accum.push(trackSpot)
+
+                return accum
+            }, [])
+            let unavailableSpaces = unavailableSpots.reduce((accum, spot) => {
+                let trackSpot = {}
+                let space_name = spot.space_name
+                let id = spot._id
+
+                trackSpot.space_name = space_name
+                trackSpot.id = id
+                trackSpot.isOccupied = true
+                trackSpot.isSelected = false
+                accum.push(trackSpot)
+
+                return accum
+            }, [])
+
+            const parkSpots = [...availableSpaces, ...unavailableSpaces]
+
+            setParkSpots(parkSpots)
+            console.log(parkSpots)
+        } catch (e) {
+            console.log(e.response)
+        }
+    }, [checkOutTime])
 
     function toggleDropDown(e) {
         console.log(dropDown)
@@ -37,7 +87,7 @@ function Booking() {
     const third_arr = parkSpots.slice(20, 30);
 
     const onSelectSpot = (parkSpot) => {
-        console.log(parkSpot)
+        console.log(parkSpot.space_name)
         let newParkSpots = parkSpots.map(p => {
                 let newP = {...p, isSelected: false};
                 if (newP.isOccupied) {
@@ -114,3 +164,28 @@ function Booking() {
 }
 
 export default Booking;
+//
+// let parkSpots = allSpots.reduce((accum, spots) => {
+//     let availableSpots = spots.available.map(aSpot => {
+//         let trackSpot = {}
+//         let space_name = aSpot.space_name
+//         let id = aSpot.id
+//         trackSpot.space_name = space_name
+//         trackSpot.id = id
+//         trackSpot.isOccupied = false
+//         trackSpot.isSelected = false
+//         return trackSpot
+//     })
+//     accum.push(availableSpots)
+//     let unavailableSpots = spots.unavailable.map(aSpot => {
+//         let trackSpot = {}
+//         let space_name = aSpot.space_name
+//         let id = aSpot.id
+//         trackSpot.space_name = space_name
+//         trackSpot.id = id
+//         trackSpot.isOccupied = true
+//         trackSpot.isSelected = false
+//         return trackSpot
+//     })
+//     accum.push(unavailableSpots)
+// },[])
