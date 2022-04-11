@@ -78,7 +78,6 @@ function Booking() {
     }, [checkOutTime])
 
     function toggleDropDown(e) {
-        console.log(dropDown)
         setDropDown(!dropDown)
     }
 
@@ -107,35 +106,36 @@ function Booking() {
         setShowModal(false)
         navigate(BOOKING_PATH);
     }
-    return (<div onClick={closeDropDown}>
-        {showModal === true ? <BookingModal
-            success={bookingSuccessful}
-            onClick={closeModal}
-        /> : null}
-        <div className="profile-nav-container">
-            <ProfileNav
-                toggleDropDown={toggleDropDown}
-                dropDown={dropDown}
-            />
-        </div>
-        <div className="booking">
-            <div className="booking-logo-container">
-                <SideBar
-                    onBookingHistory={false}
-                    onBooking={true}
+    return (
+        <div onClick={closeDropDown}>
+            {showModal === true ? <BookingModal
+                success={bookingSuccessful}
+                onClick={closeModal}
+            /> : null}
+            <div className="profile-nav-container">
+                <ProfileNav
+                    toggleDropDown={toggleDropDown}
+                    dropDown={dropDown}
                 />
             </div>
-            <div className="booking-container">
-                <div className="booking-content">
-                    <h1 className="booking-header">Park Booking</h1>
-                    <div className="booking-time-container">
-                        <CheckInCheckOut
-                            checkInTime={checkInTime}
-                            checkOutTime={checkOutTime}
-                            setCheckInTime={setCheckInTime}
-                            setCheckOutTime={setCheckOutTime}
-                        />
-                    </div>
+            <div className="booking">
+                <div className="booking-logo-container">
+                    <SideBar
+                        onBookingHistory={false}
+                        onBooking={true}
+                    />
+                </div>
+                <div className="booking-container">
+                    <div className="booking-content">
+                        <h1 className="booking-header">Park Booking</h1>
+                        <div className="booking-time-container">
+                            <CheckInCheckOut
+                                checkInTime={checkInTime}
+                                checkOutTime={checkOutTime}
+                                setCheckInTime={setCheckInTime}
+                                setCheckOutTime={setCheckOutTime}
+                            />
+                        </div>
 
                         {success === true ?
                             <div className="booking-park">
@@ -151,23 +151,23 @@ function Booking() {
                                 {errorMessage}
                             </p>
                         }
-                    <div className="booking-cost">
-                        <h2>Park Cost</h2>
-                        <h3>$99</h3>
-                    </div>
-                    <div className="booking-button-container">
-                        <FormButton
-                            name={"BOOK NOW"}
-                            //todo make request to backend for booking and set the booking successful
-                            onClick={() => {
-                                setShowModal(true);
-                            }}
-                        />
+                        <div className="booking-cost">
+                            <h2>Park Cost</h2>
+                            <h3>$99</h3>
+                        </div>
+                        <div className="booking-button-container">
+                            <FormButton
+                                name={"BOOK NOW"}
+                                //todo make request to backend for booking and set the booking successful
+                                onClick={() => {
+                                    setShowModal(true);
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>)
+        </div>)
 }
 
 export default Booking;
