@@ -6,8 +6,8 @@ import fail from "../../../images/fail.png";
 import {MODAL_MESSAGE} from "../../constants/ModalMessage";
 
 function BookingModal(props) {
-    const {success, onClick} = props
-    const message = success ? MODAL_MESSAGE.SUCCESSFUL.HEADER : MODAL_MESSAGE.ERROR.HEADER;
+    const {success, onClick, errorMessage} = props
+    const message = success ? MODAL_MESSAGE.SUCCESSFUL.HEADER : errorMessage;
     return (
         <div className="booking-modal">
             <div className="booking-modal-container">
