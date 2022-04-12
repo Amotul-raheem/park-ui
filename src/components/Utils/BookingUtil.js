@@ -45,8 +45,8 @@ const transformParkSpotsForStatus = ({parkSpots, isOccupied}) => {
     }, [])
 }
 
-export const getPrice = (date1, date2) => {
-    const flatPrice = 0.05
-    const diff = (Math.abs(date2 - date1)) / (1000 * 60);
+export const calculatePrice = (dateTime1, dateTime2) => {
+    const flatPrice = 0.005
+    const diff = (Math.abs(dateTime2 - dateTime1)) / (1000 * 60);
     return Math.round(diff * flatPrice)
 }

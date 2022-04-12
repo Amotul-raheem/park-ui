@@ -10,7 +10,7 @@ import ProfileNav from "../common/ProfileNav/ProfileNav";
 import BookingModal from "../common/Modal/BookingModal";
 import {BOOKING_PATH} from "../constants/UrlPaths";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
-import {getParkSpots, getPrice, transformParkSpots} from "../Utils/BookingUtil";
+import {calculatePrice, getParkSpots, transformParkSpots} from "../Utils/BookingUtil";
 
 
 function Booking() {
@@ -28,7 +28,7 @@ function Booking() {
         try {
             setSuccess(true)
             await setParkData()
-            setPrice(getPrice(checkInTime, checkOutTime))
+            setPrice(calculatePrice(checkInTime, checkOutTime))
         } catch (e) {
             console.error("Failure when getting parking spots")
             setParkSpots([])
