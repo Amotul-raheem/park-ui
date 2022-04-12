@@ -10,7 +10,7 @@ import ProfileNav from "../common/ProfileNav/ProfileNav";
 import BookingModal from "../common/Modal/BookingModal";
 import {BOOKING_PATH} from "../constants/UrlPaths";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
-import {getParkSpots, transformParkSpots} from "../Utils/BookingUtil";
+import {getParkSpots, getPrice, transformParkSpots} from "../Utils/BookingUtil";
 
 
 function Booking() {
@@ -22,12 +22,13 @@ function Booking() {
     const [checkOutTime, setCheckOutTime] = useState(checkInTime);
     const [dropDown, setDropDown] = useState(false)
     const [success, setSuccess] = useState(false)
-    const [price, setPrice] = useState(10)
+    const [price, setPrice] = useState(0)
 
     useEffect(async () => {
         try {
             setSuccess(true)
             await setParkData()
+            setPrice(getPrice(checkInTime, checkOutTime))
         } catch (e) {
             console.error("Failure when getting parking spots")
             setParkSpots([])
@@ -51,6 +52,7 @@ function Booking() {
         }
     }
 
+
     const first_arr = parkSpots.slice(0, 10);
     const second_arr = parkSpots.slice(10, 20);
     const third_arr = parkSpots.slice(20, 30);
@@ -70,68 +72,64 @@ function Booking() {
         setShowModal(false)
         navigate(BOOKING_PATH);
     }
-    return (
-        <div onClick={closeDropDown}>
-            {showModal === true ? <BookingModal
-                success={bookingSuccessful}
-                onClick={closeModal}
-            /> : null}
-            <div className="profile-nav-container">
-                <ProfileNav
-                    toggleDropDown={toggleDropDown}
-                    dropDown={dropDown}
+    return (<div onClick={closeDropDown}>
+        {showModal === true ? <BookingModal
+            success={bookingSuccessful}
+            onClick={closeModal}
+        /> : null}
+        <div className="profile-nav-container">
+            <ProfileNav
+                toggleDropDown={toggleDropDown}
+                dropDown={dropDown}
+            />
+        </div>
+        <div className="booking">
+            <div className="booking-logo-container">
+                <SideBar
+                    onBookingHistory={false}
+                    onBooking={true}
                 />
             </div>
-            <div className="booking">
-                <div className="booking-logo-container">
-                    <SideBar
-                        onBookingHistory={false}
-                        onBooking={true}
-                    />
-                </div>
-                <div className="booking-container">
-                    <div className="booking-content">
-                        <h1 className="booking-header">Park Booking</h1>
-                        <div className="booking-time-container">
-                            <CheckInCheckOut
-                                checkInTime={checkInTime}
-                                checkOutTime={checkOutTime}
-                                setCheckInTime={setCheckInTime}
-                                setCheckOutTime={setCheckOutTime}
-                            />
-                        </div>
+            <div className="booking-container">
+                <div className="booking-content">
+                    <h1 className="booking-header">Park Booking</h1>
+                    <div className="booking-time-container">
+                        <CheckInCheckOut
+                            checkInTime={checkInTime}
+                            checkOutTime={checkOutTime}
+                            setCheckInTime={setCheckInTime}
+                            setCheckOutTime={setCheckOutTime}
+                        />
+                    </div>
 
-                        {success === true ?
-                            <div className="booking-park">
-                                <ParkDescription/>
-                                <Park
-                                    first_arr={first_arr}
-                                    second_arr={second_arr}
-                                    third_arr={third_arr}
-                                    onSelectSpot={onSelectSpot}
-                                />
-                            </div> :
-                            <p className="booking-error">
-                                {DEFAULT_ERROR_MESSAGE.BOOKING}
-                            </p>
-                        }
-                        <div className="booking-cost">
-                            <h2>Park Cost</h2>
-                            <h3>{"$" + price}</h3>
-                        </div>
-                        <div className="booking-button-container">
-                            <FormButton
-                                name={"BOOK NOW"}
-                                //todo make request to backend for booking and set the booking successful
-                                onClick={() => {
-                                    setShowModal(true);
-                                }}
-                            />
-                        </div>
+                    {success === true ? <div className="booking-park">
+                        <ParkDescription/>
+                        <Park
+                            first_arr={first_arr}
+                            second_arr={second_arr}
+                            third_arr={third_arr}
+                            onSelectSpot={onSelectSpot}
+                        />
+                    </div> : <p className="booking-error">
+                        {DEFAULT_ERROR_MESSAGE.BOOKING}
+                    </p>}
+                    <div className="booking-cost">
+                        <h2>Park Cost</h2>
+                        <h3>{"$" + price}</h3>
+                    </div>
+                    <div className="booking-button-container">
+                        <FormButton
+                            name={"BOOK NOW"}
+                            //todo make request to backend for booking and set the booking successful
+                            onClick={() => {
+                                setShowModal(true);
+                            }}
+                        />
                     </div>
                 </div>
             </div>
-        </div>)
+        </div>
+    </div>)
 }
 
 export default Booking;
