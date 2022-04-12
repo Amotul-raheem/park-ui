@@ -80,3 +80,10 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+.booking-error{
+    color: #800000;
+    padding-left: 3px;
+    margin: 0;
+    font-size: 20px;
+}

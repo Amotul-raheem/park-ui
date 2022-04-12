@@ -11,8 +11,8 @@ export default function CheckInCheckOut(props) {
                 <h3>Check In Date Time</h3>
                 <div className="checkin-checkout-time-range">
                     <BasicDateTimePicker
-                        dateTime={checkOutTime}
-                        setDateTime={setCheckOutTime}
+                        dateTime={checkInTime}
+                        setDateTime={setCheckInTime}
                         defaultDateTime={new Date()}
                     />
                 </div>
@@ -21,9 +21,9 @@ export default function CheckInCheckOut(props) {
                 <h3>Check Out Date Time</h3>
                 <div className="checkin-checkout-time-range">
                     <BasicDateTimePicker
-                        dateTime={checkInTime}
-                        setDateTime={setCheckInTime}
-                        defaultDateTime={checkOutTime}
+                        dateTime={checkOutTime}
+                        setDateTime={setCheckOutTime}
+                        defaultDateTime={checkInTime}
                     />
                 </div>
             </div>

@@ -15,7 +15,7 @@ function ParkSpace(props) {
             key={item.id}
             className={className}
             onClick={() => onSelectSpot(item)}>
-            {item?.space_number}
+            {item?.space_name}
         </div>
     )
 }
