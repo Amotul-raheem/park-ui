@@ -13,6 +13,7 @@ import {getToken} from "../Utils/TokenUtils";
 import axios from "axios";
 import {GET_PARK_SPOTS_ENDPOINT} from "../constants/Endpoints";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
+import {getParkSpots, transformParkSpots} from "../Utils/BookingUtil";
 
 
 function Booking() {
@@ -24,60 +25,26 @@ function Booking() {
     const [checkOutTime, setCheckOutTime] = useState(checkInTime);
     const [dropDown, setDropDown] = useState(false)
     const [success, setSuccess] = useState(false)
-    const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE.BOOKING)
+    const [price, setPrice] = useState(10)
 
     useEffect(async () => {
         try {
-            const response = await axios.post(GET_PARK_SPOTS_ENDPOINT, {
-                check_in: checkInTime, check_out: checkOutTime
-            });
             setSuccess(true)
-            const allSpots = response.data
-            const availableSpots = allSpots.available
-            const unavailableSpots = allSpots.unavailable
-
-            let availableSpaces = availableSpots.reduce((accum, spot) => {
-                let trackSpot = {}
-                let space_name = spot.space_name
-                let id = spot._id
-
-                trackSpot.space_name = space_name
-                trackSpot.id = id
-                trackSpot.isOccupied = false
-                trackSpot.isSelected = false
-                accum.push(trackSpot)
-
-                return accum
-            }, [])
-            let unavailableSpaces = unavailableSpots.reduce((accum, spot) => {
-                let trackSpot = {}
-                let space_name = spot.space_name
-                let id = spot._id
-
-                trackSpot.space_name = space_name
-                trackSpot.id = id
-                trackSpot.isOccupied = true
-                trackSpot.isSelected = false
-                accum.push(trackSpot)
-
-                return accum
-            }, [])
-
-            const parkSpots = [...availableSpaces, ...unavailableSpaces]
-
-            setParkSpots(parkSpots)
-            console.log(parkSpots)
-
+            await setParkData()
         } catch (e) {
-            console.log(e.response)
-            const errorResponse = e.response
-            if (errorResponse.status === 500) {
-                setErrorMessage("Internal server error. please try again")
-            }
+            console.error("Failure when getting parking spots")
+            setParkSpots([])
+            setSuccess(false)
         }
     }, [checkOutTime])
 
-    function toggleDropDown(e) {
+    const setParkData = async () => {
+        const response = await getParkSpots({checkInTime, checkOutTime})
+        const parkSpots = transformParkSpots(response)
+        setParkSpots(parkSpots)
+    }
+
+    const toggleDropDown = (e) => {
         setDropDown(!dropDown)
     }
 
@@ -148,12 +115,12 @@ function Booking() {
                                 />
                             </div> :
                             <p className="booking-error">
-                                {errorMessage}
+                                {DEFAULT_ERROR_MESSAGE.BOOKING}
                             </p>
                         }
                         <div className="booking-cost">
                             <h2>Park Cost</h2>
-                            <h3>$99</h3>
+                            <h3>{"$" + price}</h3>
                         </div>
                         <div className="booking-button-container">
                             <FormButton
