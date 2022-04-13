@@ -15,6 +15,7 @@ import axios from "axios";
 import {BOOKING_ENDPOINT} from "../constants/Endpoints";
 import {getToken} from "../Utils/TokenUtils";
 import {MODAL_MESSAGE} from "../constants/ModalMessage";
+import fail from "../../images/fail.png";
 
 
 function Booking() {
@@ -165,23 +166,31 @@ function Booking() {
                                 third_arr={third_arr}
                                 onSelectSpot={onSelectSpot}
                             />
-                        </div> : <p className="booking-error">
-                            {DEFAULT_ERROR_MESSAGE.BOOKING}
-                        </p>}
+                        </div> : <div className= "error-container">
+                            <img src={fail} alt={"fail-image"} className="booking-fail-image"/>
+                            <p className="booking-error">
+                                Failure getting parking spots.
+                            </p>
+                        </div>
+                        }
+                        {success === true &&
                         <div className="booking-cost">
                             <h2>Park Cost</h2>
                             <h3>{"$" + price}</h3>
-                        </div>
+                        </div>}
                         {canSubmitInput === false && (
                             <p className={"booking-submission-error"}>
                                 {DEFAULT_ERROR_MESSAGE.BOOKING}
                             </p>
                         )}
                         <div className="booking-button-container">
+                            {success === true &&
                             <FormButton
                                 name={"BOOK NOW"}
-                                onClick={handleSubmitBooking}
+                                onClick = {handleSubmitBooking}
                             />
+                            }
+
                         </div>
                     </div>
                 </div>
