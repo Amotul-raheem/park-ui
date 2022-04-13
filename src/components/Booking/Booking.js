@@ -8,7 +8,7 @@ import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
 import BookingModal from "../common/Modal/BookingModal";
-import {BOOKING_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
+import {SIGN_IN_PATH} from "../constants/UrlPaths";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {calculatePrice, getParkSpots, transformParkSpots} from "../Utils/BookingUtil";
 import axios from "axios";
@@ -43,7 +43,7 @@ function Booking() {
             setParkSpots([])
             setSuccess(false)
         }
-    }, [checkOutTime])
+    }, [checkOutTime, checkInTime])
 
     const setParkData = async () => {
         const response = await getParkSpots({checkInTime, checkOutTime})
@@ -63,7 +63,7 @@ function Booking() {
 
     const closeModal = () => {
         setShowModal(false)
-        navigate(BOOKING_PATH);
+        navigate(0);
     }
 
     const onSelectSpot = (parkSpot) => {
@@ -81,18 +81,17 @@ function Booking() {
 
     const sendBookingRequest = async () => {
         try {
-            const response = await axios.post(BOOKING_ENDPOINT, {
-                space_name: spaceName, check_in: checkOutTime, check_out: checkOutTime, price: price
+            await axios.post(BOOKING_ENDPOINT, {
+                space_name: spaceName, check_in: checkOutTime,
+                check_out: checkOutTime, price: price
             }, {
                 headers: {token}
-            })
+            });
             setBookingSuccessful(true)
             setShowModal(true);
-            console.log(response)
         } catch (error) {
             setShowModal(true);
             setBookingSuccessful(false)
-            console.log(error.response)
             const errorResponse = error.response
             if (errorResponse.status === 401) {
                 setErrorMessage("Access denied. You're unauthorised. Please sign out and sign in.")
@@ -107,19 +106,19 @@ function Booking() {
     }
 
     const handleSubmitBooking = async () => {
-        if (!canSubmitBooking) {
+        if (canSubmitBooking() === true) {
             setCanSubmitInput(true)
             await sendBookingRequest()
-            console.log(spaceName)
         } else {
             setCanSubmitInput(false)
         }
     }
 
     const canSubmitBooking = () => {
-        if (checkInTime === checkOutTime || spaceName === null){
+        if (checkInTime >= checkOutTime || spaceName === null) {
             return false;
         }
+        return true;
     }
 
     const first_arr = parkSpots.slice(0, 10);
