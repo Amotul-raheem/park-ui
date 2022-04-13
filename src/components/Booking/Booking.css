@@ -77,13 +77,20 @@
 .booking-button-container {
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 15px;
     padding-bottom: 50px;
 }
 
 .booking-error{
     color: #800000;
     padding-left: 3px;
+    margin: 0;
+    font-size: 20px;
+}
+.booking-submission-error{
+    color: #800000;
+    padding-left: 7px;
+    padding-top: 25px;
     margin: 0;
     font-size: 20px;
 }

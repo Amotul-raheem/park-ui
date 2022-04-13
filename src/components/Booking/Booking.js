@@ -8,7 +8,7 @@ import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
 import ProfileNav from "../common/ProfileNav/ProfileNav";
 import BookingModal from "../common/Modal/BookingModal";
-import {BOOKING_PATH} from "../constants/UrlPaths";
+import {BOOKING_PATH, SIGN_IN_PATH} from "../constants/UrlPaths";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {calculatePrice, getParkSpots, transformParkSpots} from "../Utils/BookingUtil";
 import axios from "axios";
@@ -18,7 +18,6 @@ import {MODAL_MESSAGE} from "../constants/ModalMessage";
 
 
 function Booking() {
-    let spot;
     let navigate = useNavigate();
     let token = getToken()
     const [showModal, setShowModal] = useState(false)
@@ -29,12 +28,14 @@ function Booking() {
     const [dropDown, setDropDown] = useState(false)
     const [success, setSuccess] = useState(false)
     const [price, setPrice] = useState(0)
-    const [spaceName, setSpaceName] = useState(" ")
+    const [spaceName, setSpaceName] = useState(null)
     const [errorMessage, setErrorMessage] = useState(MODAL_MESSAGE.ERROR.HEADER)
+    const [canSubmitInput, setCanSubmitInput] = useState(true)
 
     useEffect(async () => {
         try {
             setSuccess(true)
+            setCanSubmitInput(true)
             await setParkData()
             setPrice(calculatePrice(checkInTime, checkOutTime))
         } catch (e) {
@@ -72,32 +73,33 @@ function Booking() {
                 return newP;
             }
             return newP.id === parkSpot.id ? {...newP, isSelected: true} : newP;
-
         });
         setParkSpots(updatedParkSpots)
         setSpaceName(parkSpot.space_name)
+        setCanSubmitInput(true)
     }
 
     const sendBookingRequest = async () => {
         try {
             const response = await axios.post(BOOKING_ENDPOINT, {
-                space_name: spaceName,
-                check_in: checkOutTime,
-                check_out: checkOutTime,
-                price: price
+                space_name: spaceName, check_in: checkOutTime, check_out: checkOutTime, price: price
             }, {
                 headers: {token}
             })
             setBookingSuccessful(true)
+            setShowModal(true);
             console.log(response)
         } catch (error) {
+            setShowModal(true);
             setBookingSuccessful(false)
             console.log(error.response)
             const errorResponse = error.response
             if (errorResponse.status === 401) {
                 setErrorMessage("Access denied. You're unauthorised. Please sign out and sign in.")
+                navigate(SIGN_IN_PATH);
             } else if (errorResponse.status === 400) {
-                setErrorMessage("Choose a park space and select a date or time range. Please try again")
+                setErrorMessage("Token expired")
+                navigate(SIGN_IN_PATH);
             } else {
                 setErrorMessage("There was an issue making booking, please try again")
             }
@@ -105,17 +107,19 @@ function Booking() {
     }
 
     const handleSubmitBooking = async () => {
-        if (canSubmitBooking) {
-            setShowModal(true);
-            setBookingSuccessful(true)
+        if (!canSubmitBooking) {
+            setCanSubmitInput(true)
             await sendBookingRequest()
+            console.log(spaceName)
         } else {
-            setBookingSuccessful(false)
+            setCanSubmitInput(false)
         }
     }
 
     const canSubmitBooking = () => {
-        return !(checkInTime === checkOutTime || spaceName === " ");
+        if (checkInTime === checkOutTime || spaceName === null){
+            return false;
+        }
     }
 
     const first_arr = parkSpots.slice(0, 10);
@@ -169,6 +173,11 @@ function Booking() {
                             <h2>Park Cost</h2>
                             <h3>{"$" + price}</h3>
                         </div>
+                        {canSubmitInput === false && (
+                            <p className={"booking-submission-error"}>
+                                {DEFAULT_ERROR_MESSAGE.BOOKING}
+                            </p>
+                        )}
                         <div className="booking-button-container">
                             <FormButton
                                 name={"BOOK NOW"}

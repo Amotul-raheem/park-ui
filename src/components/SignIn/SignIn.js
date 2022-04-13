@@ -44,7 +44,7 @@ function SignIn() {
             const errorResponse = e.response
             console.log(errorResponse)
             if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
-                setErrorMessage("Email already exists, please try again with another email address or Sign In by clicking on the link below")
+                setErrorMessage("Incorrect Email, please try again with another email address or Sign In by clicking on the link below")
             } else if (errorResponse.status === 400 && errorResponse.data === "Incorrect password") {
                 setErrorMessage("Password is incorrect, please try again")
             } else if (errorResponse.status === 401 && errorResponse.data === 'Your Email has not been verified. Check your mail') {
