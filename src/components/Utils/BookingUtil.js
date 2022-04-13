@@ -3,7 +3,8 @@ import {GET_PARK_SPOTS_ENDPOINT} from "../constants/Endpoints";
 
 export const getParkSpots = async ({checkInTime, checkOutTime}) => {
     const request = new Promise((resolve, reject) => {
-        axios.post(GET_PARK_SPOTS_ENDPOINT, {check_in: checkInTime, check_out: checkOutTime})
+        axios.post(GET_PARK_SPOTS_ENDPOINT, {check_in: checkInTime,
+            check_out: checkOutTime})
             .then(response => {
                 resolve(response.data)
             })

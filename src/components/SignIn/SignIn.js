@@ -8,7 +8,7 @@ import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {SIGN_IN_ENDPOINT} from "../constants/Endpoints";
-import {HOMEPAGE_PATH} from "../constants/UrlPaths";
+import {BOOKING_PATH, HOMEPAGE_PATH} from "../constants/UrlPaths";
 import {setToken} from "../Utils/TokenUtils";
 
 function SignIn() {
@@ -38,13 +38,13 @@ function SignIn() {
             const response = await axios.post(SIGN_IN_ENDPOINT, {email: values.email, password: values.password})
             setToken(response.headers.token)
             console.log(response.headers.token)
-            navigate(HOMEPAGE_PATH);
+            navigate(BOOKING_PATH);
         } catch (e) {
             setCanSubmitInput(false)
             const errorResponse = e.response
             console.log(errorResponse)
             if (errorResponse.status === 400 && errorResponse.data === "Incorrect Email") {
-                setErrorMessage("Email already exists, please try again with another email address or Sign In by clicking on the link below")
+                setErrorMessage("Incorrect Email, please try again with another email address or Sign In by clicking on the link below")
             } else if (errorResponse.status === 400 && errorResponse.data === "Incorrect password") {
                 setErrorMessage("Password is incorrect, please try again")
             } else if (errorResponse.status === 401 && errorResponse.data === 'Your Email has not been verified. Check your mail') {
