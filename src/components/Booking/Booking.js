@@ -18,6 +18,7 @@ import {MODAL_MESSAGE} from "../constants/ModalMessage";
 
 
 function Booking() {
+    let spot;
     let navigate = useNavigate();
     let token = getToken()
     const [showModal, setShowModal] = useState(false)
@@ -65,7 +66,7 @@ function Booking() {
     }
 
     const onSelectSpot = (parkSpot) => {
-        let newParkSpots = parkSpots.map(p => {
+        let updatedParkSpots = parkSpots.map(p => {
             let newP = {...p, isSelected: false};
             if (newP.isOccupied) {
                 return newP;
@@ -73,14 +74,17 @@ function Booking() {
             return newP.id === parkSpot.id ? {...newP, isSelected: true} : newP;
 
         });
+        setParkSpots(updatedParkSpots)
         setSpaceName(parkSpot.space_name)
-        setParkSpots(newParkSpots)
     }
 
     const sendBookingRequest = async () => {
         try {
             const response = await axios.post(BOOKING_ENDPOINT, {
-                space_name: spaceName, check_in: checkOutTime, check_out: checkOutTime, price: price
+                space_name: spaceName,
+                check_in: checkOutTime,
+                check_out: checkOutTime,
+                price: price
             }, {
                 headers: {token}
             })
@@ -118,7 +122,8 @@ function Booking() {
     const second_arr = parkSpots.slice(10, 20);
     const third_arr = parkSpots.slice(20, 30);
 
-    return (<div onClick={closeDropDown}>
+    return (
+        <div onClick={closeDropDown}>
             {showModal === true ? <BookingModal
                 success={bookingSuccessful}
                 onClick={closeModal}
