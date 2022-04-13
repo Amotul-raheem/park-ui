@@ -20,7 +20,7 @@ export default function BasicDateTimePicker(props) {
             showTimeSelect
             minDate={subDays(defaultDateTime, 0)}
             timeFormat="HH:mm"
-            timeIntervals={30}
+            timeIntervals={60}
             timeCaption="time"
             filterTime={filterPassedTime}
             dateFormat="MMMM d, yyyy h:mm aa"

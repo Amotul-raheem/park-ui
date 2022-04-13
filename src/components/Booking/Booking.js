@@ -15,13 +15,13 @@ import axios from "axios";
 import {BOOKING_ENDPOINT} from "../constants/Endpoints";
 import {getToken} from "../Utils/TokenUtils";
 import {MODAL_MESSAGE} from "../constants/ModalMessage";
-import fail from "../../images/fail.png";
 
 
 function Booking() {
     let navigate = useNavigate();
     let token = getToken()
     const [showModal, setShowModal] = useState(false)
+    const [displayErrorMessageOnEmptyParkSpots, setDisplayErrorMessageOnEmptyParkSpots] = useState(false)
     const [bookingSuccessful, setBookingSuccessful] = useState(null)
     const [parkSpots, setParkSpots] = useState([])
     const [checkInTime, setCheckInTime] = useState(new Date());
@@ -36,9 +36,9 @@ function Booking() {
     useEffect(async () => {
         try {
             setCanSubmitInput(true)
+            setSuccess(true)
             await setParkData()
             setPrice(calculatePrice(checkInTime, checkOutTime))
-            setSuccess(true)
         } catch (e) {
             console.error("Failure when getting parking spots")
             setParkSpots([])
@@ -111,6 +111,11 @@ function Booking() {
             setCanSubmitInput(true)
             await sendBookingRequest()
         } else {
+            if (parkSpots.length === 0) {
+                setDisplayErrorMessageOnEmptyParkSpots(false)
+            } else {
+                setDisplayErrorMessageOnEmptyParkSpots(true)
+            }
             setCanSubmitInput(false)
         }
     }
@@ -149,50 +154,42 @@ function Booking() {
                 <div className="booking-container">
                     <div className="booking-content">
                         <h1 className="booking-header">Park Booking</h1>
+                        <div className="booking-time-container">
+                            <CheckInCheckOut
+                                checkInTime={checkInTime}
+                                checkOutTime={checkOutTime}
+                                setCheckInTime={setCheckInTime}
+                                setCheckOutTime={setCheckOutTime}
+                            />
+                        </div>
                         {success === true ?
-                            <div>
-                                <div className="booking-time-container">
-                                    <CheckInCheckOut
-                                        checkInTime={checkInTime}
-                                        checkOutTime={checkOutTime}
-                                        setCheckInTime={setCheckInTime}
-                                        setCheckOutTime={setCheckOutTime}
-                                    />
-                                </div>
-                                <div className="booking-park">
-                                    <ParkDescription/>
-                                    <Park
-                                        first_arr={first_arr}
-                                        second_arr={second_arr}
-                                        third_arr={third_arr}
-                                        onSelectSpot={onSelectSpot}
-                                    />
-                                </div>
+                            <div className="booking-park">
+                                <ParkDescription/>
+                                <Park
+                                    first_arr={first_arr}
+                                    second_arr={second_arr}
+                                    third_arr={third_arr}
+                                    onSelectSpot={onSelectSpot}
+                                />
                             </div> :
-                            <div className="error-container">
-                                <img src={fail} alt={"fail-image"} className="booking-fail-image"/>
-                                <p className="booking-error">
-                                    Failure getting parking spots. Kindly refresh page
-                                </p>
-                            </div>}
-                        {success === true &&
+                            <p className="booking-error">
+                                Failure getting parking spots. Kindly refresh page
+                            </p>
+                        }
                         <div className="booking-cost">
                             <h2>Park Cost</h2>
                             <h3>{"$" + price}</h3>
-                        </div>}
+                        </div>
                         {canSubmitInput === false && (
-                            <p className={"booking-submission-error"}>
-                                {DEFAULT_ERROR_MESSAGE.BOOKING}
-                            </p>
-                        )}
+                            displayErrorMessageOnEmptyParkSpots === true ? (
+                                <p className={"booking-submission-error"}>
+                                    {DEFAULT_ERROR_MESSAGE.BOOKING}
+                                </p>) : null)}
                         <div className="booking-button-container">
-                            {success === true &&
                             <FormButton
                                 name={"BOOK NOW"}
                                 onClick={handleSubmitBooking}
                             />
-                            }
-
                         </div>
                     </div>
                 </div>
