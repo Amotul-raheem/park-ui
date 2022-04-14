@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import * as CgIcons from "react-icons/cg";
 import * as BiIcons from "react-icons/bi";
 import {IconContext} from "react-icons";
 import "./ProfileNav.css"
-
 import {Link, useNavigate} from "react-router-dom";
 import {SIGN_IN_PATH} from "../../constants/UrlPaths";
 import {setToken} from "../../Utils/TokenUtils";
