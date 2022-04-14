@@ -6,18 +6,16 @@ import "./ProfileNav.css"
 
 import {Link, useNavigate} from "react-router-dom";
 import {SIGN_IN_PATH} from "../../constants/UrlPaths";
-import {getToken} from "../../Utils/TokenUtils";
+import {setToken} from "../../Utils/TokenUtils";
 
 
 export default function ProfileNav(props) {
     const navigate = useNavigate();
-    const [userToken, setUserToken] = useState(getToken)
     const {toggleDropDown, dropDown} = props;
 
     const handleSignOut = () => {
-        setUserToken("what")
+        setToken(null)
         navigate(SIGN_IN_PATH)
-        console.log(userToken)
     }
     return (
         <div onClick={toggleDropDown} className="profile-nav">
