@@ -31,7 +31,7 @@ import {
     BOOKING_HISTORY_PATH,
     USER_PROFILE_PATH,
     SIGN_UP_PATH,
-    BOOKING_PATH
+    BOOKING_PATH,
 } from "./components/constants/UrlPaths";
 
 function App() {
