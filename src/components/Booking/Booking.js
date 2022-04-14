@@ -90,7 +90,7 @@ function Booking() {
     const sendBookingRequest = async () => {
         try {
             await axios.post(BOOKING_ENDPOINT, {
-                space_name: spaceName, check_in: checkOutTime, check_out: checkOutTime, price: price
+                space_name: spaceName, check_in: checkInTime, check_out: checkOutTime, price: price
             }, {
                 headers: {token}
             });

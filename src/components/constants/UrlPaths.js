@@ -14,7 +14,6 @@ const HOMEPAGE_PATH = "/";
 const BOOKING_HISTORY_PATH="/booking-history";
 const BOOKING_PATH="/booking";
 
-
 export {
     ACCOUNT_VERIFICATION_CHECK_EMAIL_PATH,
     ACCOUNT_VERIFICATION_PATH,

@@ -8,7 +8,7 @@ import HomePageLogo from "../common/HomeLogo/HomePageLogo";
 import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {SIGN_IN_ENDPOINT} from "../constants/Endpoints";
-import {BOOKING_PATH, HOMEPAGE_PATH} from "../constants/UrlPaths";
+import {BOOKING_PATH} from "../constants/UrlPaths";
 import {setToken} from "../Utils/TokenUtils";
 
 function SignIn() {
@@ -37,7 +37,6 @@ function SignIn() {
         try {
             const response = await axios.post(SIGN_IN_ENDPOINT, {email: values.email, password: values.password})
             setToken(response.headers.token)
-            console.log(response.headers.token)
             navigate(BOOKING_PATH);
         } catch (e) {
             setCanSubmitInput(false)

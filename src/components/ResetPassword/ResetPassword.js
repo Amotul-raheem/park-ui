@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './ResetPassword.css';
 import key from "../../images/key.png"
 import FormInput from "../common/FormInput/FormInput";
@@ -8,7 +8,7 @@ import {INPUT_REGEX, INPUTS} from "../constants/InputValidation";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import axios from "axios";
 import {RESET_PASSWORD_ENDPOINT} from "../constants/Endpoints";
-import {RESET_PASSWORD_FAILURE_PATH, RESET_PASSWORD_PATH, RESET_PASSWORD_SUCCESSFUL_PATH} from "../constants/UrlPaths";
+import {RESET_PASSWORD_FAILURE_PATH, RESET_PASSWORD_SUCCESSFUL_PATH} from "../constants/UrlPaths";
 import {useNavigate, useParams} from "react-router-dom";
 
 function ResetPassword() {
@@ -72,7 +72,7 @@ function ResetPassword() {
             <div className="reset-password reset-password-container">
                 <div className="reset-password-form">
                     <div className="reset-password-text-container">
-                        <img src={key} alt="key-image" className="key-image"/>
+                        <img src={key} alt="key" className="key-image"/>
                         <h1 className="reset-password-header"> Create a new password</h1>
                         <h4 className="reset-password-text"> Password must be different from previously used
                             password</h4>
