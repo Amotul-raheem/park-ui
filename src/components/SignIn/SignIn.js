@@ -37,7 +37,6 @@ function SignIn() {
         try {
             const response = await axios.post(SIGN_IN_ENDPOINT, {email: values.email, password: values.password})
             setToken(response.headers.token)
-            console.log(response.headers.token)
             navigate(BOOKING_PATH);
         } catch (e) {
             setCanSubmitInput(false)
