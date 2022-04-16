@@ -7,6 +7,17 @@ import Dropdown from "../common/Dropdown/Dropdown";
 
 function BookingHistory() {
     const [year, setYear] = useState(new Date());
+    const [isOpen, setOpen] = useState(false);
+    const [items, setItem] = useState(bookingStatuses);
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    const toggleDropdown = () => setOpen(!isOpen);
+
+    const handleItemClick = (id) => {
+        let selectedItem = items.find(item => item.id == id)
+        setSelectedItem(selectedItem)
+        toggleDropdown()
+    }
 
     return (
         <div className="booking-history">
@@ -20,7 +31,9 @@ function BookingHistory() {
                 <h1 className="booking-history-header">Parking Booking History</h1>
                 <div className="booking-drop-down-year-picker">
                     <div className="booking-status-drop-down">
-                        <Dropdown/>
+                        <Dropdown
+                            bookingStatuses={}
+                        />
                     </div>
                     <div className="booking-history-year-picker">
                         <YearPicker
