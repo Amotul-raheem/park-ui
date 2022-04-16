@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import axios from "axios";
 import {FORGOT_PASSWORD_ENDPOINT} from "../constants/Endpoints";
-import {RESET_PASSWORD_CHECK_EMAIL_PATH} from "../constants/UrlPaths";
+import {RESET_PASSWORD_CHECK_EMAIL_PATH, RESET_PASSWORD_FAILURE_PATH} from "../constants/UrlPaths";
 
 function ForgotPassword() {
     let navigate = useNavigate();
