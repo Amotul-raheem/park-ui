@@ -2,6 +2,11 @@
 
 }
 
+.booking-status-drop-down {
+    left: 0;
+    z-index: 30;
+}
+
 .booking-history-logo-container {
     position: fixed;
     width: 10%;
@@ -36,14 +41,24 @@
 }
 
 
+.booking-drop-down-year-picker {
+    display: flex;
+    justify-content: center;
+}
+
 .booking-history-year-picker {
     padding-left: 850px;
 }
 
+.booking-status-drop-down {
+    padding-top: 2px;
+}
+
 .booking-history-year-picker .react-datepicker__input-container input {
     position: relative;
-    width: 60px !important;
+    width: 100px !important;
     float: right;
-    height: 30px !important;
+    border-radius: 10px;
+    height: 43px !important;
 }
 
