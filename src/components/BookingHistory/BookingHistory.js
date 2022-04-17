@@ -4,18 +4,19 @@ import ParkingDetail from "./ParkingDetail/ParkingDetail";
 import SideBar from "../common/SideBar/SideBar";
 import YearPicker from "../common/YearPicker/YearPicker";
 import Dropdown from "../common/Dropdown/Dropdown";
+import {BOOKING_STATUS} from "../constants/BookingStatus";
 
 function BookingHistory() {
     const [year, setYear] = useState(new Date());
     const [isOpen, setOpen] = useState(false);
-    const [items, setItem] = useState(bookingStatuses);
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [bookingStatuses, setBookingStatuses] = useState(BOOKING_STATUS);
+    const [selectedBookingStatus, setSelectedBookingStatus] = useState(BOOKING_STATUS[0]);
 
     const toggleDropdown = () => setOpen(!isOpen);
 
-    const handleItemClick = (id) => {
-        let selectedItem = items.find(item => item.id == id)
-        setSelectedItem(selectedItem)
+    const handleStatusClick = (id) => {
+        let selectedBookingStatus = bookingStatuses.find(status => status.id == id)
+        setSelectedBookingStatus(selectedBookingStatus)
         toggleDropdown()
     }
 
@@ -32,7 +33,11 @@ function BookingHistory() {
                 <div className="booking-drop-down-year-picker">
                     <div className="booking-status-drop-down">
                         <Dropdown
-                            bookingStatuses={}
+                            bookingStatuses={bookingStatuses}
+                            handleStatusClick={handleStatusClick}
+                            toggleDropDown={toggleDropdown}
+                            selectedBookingStatus={selectedBookingStatus}
+                            isDropDownOpen={isOpen}
                         />
                     </div>
                     <div className="booking-history-year-picker">

@@ -43,7 +43,7 @@
 
 .booking-drop-down-year-picker {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .booking-history-year-picker {
@@ -55,9 +55,7 @@
 }
 
 .booking-history-year-picker .react-datepicker__input-container input {
-    position: relative;
     width: 100px !important;
-    float: right;
     border-radius: 10px;
     height: 43px !important;
 }
