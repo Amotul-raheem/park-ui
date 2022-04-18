@@ -1,4 +1,11 @@
 .booking-history {
+    height: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*position: relative;*/
 
 }
 
@@ -19,26 +26,24 @@
     display: flex;
     align-items: center;
     flex-direction: column !important;
-    top: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: fixed;
+    justify-content: center;
     width: 90%;
     max-width: 90%;
-    right: 0;
-    bottom: 30px;
+    margin-left: 130px;
+    overflow-y: auto;
+
 }
 
 
-.booking-history-header {
-    position: unset !important;
-    text-align: center;
-    padding-bottom: 40px;
-    color: #01194A;
-    font-size: 40px;
-    line-height: 46px;
-    font-style: normal;
-}
+/*.booking-history-header {*/
+/*    !*position: unset !important;*!*/
+/*    text-align: center;*/
+/*    padding-bottom: 40px;*/
+/*    color: #01194A;*/
+/*    font-size: 40px;*/
+/*    line-height: 46px;*/
+/*    font-style: normal;*/
+/*}*/
 
 
 .booking-drop-down-year-picker {

@@ -1,36 +1,17 @@
 .booking {
     height: 100%;
-    top: 0;
     overflow-x: hidden;
-    position: fixed;
-}
-
-.profile-nav-container {
-    position: relative;
-    float: right;
-    padding-right: 20px;
-    padding-top: 10px;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.booking-logo-container {
-    position: fixed;
-    width: 10%;
-    left: 0;
-    min-width: 100px;
-    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .booking-container {
-    top: 20px;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: fixed;
+    display: flex;
+    justify-content: center;
     width: 90%;
     max-width: 90%;
-    right: 0;
+    margin-left: 150px;
 }
 
 .booking-content {
@@ -45,14 +26,6 @@
     justify-content: center;
 }
 
-.booking-header {
-    position: unset !important;
-    text-align: center;
-    color: #01194A;
-    font-size: 40px;
-    line-height: 46px;
-    font-style: normal;
-}
 
 .booking-time-container {
     margin-bottom: 50px;

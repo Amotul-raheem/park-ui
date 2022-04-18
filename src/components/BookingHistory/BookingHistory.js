@@ -5,31 +5,62 @@ import SideBar from "../common/SideBar/SideBar";
 import YearPicker from "../common/YearPicker/YearPicker";
 import Dropdown from "../common/Dropdown/Dropdown";
 import {BOOKING_STATUS} from "../constants/BookingStatus";
+import BookingNavigation from "../BookingNavigation/BookingNavigation";
+import axios from "axios";
+import {getToken} from "../Utils/TokenUtils";
+import {GET_USER_BOOKINGS_ENDPOINT} from "../constants/Endpoints";
 
 function BookingHistory() {
+    let token = getToken();
     const [year, setYear] = useState(new Date());
     const [isOpen, setOpen] = useState(false);
+    const [dropDown, setDropDown] = useState(false)
     const [bookingStatuses, setBookingStatuses] = useState(BOOKING_STATUS);
-    const [selectedBookingStatus, setSelectedBookingStatus] = useState(BOOKING_STATUS[0]);
+    const [selectedBookingStatus, setSelectedBookingStatus] = useState(BOOKING_STATUS[2]);
+    const [onBooking, setOnBooking] = useState(true)
+    const [userBookings, setUserBookings] = useState([])
+
+    const getUserBookings = async () => {
+        try{
+            const response = await axios.post(GET_USER_BOOKINGS_ENDPOINT, {}, {headers: {token}})
+            console.log(response)
+        }catch(e){
+            console.log(e.response)
+        }
+    }
 
     const toggleDropdown = () => setOpen(!isOpen);
 
-    const handleStatusClick = (id) => {
+    const toggleDropDown = () => {
+        setDropDown(!dropDown)
+    }
+    const closeDropDown = (e) => {
+        if (dropDown) {
+            toggleDropDown(e)
+        }
+    }
+    const handleStatusClick = async (id) => {
         let selectedBookingStatus = bookingStatuses.find(status => status.id == id)
         setSelectedBookingStatus(selectedBookingStatus)
+        await getUserBookings()
+        console.log(selectedBookingStatus)
         toggleDropdown()
     }
 
     return (
-        <div className="booking-history">
-            <div className="booking-history-logo-container">
-                <SideBar
-                    onBookingHistory={true}
-                    onBooking={false}
+        <div
+            onClick={closeDropDown}
+             className="booking-history">
+            <div>
+                <BookingNavigation
+                    toggleDropDown = {toggleDropDown}
+                    dropDown = {dropDown}
+                    onBooking = {!onBooking}
+                    onBookingHistory = {onBooking}
+                    heading = {"Park Booking History"}
                 />
             </div>
             <div className="booking-history-container">
-                <h1 className="booking-history-header">Parking Booking History</h1>
                 <div className="booking-drop-down-year-picker">
                     <div className="booking-status-drop-down">
                         <Dropdown
