@@ -30,7 +30,6 @@ function BookingHistory() {
     const getUserBookings = async () => {
         try {
             const response = await axios.post(GET_USER_BOOKINGS_ENDPOINT, {}, {headers: {token}})
-            console.log(response)
             const mergedUserBookingHistory = mergeBookingHistory({bookingHistoryByStatus: response.data})
             setUserBookingHistory(mergedUserBookingHistory)
             setUserBookingHistoryToDisplay(mergedUserBookingHistory)
