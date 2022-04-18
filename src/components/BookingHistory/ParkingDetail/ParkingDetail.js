@@ -13,7 +13,7 @@ function ParkingDetail(props) {
                     checkOutTime={checkOutTime}
                 />
             </div>
-            <label className="parking-detail-price"> {price} </label>
+            <label className="parking-detail-price"> ${price} </label>
 
         </div>
     )

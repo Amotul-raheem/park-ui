@@ -1,10 +1,12 @@
 import axios from "axios";
 import {GET_PARK_SPOTS_ENDPOINT} from "../constants/Endpoints";
+import moment from "moment";
 
 export const getParkSpots = async ({checkInTime, checkOutTime}) => {
     const request = new Promise((resolve, reject) => {
-        axios.post(GET_PARK_SPOTS_ENDPOINT, {check_in: checkInTime,
-            check_out: checkOutTime})
+        axios.post(GET_PARK_SPOTS_ENDPOINT, {
+            check_in: checkInTime, check_out: checkOutTime
+        })
             .then(response => {
                 resolve(response.data)
             })
@@ -50,4 +52,33 @@ export const calculatePrice = (dateTime1, dateTime2) => {
     const flatPrice = 0.005
     const diff = (Math.abs(dateTime2 - dateTime1)) / (1000 * 60);
     return Math.round(diff * flatPrice)
+}
+
+
+export const mergeBookingHistory = ({bookingHistoryByStatus}) => {
+    const pending = transformBookingHistory(bookingHistoryByStatus.pending);
+    const cancelled = transformBookingHistory(bookingHistoryByStatus.cancelled);
+    const fulfilled = transformBookingHistory(bookingHistoryByStatus.fulfilled);
+    const active = transformBookingHistory(bookingHistoryByStatus.active);
+
+    return [...pending, ...cancelled, ...fulfilled, ...active]
+}
+
+const transformBookingHistory = (bookingHistoryForStatus) => {
+    return bookingHistoryForStatus.reduce((accum, history) => {
+        let parkHistory = {}
+        parkHistory.spaceName = history.space_name
+        parkHistory.checkIn = formatDateTime(history.check_in)
+        parkHistory.checkOut = formatDateTime(history.check_out)
+        parkHistory.price = history.price
+        parkHistory.status = history.booking_status;
+        return [...accum, parkHistory]
+
+    }, [])
+}
+
+
+const formatDateTime = (dateTime) => {
+    return moment(dateTime).format("MMM Do YYYY, h:mma")
+
 }

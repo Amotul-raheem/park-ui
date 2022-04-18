@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import "./Booking.css"
-import SideBar from "../common/SideBar/SideBar";
 import FormButton from "../common/FormButton/FormButton";
 import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
-import ProfileNav from "../common/ProfileNav/ProfileNav";
 import BookingModal from "../common/Modal/BookingModal";
 import {SIGN_IN_PATH} from "../constants/UrlPaths";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
@@ -15,6 +13,7 @@ import axios from "axios";
 import {BOOKING_ENDPOINT} from "../constants/Endpoints";
 import {getToken} from "../Utils/TokenUtils";
 import {MODAL_MESSAGE} from "../constants/ModalMessage";
+import BookingNavigation from "../BookingNavigation/BookingNavigation";
 
 
 function Booking() {
@@ -32,6 +31,7 @@ function Booking() {
     const [spaceName, setSpaceName] = useState(null)
     const [errorMessage, setErrorMessage] = useState(MODAL_MESSAGE.ERROR.HEADER)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
+    const [onBooking, setOnBooking] = useState(true)
 
     useEffect(async () => {
         try {
@@ -137,65 +137,62 @@ function Booking() {
     const second_arr = parkSpots.slice(10, 20);
     const third_arr = parkSpots.slice(20, 30);
 
-    return (<div onClick={closeDropDown}>
-        {showModal === true ? <BookingModal
-            success={bookingSuccessful}
-            onClick={closeModal}
-            errorMessage={errorMessage}
-        /> : null}
-        <div className="profile-nav-container">
-            <ProfileNav
-                toggleDropDown={toggleDropDown}
-                dropDown={dropDown}
-            />
-        </div>
+    return (
         <div className="booking">
-            <div className="booking-logo-container">
-                <SideBar
-                    onBookingHistory={false}
-                    onBooking={true}
-                />
-            </div>
-            <div className="booking-container">
-                <div className="booking-content">
-                    <h1 className="booking-header">Park Booking</h1>
-                    <div className="booking-time-container">
-                        <CheckInCheckOut
-                            checkInTime={checkInTime}
-                            checkOutTime={checkOutTime}
-                            setCheckInTime={setCheckInTime}
-                            setCheckOutTime={setCheckOutTime}
-                        />
-                    </div>
-                    {success === true ? <div className="booking-park">
-                        <ParkDescription/>
-                        <Park
-                            first_arr={first_arr}
-                            second_arr={second_arr}
-                            third_arr={third_arr}
-                            onSelectSpot={onSelectSpot}
-                        />
-                    </div> : <p className="booking-error">
-                        Failure getting parking spots. Kindly refresh page
-                    </p>}
-                    <div className="booking-cost">
-                        <h2>Park Cost</h2>
-                        <h3>{"$" + price}</h3>
-                    </div>
-                    {canSubmitInput === false && (displayErrorMessageOnEmptyParkSpots === true ? (
-                        <p className={"booking-submission-error"}>
-                            {DEFAULT_ERROR_MESSAGE.BOOKING}
-                        </p>) : null)}
-                    <div className="booking-button-container">
-                        <FormButton
-                            name={"BOOK NOW"}
-                            onClick={handleSubmitBooking}
-                        />
+            <div onClick={closeDropDown}>
+                {showModal === true ? <BookingModal
+                    success={bookingSuccessful}
+                    onClick={closeModal}
+                    errorMessage={errorMessage}
+                /> : null}
+                <div>
+                    <BookingNavigation
+                        toggleDropDown = {toggleDropDown}
+                        dropDown = {dropDown}
+                        onBooking = {onBooking}
+                        onBookingHistory = {!onBooking}
+                        heading = {"Park Booking"}
+                    />
+                </div>
+                <div className="booking-container">
+                    <div className="booking-content">
+                        <div className="booking-time-container">
+                            <CheckInCheckOut
+                                checkInTime={checkInTime}
+                                checkOutTime={checkOutTime}
+                                setCheckInTime={setCheckInTime}
+                                setCheckOutTime={setCheckOutTime}
+                            />
+                        </div>
+                        {success === true ? <div className="booking-park">
+                            <ParkDescription/>
+                            <Park
+                                first_arr={first_arr}
+                                second_arr={second_arr}
+                                third_arr={third_arr}
+                                onSelectSpot={onSelectSpot}
+                            />
+                        </div> : <p className="booking-error">
+                            Failure getting parking spots. Kindly refresh page
+                        </p>}
+                        <div className="booking-cost">
+                            <h2>Park Cost</h2>
+                            <h3>{"$" + price}</h3>
+                        </div>
+                        {canSubmitInput === false && (displayErrorMessageOnEmptyParkSpots === true ? (
+                            <p className={"booking-submission-error"}>
+                                {DEFAULT_ERROR_MESSAGE.BOOKING}
+                            </p>) : null)}
+                        <div className="booking-button-container">
+                            <FormButton
+                                name={"BOOK NOW"}
+                                onClick={handleSubmitBooking}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>)
+    )
 }
-
 export default Booking;

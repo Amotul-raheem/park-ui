@@ -1,49 +1,49 @@
 .booking-history {
-
+    height: 100%;
 }
 
-.booking-history-logo-container {
-    position: fixed;
-    width: 10%;
+.booking-history-nav-bar {
+    position: inherit;
+    padding-bottom: 30px;
+}
+
+.booking-status-drop-down {
     left: 0;
-    min-width: 100px;
-    max-width: 100px;
+    z-index: 2;
 }
 
 .booking-history-container {
     display: flex;
     align-items: center;
     flex-direction: column !important;
-    top: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: fixed;
+    justify-content: center;
     width: 90%;
     max-width: 90%;
-    right: 0;
-    bottom: 30px;
+    margin-left: 130px;
 }
 
-
-.booking-history-header {
-    position: unset !important;
-    text-align: center;
-    padding-bottom: 40px;
-    color: #01194A;
-    font-size: 40px;
-    line-height: 46px;
-    font-style: normal;
+.booking-drop-down-year-picker {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 30px;
 }
-
 
 .booking-history-year-picker {
     padding-left: 850px;
 }
 
-.booking-history-year-picker .react-datepicker__input-container input {
-    position: relative;
-    width: 60px !important;
-    float: right;
-    height: 30px !important;
+.booking-status-drop-down {
+    padding-top: 2px;
 }
 
+.booking-history-year-picker .react-datepicker__input-container input {
+    width: 100px !important;
+    border-radius: 10px;
+    height: 43px !important;
+}
+.booking-history-error{
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 30px;
+    color: #800000;
+}
