@@ -21,10 +21,10 @@ function BookingHistory() {
     const [userBookings, setUserBookings] = useState([])
 
     const getUserBookings = async () => {
-        try{
+        try {
             const response = await axios.post(GET_USER_BOOKINGS_ENDPOINT, {}, {headers: {token}})
             console.log(response)
-        }catch(e){
+        } catch (e) {
             console.log(e.response)
         }
     }
@@ -48,16 +48,14 @@ function BookingHistory() {
     }
 
     return (
-        <div
-            onClick={closeDropDown}
-             className="booking-history">
-            <div>
+        <div onClick={closeDropDown} className="booking-history">
+            <div className='booking-history-nav-bar'>
                 <BookingNavigation
-                    toggleDropDown = {toggleDropDown}
-                    dropDown = {dropDown}
-                    onBooking = {!onBooking}
-                    onBookingHistory = {onBooking}
-                    heading = {"Park Booking History"}
+                    toggleDropDown={toggleDropDown}
+                    dropDown={dropDown}
+                    onBooking={!onBooking}
+                    onBookingHistory={onBooking}
+                    heading={"Park Booking History"}
                 />
             </div>
             <div className="booking-history-container">
@@ -125,8 +123,7 @@ function BookingHistory() {
                     checkOutTime="12 Feb, 12:30pm"
                     price="$99.99"/>
             </div>
-        </div>
-    )
+        </div>)
 }
 
 export default BookingHistory
