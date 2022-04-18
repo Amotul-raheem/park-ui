@@ -9,6 +9,7 @@ import axios from "axios";
 import {getToken} from "../Utils/TokenUtils";
 import {GET_USER_BOOKINGS_ENDPOINT} from "../constants/Endpoints";
 import {mergeBookingHistory} from "../Utils/BookingUtil";
+import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 
 function BookingHistory() {
     let token = getToken();
@@ -20,6 +21,7 @@ function BookingHistory() {
     const [onBooking, setOnBooking] = useState(true)
     const [userBookingHistory, setUserBookingHistory] = useState([])
     const [userBookingHistoryToDisplay, setUserBookingHistoryToDisplay] = useState([])
+    const [displayErrorMessage,setDisplayErrorMessage] = useState(false)
 
     useEffect(async () => {
         await getUserBookings()
@@ -34,6 +36,7 @@ function BookingHistory() {
             setUserBookingHistoryToDisplay(mergedUserBookingHistory)
         } catch (e) {
             setUserBookingHistoryToDisplay(userBookingHistory)
+            setDisplayErrorMessage(true)
         }
     }
 
@@ -87,12 +90,17 @@ function BookingHistory() {
                     />
                 </div>
             </div>
-            {userBookingHistoryToDisplay.map((booking) => (<ParkingDetail
-                spot={booking.spaceName}
-                checkInTime={booking.checkIn}
-                checkOutTime={booking.checkOut}
-                price={booking.price}
-            />))}
+            { displayErrorMessage === false ?  <div>
+                {userBookingHistoryToDisplay.map((booking) =>
+                    (<ParkingDetail
+                    spot={booking.spaceName}
+                    checkInTime={booking.checkIn}
+                    checkOutTime={booking.checkOut}
+                    price={booking.price}
+                />))}
+                </div> : <p className="booking-history-error">
+                {DEFAULT_ERROR_MESSAGE.BOOKING_HISTORY}
+            </p>}
         </div>
     </div>)
 }

@@ -33,7 +33,6 @@ import {
     SIGN_UP_PATH,
     BOOKING_PATH
 } from "./components/constants/UrlPaths";
-import BookingNavigation from "./components/BookingNavigation/BookingNavigation";
 
 function App() {
     return (
