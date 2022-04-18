@@ -7,7 +7,7 @@ const Dropdown = (props) => {
     return (
         <div className='dropdown-container'>
             <div className='dropdown-header' onClick={toggleDropDown}>
-                {selectedBookingStatus ? selectedBookingStatus.label : "Select Booking Status"}
+                {selectedBookingStatus ? selectedBookingStatus.label : "All Booking Status"}
                 <i className={`fa fa-chevron-right icon ${isDropDownOpen && "open"}`}/>
             </div>
             <div className={`dropdown-body ${isDropDownOpen && 'open'}`}>
