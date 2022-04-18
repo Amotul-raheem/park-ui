@@ -10,8 +10,12 @@ import {getToken} from "../Utils/TokenUtils";
 import {GET_USER_BOOKINGS_ENDPOINT} from "../constants/Endpoints";
 import {mergeBookingHistory} from "../Utils/BookingUtil";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
+import {useNavigate} from "react-router-dom";
+import {SIGN_IN_PATH} from "../constants/UrlPaths";
 
 function BookingHistory() {
+    let navigate = useNavigate();
+
     let token = getToken();
     const [year, setYear] = useState(new Date());
     const [isOpen, setOpen] = useState(false);
@@ -24,6 +28,9 @@ function BookingHistory() {
     const [displayErrorMessage,setDisplayErrorMessage] = useState(false)
 
     useEffect(async () => {
+        if(!token) {
+            navigate(SIGN_IN_PATH)
+        }
         await getUserBookings()
     }, [])
 
@@ -39,6 +46,7 @@ function BookingHistory() {
             setDisplayErrorMessage(true)
         }
     }
+
 
     const toggleDropdown = () => setOpen(!isOpen);
 
