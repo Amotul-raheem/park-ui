@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./BookingHistory.css"
 import ParkingDetail from "./ParkingDetail/ParkingDetail";
-import SideBar from "../common/SideBar/SideBar";
 import YearPicker from "../common/YearPicker/YearPicker";
 import Dropdown from "../common/Dropdown/Dropdown";
 import {BOOKING_STATUS} from "../constants/BookingStatus";
@@ -19,11 +18,34 @@ function BookingHistory() {
     const [selectedBookingStatus, setSelectedBookingStatus] = useState(BOOKING_STATUS[2]);
     const [onBooking, setOnBooking] = useState(true)
     const [userBookings, setUserBookings] = useState([])
+    const [pendingBookings, setPendingBookings] = useState([])
+    const [activeBookings, setActiveBookings] = useState([])
+    const [fulfilledBookings, setFulfilledBookings] = useState([])
+    const [cancelledBookings, setCancelledBookings] = useState([])
+    const [allBookings, setAllBookings] = useState([])
+
+    const [statusBookings, setStatusBookings] = useState()
+
+    useEffect(async () => {
+        await getUserBookings()
+    }, [])
 
     const getUserBookings = async () => {
         try {
             const response = await axios.post(GET_USER_BOOKINGS_ENDPOINT, {}, {headers: {token}})
-            console.log(response)
+            const userBookings = response.data
+            const pendingBookings = userBookings.pending
+            const activeBookings = userBookings.active
+            const fulfilledBookings = userBookings.fulfilled
+            const cancelledBookings = userBookings.cancelled
+
+            setPendingBookings(userBookings.pending)
+            setActiveBookings(userBookings.active)
+            setFulfilledBookings(userBookings.fulfilled)
+            setCancelledBookings(userBookings.cancelled)
+            const allBookings = [...pendingBookings, ...activeBookings, ...fulfilledBookings, ...cancelledBookings]
+            // setAllBookings(allBookings)
+            setUserBookings(allBookings)
         } catch (e) {
             console.log(e.response)
         }
@@ -43,7 +65,16 @@ function BookingHistory() {
         let selectedBookingStatus = bookingStatuses.find(status => status.id == id)
         setSelectedBookingStatus(selectedBookingStatus)
         await getUserBookings()
-        console.log(selectedBookingStatus)
+        if (bookingStatuses.label === "Pending") {
+            setUserBookings(pendingBookings)
+        } else if (bookingStatuses.label === "Fulfilled") {
+            setUserBookings(fulfilledBookings)
+        } else if (bookingStatuses.label === "Active") {
+            setUserBookings(activeBookings)
+        } else {
+            setUserBookings(cancelledBookings)
+        }
+        console.log(userBookings)
         toggleDropdown()
     }
 
@@ -76,52 +107,20 @@ function BookingHistory() {
                         />
                     </div>
                 </div>
+                {userBookings.map((booking) => (
+                    <ParkingDetail
+                        // spot= {booking.space_name}
+                        checkInTime={booking.check_in}
+                        checkOutTime={booking.check_out}
+                        price = {booking.price}
+                    />
+                ))}
+                {/*<ParkingDetail*/}
+                {/*    spot="Spot 5"*/}
+                {/*    checkInTime="11 Feb,12:30pm"*/}
+                {/*    checkOutTime="12 Feb, 12:30pm"*/}
+                {/*    price="$99.99"/>*/}
 
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
-                <ParkingDetail
-                    spot="Spot 5"
-                    checkInTime="11 Feb,12:30pm"
-                    checkOutTime="12 Feb, 12:30pm"
-                    price="$99.99"/>
             </div>
         </div>)
 }
