@@ -10,14 +10,6 @@ import {getToken} from "../Utils/TokenUtils";
 import {GET_USER_BOOKINGS_ENDPOINT} from "../constants/Endpoints";
 import {mergeBookingHistory} from "../Utils/BookingUtil";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
-import Dropdown from "../common/Dropdown/Dropdown";
-import {BOOKING_STATUS} from "../constants/BookingStatus";
-import BookingNavigation from "../BookingNavigation/BookingNavigation";
-import axios from "axios";
-import {getToken} from "../Utils/TokenUtils";
-import {GET_USER_BOOKINGS_ENDPOINT} from "../constants/Endpoints";
-import {mergeBookingHistory} from "../Utils/BookingUtil";
-import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {useNavigate} from "react-router-dom";
 import {SIGN_IN_PATH} from "../constants/UrlPaths";
 
