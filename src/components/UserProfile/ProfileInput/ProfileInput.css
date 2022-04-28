@@ -46,3 +46,9 @@
     font-family: Asap;
     color: #576072;
 }
+.error-text{
+    font-size: 12px;
+    padding: 3px;
+    color: #800000;
+    display: none;
+}

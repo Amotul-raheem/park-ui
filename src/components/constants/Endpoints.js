@@ -6,6 +6,9 @@ const RESET_PASSWORD_ENDPOINT ="http://localhost:5001/api/reset-password"
 const GET_PARK_SPOTS_ENDPOINT = "http://localhost:5001/api/get-park-spots"
 const BOOKING_ENDPOINT = "http://localhost:5001/api/booking"
 const GET_USER_BOOKINGS_ENDPOINT = "http://localhost:5001/api/get-user-bookings"
+const GET_USER_PROFILE_ENDPOINT = "http://localhost:5001/api/get-user-profile"
+const UPDATE_USER_PROFILE_ENDPOINT = "http://localhost:5001/api/update-user-profile"
+
 export {SIGN_UP_ENDPOINT,
     SIGN_IN_ENDPOINT,
     FORGOT_PASSWORD_ENDPOINT,
@@ -13,4 +16,7 @@ export {SIGN_UP_ENDPOINT,
     RESET_PASSWORD_ENDPOINT,
     GET_PARK_SPOTS_ENDPOINT,
     BOOKING_ENDPOINT,
-    GET_USER_BOOKINGS_ENDPOINT}
+    GET_USER_BOOKINGS_ENDPOINT,
+    GET_USER_PROFILE_ENDPOINT,
+    UPDATE_USER_PROFILE_ENDPOINT
+}
