@@ -3,21 +3,20 @@ import "./ProfileInput.css";
 
 
 function ProfileInput(props) {
-    const {label, name, value, handleChange, type, placeholder,errorMessage} = props
+    const {label, name, value, handleChange, type, placeholder,errorMessage, ...inputProps} = props
     const [focused, setFocused] = useState(false)
-
 
     function handleFocus(e) {
         setFocused(true)
-
     }
+
     return (
         <div className="profile-input">
             <div className="profile-input-label">
                 <label className="profile-name">{label}</label>
             </div>
             <div className="profile-input-field-container">
-                <input
+                <input {...inputProps}
                     className="profile-input-field"
                     name={name}
                     type={type}
@@ -30,7 +29,7 @@ function ProfileInput(props) {
                     }
                     focused={focused.toString()}
                 />
-                <span className="error-text"> {errorMessage}</span>
+                <span className="profile-error-text"> {errorMessage}</span>
             </div>
         </div>
     )

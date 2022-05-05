@@ -7,18 +7,18 @@ import SideBar from "../common/SideBar/SideBar";
 import INPUTS from "./Inputs.js";
 import {getToken} from "../Utils/TokenUtils";
 import axios from "axios";
-import {SIGN_IN_PATH} from "../constants/UrlPaths";
+import {SIGN_IN_PATH, USER_PROFILE_PATH} from "../constants/UrlPaths";
 import {GET_USER_PROFILE_ENDPOINT, UPDATE_USER_PROFILE_ENDPOINT} from "../constants/Endpoints";
 import moment from "moment";
-
-//To Do Refresh page after profile page has been updated
-// set gender value to radio when page is refreshed
-// prevent submit if username field is empty
+import SuccessfulOrFailureModal from "../common/Modal/SuccessfulOrFailureModal";
+import {MODAL_MESSAGE} from "../constants/ModalMessage";
 
 function UserProfile() {
     let navigate = useNavigate();
     let token = getToken();
 
+    const [showModal, setShowModal] = useState(false)
+    const [updateProfileSuccessful, setUpdateProfileSuccessful] = useState(null)
     const [values, setValues] = useState({
         firstName: "",
         lastName: "",
@@ -33,8 +33,6 @@ function UserProfile() {
         INPUTS.DATEOFBIRTH
     ]
 
-
-
     const getUserProfile = async () => {
         try {
             const response = await axios.get(GET_USER_PROFILE_ENDPOINT, {headers: {'token': token}})
@@ -44,11 +42,12 @@ function UserProfile() {
                 lastName: profileValues.last_name,
                 username: profileValues.username,
                 dateOfBirth: moment(profileValues.date_of_birth).format("YYYY-MM-DD"),
-                gender: profileValues.gender
+                gender: (profileValues.gender).toLowerCase()
             })
             console.log(profileValues)
         } catch (e) {
             console.log(e.response)
+            console.log("error")
         }
     }
 
@@ -62,7 +61,12 @@ function UserProfile() {
                     gender: values.gender
                 },
                 {headers: {token}})
+            setShowModal(true)
+            setUpdateProfileSuccessful(true)
+
         } catch (e) {
+            setShowModal(true)
+            setUpdateProfileSuccessful(false)
             console.log(e.response)
         }
     }
@@ -76,7 +80,6 @@ function UserProfile() {
     const handleProfileSubmit = async (e) => {
         e.preventDefault()
         await updateUserProfile()
-        console.log(values)
     }
     useEffect(async () => {
         if (!token) {
@@ -86,8 +89,20 @@ function UserProfile() {
 
     }, [])
 
+    const closeModal = () => {
+        setShowModal(false)
+        navigate(0);
+        console.log(values)
+    }
+
     return (
         <div className="user-profile">
+            {showModal && <SuccessfulOrFailureModal
+                success={updateProfileSuccessful}
+                onClick={closeModal}
+                buttonName={"Go back to Profile"}
+                message={updateProfileSuccessful ? MODAL_MESSAGE.PROFILE.SUCCESSFUL : MODAL_MESSAGE.PROFILE.ERROR}
+            />}
             <div className="user-profile-logo-container">
                 <SideBar/>
             </div>

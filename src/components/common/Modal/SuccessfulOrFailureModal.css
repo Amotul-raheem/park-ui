@@ -1,4 +1,4 @@
-.booking-modal {
+.modal {
     height: 100%;
     position: fixed;
     top: 0;
@@ -9,7 +9,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.booking-modal-container {
+.modal-container {
     position: absolute;
     top: 20%;
     right: 18%;
@@ -21,7 +21,7 @@
     width: 48%;
 }
 
-.booking-modal img {
+.modal img {
     padding-top: 20px;
     height: 60px;
     width: 60px;
@@ -29,7 +29,7 @@
     color: #800000;
 }
 
-.booking-modal-header {
+.modal-header {
     text-align: center;
     color: #01194A;
     font-size: 20px;
