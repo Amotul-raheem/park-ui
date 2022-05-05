@@ -12,6 +12,7 @@ import {GET_USER_PROFILE_ENDPOINT, UPDATE_USER_PROFILE_ENDPOINT} from "../consta
 import moment from "moment";
 import SuccessfulOrFailureModal from "../common/Modal/SuccessfulOrFailureModal";
 import {MODAL_MESSAGE} from "../constants/ModalMessage";
+import {GENDER} from "../constants/Gender";
 
 function UserProfile() {
     let navigate = useNavigate();
@@ -42,7 +43,7 @@ function UserProfile() {
                 lastName: profileValues.last_name,
                 username: profileValues.username,
                 dateOfBirth: moment(profileValues.date_of_birth).format("YYYY-MM-DD"),
-                gender: (profileValues.gender).toLowerCase()
+                gender: profileValues.gender
             })
             console.log(profileValues)
         } catch (e) {
@@ -72,6 +73,8 @@ function UserProfile() {
     }
 
     const handleChange = (e) => {
+        console.log(e.target.name)
+        console.log(e.target.value)
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -125,9 +128,12 @@ function UserProfile() {
                         </td>
                         <td>
                             <div className="profile-input-gender">
-                                <input type="radio" value="MALE" name="gender" onChange={handleChange}/> Male
-                                <input type="radio" value="FEMALE" name="gender" onChange={handleChange}/> Female
-                                <input type="radio" value="OTHERS" name="gender" onChange={handleChange}/> Others
+                                <input type="radio" value={GENDER.MALE} name="gender" checked={values.gender === GENDER.MALE}
+                                       onChange={handleChange}/> Male
+                                <input type="radio" value={GENDER.FEMALE} name="gender" checked={values.gender === GENDER.FEMALE}
+                                       onChange={handleChange}/> Female
+                                <input type="radio" value={GENDER.OTHERS} name="gender" checked={values.gender === GENDER.OTHERS}
+                                       onChange={handleChange}/> Others
                             </div>
                         </td>
                     </tr>

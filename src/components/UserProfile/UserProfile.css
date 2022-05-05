@@ -80,6 +80,7 @@
     left: -1px;
     position: relative;
     background-color: white;
+    cursor: pointer;
     content: '';
     display: inline-block;
     visibility: visible;
