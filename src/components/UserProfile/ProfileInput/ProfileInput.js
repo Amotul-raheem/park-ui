@@ -9,7 +9,6 @@ function ProfileInput(props) {
     function handleFocus(e) {
         setFocused(true)
     }
-
     return (
         <div className="profile-input">
             <div className="profile-input-label">

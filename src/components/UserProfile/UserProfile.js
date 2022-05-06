@@ -7,12 +7,13 @@ import SideBar from "../common/SideBar/SideBar";
 import INPUTS from "./Inputs.js";
 import {getToken} from "../Utils/TokenUtils";
 import axios from "axios";
-import {SIGN_IN_PATH, USER_PROFILE_PATH} from "../constants/UrlPaths";
+import {SIGN_IN_PATH} from "../constants/UrlPaths";
 import {GET_USER_PROFILE_ENDPOINT, UPDATE_USER_PROFILE_ENDPOINT} from "../constants/Endpoints";
 import moment from "moment";
 import SuccessfulOrFailureModal from "../common/Modal/SuccessfulOrFailureModal";
 import {MODAL_MESSAGE} from "../constants/ModalMessage";
 import {GENDER} from "../constants/Gender";
+import fail from "../../images/fail.png";
 
 function UserProfile() {
     let navigate = useNavigate();
@@ -20,19 +21,11 @@ function UserProfile() {
 
     const [showModal, setShowModal] = useState(false)
     const [updateProfileSuccessful, setUpdateProfileSuccessful] = useState(null)
+    const [getProfileSuccessful, setGetProfileSuccessful] = useState(false)
     const [values, setValues] = useState({
-        firstName: "",
-        lastName: "",
-        username: "",
-        dateOfBirth: "",
-        gender: ""
+        firstName: "", lastName: "", username: "", dateOfBirth: "", gender: ""
     })
-    const inputs = [
-        INPUTS.FIRSTNAME,
-        INPUTS.LASTNAME,
-        INPUTS.USERNAME,
-        INPUTS.DATEOFBIRTH
-    ]
+    const inputs = [INPUTS.FIRSTNAME, INPUTS.LASTNAME, INPUTS.USERNAME, INPUTS.DATEOFBIRTH]
 
     const getUserProfile = async () => {
         try {
@@ -45,23 +38,23 @@ function UserProfile() {
                 dateOfBirth: moment(profileValues.date_of_birth).format("YYYY-MM-DD"),
                 gender: profileValues.gender
             })
+            setGetProfileSuccessful(true)
             console.log(profileValues)
         } catch (e) {
+            setGetProfileSuccessful(false)
             console.log(e.response)
-            console.log("error")
         }
     }
 
     const updateUserProfile = async () => {
         try {
             await axios.post(UPDATE_USER_PROFILE_ENDPOINT, {
-                    first_name: values.firstName,
-                    last_name: values.lastName,
-                    username: values.username,
-                    date_of_birth: values.dateOfBirth,
-                    gender: values.gender
-                },
-                {headers: {token}})
+                first_name: values.firstName,
+                last_name: values.lastName,
+                username: values.username,
+                date_of_birth: values.dateOfBirth,
+                gender: values.gender
+            }, {headers: {token}})
             setShowModal(true)
             setUpdateProfileSuccessful(true)
 
@@ -73,11 +66,8 @@ function UserProfile() {
     }
 
     const handleChange = (e) => {
-        console.log(e.target.name)
-        console.log(e.target.value)
         setValues({
-            ...values,
-            [e.target.name]: e.target.value
+            ...values, [e.target.name]: e.target.value
         })
     }
     const handleProfileSubmit = async (e) => {
@@ -98,28 +88,25 @@ function UserProfile() {
         console.log(values)
     }
 
-    return (
-        <div className="user-profile">
-            {showModal && <SuccessfulOrFailureModal
-                success={updateProfileSuccessful}
-                onClick={closeModal}
-                buttonName={"Go back to Profile"}
-                message={updateProfileSuccessful ? MODAL_MESSAGE.PROFILE.SUCCESSFUL : MODAL_MESSAGE.PROFILE.ERROR}
-            />}
-            <div className="user-profile-logo-container">
-                <SideBar/>
-            </div>
-            <div className="user-profile-content">
+    return (<div className="user-profile">
+        {showModal && <SuccessfulOrFailureModal
+            success={updateProfileSuccessful}
+            onClick={closeModal}
+            buttonName={"Go back to Profile"}
+            message={updateProfileSuccessful ? MODAL_MESSAGE.PROFILE.SUCCESSFUL : MODAL_MESSAGE.PROFILE.ERROR}
+        />}
+        <div className="user-profile-logo-container">
+            <SideBar/>
+        </div>
+        {getProfileSuccessful ? <div className="user-profile-content">
                 <h1 className="profile-header-name">Profile</h1>
                 <div className="user-profile-container">
-                    {inputs.map((input) => (
-                        <ProfileInput
-                            key={input.id}
-                            {...input}
-                            value={values[input.name]}
-                            handleChange={handleChange}
-                        />
-                    ))}
+                    {inputs.map((input) => (<ProfileInput
+                        key={input.id}
+                        {...input}
+                        value={values[input.name]}
+                        handleChange={handleChange}
+                    />))}
                     <tr>
                         <td>
                             <div className="profile-input-label">
@@ -128,11 +115,14 @@ function UserProfile() {
                         </td>
                         <td>
                             <div className="profile-input-gender">
-                                <input type="radio" value={GENDER.MALE} name="gender" checked={values.gender === GENDER.MALE}
+                                <input type="radio" value={GENDER.MALE} name="gender"
+                                       checked={values.gender === GENDER.MALE}
                                        onChange={handleChange}/> Male
-                                <input type="radio" value={GENDER.FEMALE} name="gender" checked={values.gender === GENDER.FEMALE}
+                                <input type="radio" value={GENDER.FEMALE} name="gender"
+                                       checked={values.gender === GENDER.FEMALE}
                                        onChange={handleChange}/> Female
-                                <input type="radio" value={GENDER.OTHERS} name="gender" checked={values.gender === GENDER.OTHERS}
+                                <input type="radio" value={GENDER.OTHERS} name="gender"
+                                       checked={values.gender === GENDER.OTHERS}
                                        onChange={handleChange}/> Others
                             </div>
                         </td>
@@ -144,9 +134,13 @@ function UserProfile() {
                         />
                     </div>
                 </div>
+            </div> :
+            <div className="profile-error-container">
+                <img src={fail} className="profile-error-image"/>
+                <p className="profile-error">Failure getting user profile. Kindly refresh page.</p>
             </div>
-        </div>
-    )
+        }
+    </div>)
 }
 
 export default UserProfile;
