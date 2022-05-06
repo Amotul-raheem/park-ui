@@ -1,25 +1,23 @@
 import React from "react";
-import "./BookingModal.css"
+import "./SuccessfulOrFailureModal.css"
 import FormButton from "../FormButton/FormButton";
 import check from "../../../images/check.png";
 import fail from "../../../images/fail.png";
-import {MODAL_MESSAGE} from "../../constants/ModalMessage";
 
-function BookingModal(props) {
-    const {success, onClick, errorMessage} = props
-    const message = success ? MODAL_MESSAGE.SUCCESSFUL.HEADER : errorMessage;
+function SuccessfulOrFailureModal(props) {
+    const {success, onClick, message, buttonName} = props
     return (
-        <div className="booking-modal">
-            <div className="booking-modal-container">
+        <div className="modal">
+            <div className="modal-container">
                 <div>
                     <img src={success ? check : fail}
                          alt={success ? "check-image" : "fail-image"}
                          className={success ? "check-image" : "fail-image"}/>
-                    <h2 className="booking-modal-header">{message}</h2>
+                    <h2 className="modal-header">{message}</h2>
                 </div>
                 <div>
                     <FormButton
-                        name={"Go Back To Booking"}
+                        name={buttonName}
                         onClick={onClick}
                     />
                 </div>
@@ -28,4 +26,4 @@ function BookingModal(props) {
     )
 }
 
-export default BookingModal;
+export default SuccessfulOrFailureModal;

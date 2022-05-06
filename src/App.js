@@ -8,7 +8,7 @@ import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
 import ResetPasswordSuccessful from "./components/ResetPassword/ResetPasswordSuccessful/ResetPasswordSuccessful";
 import ResetPasswordCheckEmail from "./components/ResetPassword/ResetPasswordCheckEmail/ResetPasswordCheckEmail"
-import BookingModal from "./components/common/Modal/BookingModal";
+import SuccessfulOrFailureModal from "./components/common/Modal/SuccessfulOrFailureModal";
 import BookingHistory from "./components/BookingHistory/BookingHistory";
 import AccountVerificationCheckEmail from "./components/AccountVerification/AccountVerificationCheckEmail/AccountVerificationCheckEmail";
 import AccountVerification from "./components/AccountVerification/AccountVerification";
@@ -46,7 +46,7 @@ function App() {
                 <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPassword/>}/>
                 <Route path={SIGN_UP_PATH} element={<SignUp/>}/>
                 <Route path={RESET_PASSWORD_CHECK_EMAIL_PATH} element={<ResetPasswordCheckEmail/>}/>
-                <Route path={BOOKING_SUCCESSFUL_PATH} element={<BookingModal/>}/>
+                <Route path={BOOKING_SUCCESSFUL_PATH} element={<SuccessfulOrFailureModal/>}/>
                 <Route path={ACCOUNT_VERIFICATION_PATH} element={<AccountVerification/>}/>
                 <Route path={ACCOUNT_VERIFICATION_FAILURE_PATH} element={<AccountVerificationFailure/>}/>
                 <Route path={BOOKING_HISTORY_PATH} element={<BookingHistory/>}/>

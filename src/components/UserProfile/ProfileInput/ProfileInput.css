@@ -46,3 +46,19 @@
     font-family: Asap;
     color: #576072;
 }
+.profile-error-text{
+    font-size: 16px;
+    padding: 7px 0 0 48px;
+    color: #800000;
+    display: none;
+}
+input:invalid[focused = "true"]{
+    border: 1px solid #800000;
+}
+input:invalid[focused = "true"] ~ span{
+    display: block;
+}
+::placeholder {
+    color: grey;
+    font-size: medium;
+}

@@ -5,7 +5,7 @@ import FormButton from "../common/FormButton/FormButton";
 import Park from "./Park/Park";
 import CheckInCheckOut from "./CheckInCheckOut/CheckInCheckOut";
 import ParkDescription from "./ParkDescription/ParkDescription";
-import BookingModal from "../common/Modal/BookingModal";
+import SuccessfulOrFailureModal from "../common/Modal/SuccessfulOrFailureModal";
 import {SIGN_IN_PATH} from "../constants/UrlPaths";
 import {DEFAULT_ERROR_MESSAGE} from "../constants/ErrorMessage";
 import {calculatePrice, getParkSpots, transformParkSpots} from "../Utils/BookingUtil";
@@ -29,7 +29,7 @@ function Booking() {
     const [success, setSuccess] = useState(false)
     const [price, setPrice] = useState(0)
     const [spaceName, setSpaceName] = useState(null)
-    const [errorMessage, setErrorMessage] = useState(MODAL_MESSAGE.ERROR.HEADER)
+    const [errorMessage, setErrorMessage] = useState(MODAL_MESSAGE.BOOKING.ERROR.HEADER)
     const [canSubmitInput, setCanSubmitInput] = useState(true)
     const [onBooking, setOnBooking] = useState(true)
 
@@ -140,11 +140,12 @@ function Booking() {
     return (
         <div className="booking">
             <div onClick={closeDropDown}>
-                {showModal === true ? <BookingModal
+                {showModal && <SuccessfulOrFailureModal
                     success={bookingSuccessful}
                     onClick={closeModal}
-                    errorMessage={errorMessage}
-                /> : null}
+                    buttonName= {"Go back to Booking"}
+                    message={bookingSuccessful ? MODAL_MESSAGE.BOOKING.SUCCESSFUL.HEADER : errorMessage}
+                /> }
                 <div>
                     <BookingNavigation
                         toggleDropDown = {toggleDropDown}
