@@ -1,0 +1,28 @@
+name: Development workflow
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code in branch
+        uses: actions/checkout@v2
+      - name: Use Node.js 17.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.x
+      - name: Install npm packages
+        run: npm install
+      - name: Build Park UI
+        run: npm run build --if-present
+        env:
+          CI: false
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          args: deploy --dir=build --prod
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: 'park-ui-develop'
+          heroku_email: 'amotulraheem1499@gmail.com'
