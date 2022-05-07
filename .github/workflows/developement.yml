@@ -1,10 +1,11 @@
 name: Development workflow
 
-on: [ push ]
+on: [push]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code in branch
         uses: actions/checkout@v2
@@ -18,10 +19,6 @@ jobs:
         run: npm run build --if-present
         env:
           CI: false
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
