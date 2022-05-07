@@ -1,9 +1,7 @@
-name: Production workflow
+name: Park UI Deployment
 
 on:
-  push:
-    branches:
-      - main
+  [push]
 
 
 jobs:
